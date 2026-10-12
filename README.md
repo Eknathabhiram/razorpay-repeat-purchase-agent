@@ -9,6 +9,7 @@ This project proposes a Repeat Purchase Agent for Razorpay Agent Studio: identif
 3. Open `frontend/index.html` in a browser to inspect the current design. It is a standalone export of the conversation preview. Fonts and icons may require internet access.
 4. Edit `frontend/src/design-preview.fragment.html` as the source reference. `frontend/index.html` is a generated export with a preview wrapper; there is no automatic export build script yet.
 5. Read `docs/product-specification.md` for supporting requirements and `docs/ux-next-pass.md` for the next design task. `backend/README.md` explains the proposed server responsibilities.
+6. For the design implementation, read `docs/UIUX-HANDOFF.md` and open `frontend/design-handoff.html`. The reference has five compositions, labelled local playback and proposed tokens. `docs/design-evidence.md` explains the Razorpay grounding; `docs/design-qa.md` records actual checks and remaining gates. The original full preview is preserved separately.
 
 ## Continue in Codex
 

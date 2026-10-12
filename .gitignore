@@ -21,6 +21,7 @@ Thumbs.db
 *.log
 .idea/
 .vscode/
+.local/
 
 # Confidential original assignment: retain locally, do not upload
 docs/challenge-brief.pdf

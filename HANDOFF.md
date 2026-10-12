@@ -10,6 +10,8 @@ The owner signed in to GitHub and authorised upload. Private repository: https:/
 
 The user wants to move this work to Codex and improve the UI/UX before coding integrations. The current merchant journey is functional but still feels assembled around agent features. Start by revising the design around merchant tasks and decision clarity. Do not treat the existing preview as a final visual design.
 
+The latest request is a final UI/UX handoff for a senior developer using GPT-6.1-sol with low reasoning effort. `docs/UIUX-HANDOFF.md` specifies considerate replenishment, grounded in official Blade, RazorSense and Agent Studio principles, with explicit provenance limits for earlier walkthroughs. A five-screen inspectable reference and proposed tokens are in `frontend/design-handoff.html` and `frontend/design-tokens.css`. `docs/design-qa.md` records actual reference checks. Original application files remain intact; no separate developer/model task was started. Design implementation follows the handoff while preserving all 18 features and unresolved provider/hosting choices.
+
 ## Product intent
 
 Build a proposed specialist agent for Razorpay Agent Studio that helps the growth owner of an Indian D2C consumer brand generate profitable repeat purchases. The core pain is reorder journeys that cannot adapt to individual readiness or the customer's reason for waiting. Discount waste and manual retention work support that problem.

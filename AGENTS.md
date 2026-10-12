@@ -2,7 +2,7 @@
 
 Read `HANDOFF.md` before choosing scope or implementation. Read `docs/product-specification.md` for behaviour, contracts and acceptance requirements. The current preview is a design reference, not a production architecture.
 
-The latest user-provided 18-feature scope is preserved in `docs/user-feature-scope.txt`. `docs/PRD.md` is the detailed approval draft; do not mark it approved without the user's explicit decision. The preview lives at `frontend/index.html` and its editable source at `frontend/src/design-preview.fragment.html`. `backend/` currently documents the proposed server boundary, not an implemented service. Preserve both folders. The confidential original assignment PDF is excluded from Git uploads.
+The latest user-provided 18-feature scope is preserved in `docs/user-feature-scope.txt`. `docs/PRD.md` was approved on 12 October 2026. The UI/UX implementation handoff is `docs/UIUX-HANDOFF.md`, supported by `frontend/design-handoff.html`, `frontend/design-tokens.css`, `docs/design-evidence.md` and `docs/design-qa.md`. Read these before design implementation; the five-screen handoff reference does not replace the full application journey. The original preview lives at `frontend/index.html` and its editable source at `frontend/src/design-preview.fragment.html`. `backend/` currently documents the proposed server boundary, not an implemented service. Preserve both folders. The confidential original assignment PDF is excluded from Git uploads.
 
 ## Next priority
 
