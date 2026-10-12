@@ -9,7 +9,8 @@ This project proposes a Repeat Purchase Agent for Razorpay Agent Studio: identif
 3. Open `frontend/index.html` in a browser to inspect the current design. It is a standalone export of the conversation preview. Fonts and icons may require internet access.
 4. Edit `frontend/src/design-preview.fragment.html` as the source reference. `frontend/index.html` is a generated export with a preview wrapper; there is no automatic export build script yet.
 5. Read `docs/product-specification.md` for supporting requirements and `docs/ux-next-pass.md` for the next design task. `backend/README.md` explains the proposed server responsibilities.
-6. For the design implementation, read `docs/UIUX-HANDOFF.md` and open `frontend/design-handoff.html`. The reference has five compositions, labelled local playback and proposed tokens. `docs/design-evidence.md` explains the Razorpay grounding; `docs/design-qa.md` records actual checks and remaining gates. The original full preview is preserved separately.
+6. For the design implementation, read `docs/UIUX-HANDOFF.md` and open `frontend/design-handoff.html`. The current reference uses merchant-facing navigation, contextual action drawers and clearly separated test data. `docs/design-evidence.md` explains the Razorpay grounding; `docs/design-qa.md` records actual checks and remaining gates. The original full preview is preserved separately.
+7. The current merchant-facing revision is documented in `docs/MERCHANT-UI-V2.md`. It supersedes the v1 five-screen composition. Edit the merchant template/CSS/JS and run `node frontend/build-preview.mjs` to refresh `frontend/design-handoff.html`. Revised screenshots are in `docs/merchant-ui-screens/`. The local adapter contains synthetic data only; live integrations are still pending.
 
 ## Continue in Codex
 

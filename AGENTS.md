@@ -6,6 +6,8 @@ The latest user-provided 18-feature scope is preserved in `docs/user-feature-sco
 
 ## Next priority
 
+The owner requires merchant-facing UI and copy with a production-quality presentation. Read `docs/MERCHANT-UI-V2.md` before design implementation. Use `frontend/merchant-preview.template.html`, `frontend/merchant-app.css` and `frontend/merchant-app.js`; rebuild the standalone `frontend/design-handoff.html` with `node frontend/build-preview.mjs`. V2 supersedes the v1 visual composition and copy. Keep all service modes honest; presentation quality does not establish integrated production readiness.
+
 Improve UI/UX before adding integrations. Keep the observed Razorpay dashboard shell and installation pattern. Organise our agent around merchant decisions, not a catalogue of AI features. Use `docs/ux-next-pass.md` as the design brief.
 
 ## Product constraints
