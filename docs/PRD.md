@@ -1,8 +1,8 @@
 # Repeat Purchase Agent — Product Requirements Document
 
-Version: 2.0 draft | Date: 12 October 2026 | Owner/approver: project owner
+Version: 2.0 | Date: 12 October 2026 | Owner/approver: project owner
 
-**Approval status: PENDING USER REVIEW.** This document is a concrete proposal for approval, not a record of approval or completed implementation. The owner's latest 18-feature list is the scope authority. Implementation choices explicitly marked pending remain undecided even if the product requirements are approved.
+**Approval status: APPROVED — 12 October 2026.** The project owner approved proceeding after review of the PRD. Approval covers the product scope and requirements; it does not establish completed implementation. The owner's latest 18-feature list is the scope authority. Implementation choices explicitly marked pending remain undecided even if the product requirements are approved.
 
 ## 1. Product purpose
 
@@ -381,11 +381,11 @@ Verify current official provider documentation before integration; this PRD defi
 
 | Field | Value |
 | --- | --- |
-| Version submitted | 2.0 draft, 12 October 2026 |
+| Version submitted | 2.0, 12 October 2026 |
 | Scope requested | Full 18 features and required demos, same-product current execution |
 | Approval requested | Scope, behaviour, UX requirements, acceptance/release criteria and proposed boundaries |
-| User decision | Pending |
-| Approved by/date | Not yet recorded |
-| Changes requested | Pending review |
+| User decision | Approved to proceed; discuss design next |
+| Approved by/date | Project owner, 12 October 2026 |
+| Changes requested | None at approval; design discussion follows |
 
 Sources, in precedence order: latest user-supplied feature list in `user-feature-scope.txt`, latest explicit owner decisions, this PRD once approved, `HANDOFF.md`, then `product-specification.md` for supporting detail. `ux-next-pass.md` guides design refinement; `references.md` holds earlier public references. The original v1 specification is retained for traceability, including its acceptance matrix, rather than overwritten.

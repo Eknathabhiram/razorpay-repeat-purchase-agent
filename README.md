@@ -5,7 +5,7 @@ This project proposes a Repeat Purchase Agent for Razorpay Agent Studio: identif
 ## Start here
 
 1. Read `HANDOFF.md` and `AGENTS.md`.
-2. Review `docs/PRD.md`: the detailed 18-feature PRD is pending user approval. `docs/user-feature-scope.txt` preserves the latest user-provided scope.
+2. Review `docs/PRD.md`: the detailed 18-feature PRD was approved on 12 October 2026. `docs/user-feature-scope.txt` preserves the latest user-provided scope.
 3. Open `frontend/index.html` in a browser to inspect the current design. It is a standalone export of the conversation preview. Fonts and icons may require internet access.
 4. Edit `frontend/src/design-preview.fragment.html` as the source reference. `frontend/index.html` is a generated export with a preview wrapper; there is no automatic export build script yet.
 5. Read `docs/product-specification.md` for supporting requirements and `docs/ux-next-pass.md` for the next design task. `backend/README.md` explains the proposed server responsibilities.
@@ -29,7 +29,7 @@ Suggested first task:
 - `HANDOFF.md`: decisions, status, constraints and unresolved implementation choices.
 - `AGENTS.md`: guidance for the coding agent.
 - `docs/product-specification.md` and `.docx`: detailed specification.
-- `docs/PRD.md`: detailed approval draft covering all 18 current features.
+- `docs/PRD.md`: approved requirements covering all 18 current features.
 - `docs/user-feature-scope.txt`: latest feature list supplied by the user.
 - `docs/ux-next-pass.md`: concrete UX work to do next.
 - `docs/references.md`: primary product and interface references.
