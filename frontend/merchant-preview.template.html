@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repeat Purchase Agent | Loop Essentials</title>
+  <!-- MERCHANT_STYLES -->
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+  <header class="product-header">
+    <button class="icon-button mobile-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"></button>
+    <a href="#dashboard" class="brand" aria-label="Razorpay payments">Razorpay<span class="brand-mark" aria-hidden="true">/</span></a>
+    <span class="product-switch">Payments</span>
+    <div class="header-right"><button class="mode-button" id="environment-button"><span class="mode-dot"></span>Test mode</button><span class="header-divider"></span><span class="merchant-name">Loop Essentials</span><span class="avatar">LE</span></div>
+  </header>
+  <div class="app-layout">
+    <aside id="sidebar" class="sidebar" aria-label="Main navigation">
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav class="primary-nav" aria-label="Payments">
+        <a href="#payments" data-icon="home">Home</a>
+        <a href="#transactions" data-icon="receipt">Transactions</a>
+        <a href="#customers" data-icon="users">Customers</a>
+      </nav>
+      <div class="sidebar-label studio-label">AGENT STUDIO</div>
+      <nav class="primary-nav" aria-label="Agent Studio">
+        <a href="#studio" data-icon="grid">Explore agents</a>
+        <a href="#dashboard" data-icon="layers" class="selected">My agents</a>
+        <a href="#connections" data-icon="link">Connections<span class="nav-dot" aria-label="Uses test data"></span></a>
+      </nav>
+      <div class="sidebar-bottom"><button id="support-button" class="nav-button" data-icon="help">Help & support</button><div class="account-row"><span class="avatar light">LE</span><div><strong>Loop Essentials</strong><span>Merchant workspace</span></div></div></div>
+    </aside>
+    <main id="workspace" tabindex="-1">
+      <div class="breadcrumb"><a href="#studio">Agent Studio</a><span>/</span><a href="#dashboard">My agents</a><span>/</span><span>Repeat Purchase</span></div>
+      <div class="agent-heading"><div class="agent-identity"><div class="agent-symbol" aria-hidden="true"><span></span><span></span></div><div><h1>Repeat Purchase Agent</h1><p>Customer reorders, managed within your limits.</p></div></div><div class="agent-controls"><span class="status" id="agent-status"><span class="status-dot"></span>Active</span><button class="button secondary" id="pause-button" data-icon="pause">Pause agent</button></div></div>
+      <nav class="agent-tabs" aria-label="Repeat Purchase Agent"><a href="#dashboard">Dashboard</a><a href="#activity">Activity<span class="tab-count" id="activity-count">1</span></a><a href="#settings">Settings</a></nav>
+      <div id="pause-notice" class="notice warning" hidden><span data-static-icon="pause"></span><div><strong>Outreach is paused</strong><p>New messages and calls are on hold. Orders and opt-outs continue to update.</p></div><button class="text-button" id="resume-inline">Resume</button></div>
+      <div id="page-content"></div>
+      <footer class="workspace-footer"><span>All times in IST</span><span>Test workspace · no live customer outreach</span></footer>
+    </main>
+  </div>
+  <dialog id="drawer" class="drawer" aria-labelledby="drawer-title"><div class="drawer-header"><div><span class="eyebrow" id="drawer-eyebrow"></span><h2 id="drawer-title"></h2></div><button class="icon-button close-drawer" id="drawer-close" aria-label="Close details"></button></div><div class="drawer-content" id="drawer-content"></div><div class="drawer-footer" id="drawer-footer" hidden></div></dialog>
+  <dialog id="modal" class="modal" aria-labelledby="modal-title"><div class="modal-header"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="Close dialog"></button></div><div id="modal-content"></div><div id="modal-footer" class="modal-footer"></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <!-- MERCHANT_SCRIPT -->
+</body>
+</html>
