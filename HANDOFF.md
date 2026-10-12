@@ -4,7 +4,7 @@
 
 The owner requested GitHub upload, separate frontend/backend folders and a detailed PRD for explicit approval. The current preview and source moved to `frontend/index.html` and `frontend/src/design-preview.fragment.html`; `backend/README.md` documents the server scaffold. The 18-feature list is preserved in `docs/user-feature-scope.txt`. The detailed `docs/PRD.md` is PENDING USER REVIEW; approval has not been received. This reorganisation does not implement integrations or select a framework.
 
-GitHub connector identifies the owner as Eknathabhiram but returns no accessible repositories. The local GitHub CLI and in-app GitHub browser are signed out. Repository creation/upload is pending authentication; use a private repository and exclude the confidential `docs/challenge-brief.pdf`. Original references in the workspace's top-level `Docs/` are outside this project repository.
+The owner signed in to GitHub and authorised upload. Private repository: https://github.com/Eknathabhiram/razorpay-repeat-purchase-agent . Upload uses the authenticated browser because the CLI is signed out and the connector exposes no repositories. The confidential `docs/challenge-brief.pdf` remains excluded. Original references in the workspace's top-level `Docs/` are outside this project repository. The PRD remains pending explicit approval.
 
 ## Immediate user request
 
