@@ -1,0 +1,2588 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Razorpay Repeat Purchase Agent — Design Preview</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe id="codex-visualization" sandbox="allow-scripts" referrerpolicy="no-referrer" title="Razorpay Repeat Purchase Agent — Design Preview" data-srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot; data-visualize-standalone&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Razorpay Repeat Purchase Agent — Design Preview&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 10px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+:root:not([data-app-block-surface], [data-visualize-standalone]) &gt; body {
+  padding: 12px;
+}
+
+.cursor-interaction {
+  cursor: var(--cursor-interaction, pointer);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: var(--cursor-interaction, pointer);
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+.widget {
+  min-width: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  box-shadow: 0 0 0 0.5px var(--border-strong, var(--border));
+  color: var(--foreground);
+  background: var(--background);
+}
+
+#widget &gt; :not(.card, .widget, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* The shared runtime owns data-tooltip; suppress AppBlock&#x27;s pseudo-tooltip. */
+main [data-tooltip]::after {
+  content: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover,
+.nav-link:not(:disabled):not([aria-disabled=&quot;true&quot;]):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+/* Shared preview chrome; product styles stay inside each variant. */
+.viz-dotted-background {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--foreground) 14%, transparent) 0.8px,
+    transparent 0.8px
+  );
+  background-position: center;
+  background-size: 16px 16px;
+}
+
+.viz-carousel {
+  position: relative;
+  min-width: 0;
+}
+
+.viz-carousel:has(&gt; .viz-carousel-controls) {
+  min-height: calc(60px + var(--viz-carousel-picker-height, 0px));
+  padding-bottom: 60px;
+}
+
+.viz-carousel &gt; [data-variant][hidden] {
+  display: none !important;
+}
+
+.viz-carousel &gt; [data-variant] {
+  isolation: isolate;
+}
+
+.viz-carousel-controls {
+  --viz-carousel-hover: light-dark(
+    color-mix(in srgb, var(--foreground) 5.4%, transparent),
+    color-mix(in srgb, var(--foreground) 7.8%, transparent)
+  );
+  position: absolute;
+  z-index: 2;
+  bottom: 8px;
+  left: 50%;
+  display: flex;
+  width: max-content;
+  /* Leave room for the host&#x27;s design-controls launcher at the trailing edge. */
+  max-width: calc(100% - 96px);
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+  /* Match the settings dropdown chrome independently of the content font size. */
+  font-size: 13px;
+  font-weight: var(--font-weight-normal);
+  line-height: 18px;
+  transform: translateX(-50%);
+  user-select: none;
+}
+
+/* Keep authored mockup button styles out of the shared carousel chrome. */
+.viz-carousel-controls button,
+.viz-carousel-picker &gt; summary {
+  display: flex !important;
+  height: auto !important;
+  min-height: 30px;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px;
+  padding: 0 6px !important;
+  -webkit-app-region: no-drag;
+  border: 0 !important;
+  border-radius: 14px !important;
+  color: inherit !important;
+  background: transparent !important;
+  font: inherit !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.viz-carousel-controls &gt; button,
+.viz-carousel-picker &gt; summary {
+  position: relative;
+  isolation: isolate;
+}
+
+.viz-carousel-controls &gt; button {
+  --icon-size: 16px;
+  width: 30px !important;
+  padding: 0 !important;
+}
+
+.viz-carousel-picker &gt; summary {
+  padding-inline: 12px !important;
+}
+
+.viz-carousel-controls .viz-carousel-caret {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  margin: 0;
+  color: inherit;
+  transform: rotate(180deg);
+}
+
+.viz-carousel-controls &gt; button &gt; svg,
+.viz-carousel-controls .viz-carousel-caret,
+.viz-carousel-count {
+  opacity: 0.5;
+}
+
+.viz-carousel-controls &gt; button::before,
+.viz-carousel-picker &gt; summary::before {
+  position: absolute;
+  z-index: -1;
+  inset: 3px;
+  border-radius: 12px;
+  content: &quot;&quot;;
+  pointer-events: none;
+}
+
+.viz-carousel-controls &gt; button:hover::before,
+.viz-carousel-picker &gt; summary:hover::before {
+  background: var(--viz-carousel-hover);
+}
+
+.viz-carousel-controls &gt; button,
+.viz-carousel-controls [data-lucide],
+.viz-carousel-controls .lucide {
+  flex-shrink: 0;
+}
+
+.viz-carousel-picker {
+  min-width: 0;
+}
+
+.viz-carousel-picker &gt; summary {
+  min-width: 0;
+  list-style: none;
+}
+
+.viz-carousel-picker &gt; summary::-webkit-details-marker {
+  display: none;
+}
+
+.viz-carousel-count {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.viz-carousel-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.viz-carousel-options {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 4px);
+  left: 0;
+  display: flex;
+  max-height: 240px;
+  flex-direction: column;
+  gap: 2px;
+  overflow: auto;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--background);
+  box-shadow: 0 4px 12px light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 25%));
+}
+
+.viz-carousel-options &gt; button {
+  border-radius: max(0px, calc(var(--radius-lg) - 5px)) !important;
+  width: 100% !important;
+  min-height: 28px;
+  justify-content: flex-start !important;
+  padding: 4px 8px !important;
+  font-size: var(--font-size-small) !important;
+  text-align: start;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.viz-carousel-options &gt; [aria-current=&quot;true&quot;],
+.viz-carousel-options &gt; button:hover {
+  background: var(--viz-carousel-hover) !important;
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled=&quot;true&quot;] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.viz-carousel-controls :is(button, summary):focus-visible {
+  outline: 2px solid var(--ring) !important;
+  outline-offset: 2px !important;
+}
+
+@media (pointer: coarse) {
+  .viz-carousel:has(&gt; .viz-carousel-controls) {
+    min-height: calc(76px + var(--viz-carousel-picker-height, 0px));
+    padding-bottom: 76px;
+  }
+
+  .btn,
+  .nav-link,
+  .viz-carousel-controls button,
+  .viz-carousel-picker &gt; summary,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script type=&quot;application/json&quot; id=&quot;codex-visualization-widget-state&quot;&gt;__CODEX_VISUALIZATION_WIDGET_STATE__&lt;/script&gt;
+&lt;script&gt;(() =&gt; {
+  const root = document.documentElement;
+  const mediaQuery = globalThis.matchMedia(&quot;(prefers-color-scheme: dark)&quot;);
+  const apply = Reflect.apply;
+  const isArray = Array.isArray;
+  const hasOwn = Object.hasOwn;
+  const parentWindow = globalThis.parent;
+  const stringify = JSON.stringify;
+  const parse = JSON.parse;
+  const encode = TextEncoder.prototype.encode.bind(new TextEncoder());
+  const initialStateElement = document.getElementById(
+    &quot;codex-visualization-widget-state&quot;,
+  );
+  const initialGlobals = parse(initialStateElement?.textContent ?? &quot;{}&quot;);
+  initialStateElement?.remove();
+  /** @type {Record&lt;string, unknown&gt; | null} */
+  let state = initialGlobals.widgetState ?? null;
+  const statePersistence = initialGlobals.statePersistence ?? &quot;none&quot;;
+  let nextStateRequestId = 0;
+  /** @type {Map&lt;number, { resolve: () =&gt; void; reject: (error: Error) =&gt; void; timeout: ReturnType&lt;typeof globalThis.setTimeout&gt;; serializedState: string }&gt;} */
+  const pendingStateWrites = new Map();
+  const persistenceError = () =&gt;
+    Object.assign(
+      new Error(&quot;The host could not persist the widget state update&quot;),
+      {
+        code: -32000,
+        data: { code: &quot;widget_state_persistence_failed&quot;, retryable: false },
+      },
+    );
+  /**
+   * @param {object} prototype
+   * @param {string} property
+   */
+  const getPrototypeGetter = (prototype, property) =&gt; {
+    // oxlint-disable-next-line typescript/unbound-method -- invoked through captured Reflect.apply
+    const getter = Object.getOwnPropertyDescriptor(prototype, property)?.get;
+    if (getter == null) {
+      throw new Error(`Missing ${property} getter`);
+    }
+    return getter;
+  };
+  const getMessageData = getPrototypeGetter(MessageEvent.prototype, &quot;data&quot;);
+  const getMessagePorts = getPrototypeGetter(MessageEvent.prototype, &quot;ports&quot;);
+  const getMessageSource = getPrototypeGetter(MessageEvent.prototype, &quot;source&quot;);
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const addHostMessageListener = MessagePort.prototype.addEventListener;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const postHostMessage = MessagePort.prototype.postMessage;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const startHostPort = MessagePort.prototype.start;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const stopMessagePropagation = Event.prototype.stopImmediatePropagation;
+  /** @type {MessagePort | null} */
+  let hostPort = null;
+  const postToHost = (type, payload) =&gt; {
+    if (hostPort != null) {
+      apply(postHostMessage, hostPort, [{ type, ...payload }]);
+    }
+  };
+  const openExternal = ({ href }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;open-external&quot;, { href });
+    }
+  };
+  const sendFollowUpMessage = ({ context, prompt, title }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;follow-up&quot;, { context, prompt, title });
+    }
+    return Promise.resolve();
+  };
+  /**
+   * @param {Record&lt;string, unknown&gt; | ((previous: Record&lt;string, unknown&gt; | null) =&gt; Record&lt;string, unknown&gt;)} next
+   * @returns {Promise&lt;void&gt;}
+   */
+  const setWidgetState = async (next) =&gt; {
+    const nextState = typeof next === &quot;function&quot; ? next(state) : next;
+    if (
+      nextState == null ||
+      typeof nextState !== &quot;object&quot; ||
+      isArray(nextState)
+    ) {
+      throw new TypeError(&quot;Widget state must be a JSON object&quot;);
+    }
+    const inputState = stringify(
+      nextState,
+      (_key, /** @type {unknown} */ value) =&gt; {
+        if (
+          typeof value === &quot;undefined&quot; ||
+          typeof value === &quot;function&quot; ||
+          typeof value === &quot;symbol&quot; ||
+          (typeof value === &quot;number&quot; &amp;&amp; !Number.isFinite(value))
+        ) {
+          throw new TypeError(&quot;Widget state must be a JSON object&quot;);
+        }
+        return value;
+      },
+    );
+    const parsedState = parse(inputState);
+    if (
+      parsedState == null ||
+      typeof parsedState !== &quot;object&quot; ||
+      isArray(parsedState)
+    ) {
+      throw new TypeError(&quot;Widget state must be a JSON object&quot;);
+    }
+    const storedState = {
+      modelContent: null,
+      privateContent: null,
+      ...parsedState,
+    };
+    const serializedState = stringify(storedState);
+    if (encode(serializedState).length &gt; 16 * 1024) {
+      throw new TypeError(
+        &quot;Widget state must be a JSON object of at most 16 KiB&quot;,
+      );
+    }
+    if (
+      hasOwn(storedState, &quot;imageIds&quot;) &amp;&amp;
+      (!isArray(storedState.imageIds) ||
+        storedState.imageIds.some(
+          (/** @type {unknown} */ id) =&gt; typeof id !== &quot;string&quot;,
+        ))
+    ) {
+      throw new TypeError(&quot;Widget state imageIds must be an array of strings&quot;);
+    }
+    if (storedState.imageIds?.length &gt; 0) {
+      throw Object.assign(
+        new TypeError(&quot;Visualization state does not support image attachments&quot;),
+        { code: -32602, data: { code: &quot;images_unsupported&quot; } },
+      );
+    }
+    state = storedState;
+    globalThis.openai.widgetState = state;
+    globalThis.dispatchEvent(
+      new CustomEvent(&quot;openai:set_globals&quot;, {
+        detail: { globals: { widgetState: state } },
+      }),
+    );
+    if (statePersistence === &quot;none&quot;) {
+      throw persistenceError();
+    }
+    const id = ++nextStateRequestId;
+    return new Promise((resolve, reject) =&gt; {
+      const timeout = globalThis.setTimeout(() =&gt; {
+        pendingStateWrites.delete(id);
+        reject(persistenceError());
+      }, 30_000);
+      pendingStateWrites.set(id, { resolve, reject, timeout, serializedState });
+      postToHost(&quot;widget-state-write&quot;, { id, state: serializedState });
+    });
+  };
+  const syncTheme = () =&gt; {
+    const theme = mediaQuery.matches ? &quot;dark&quot; : &quot;light&quot;;
+    root.dataset.theme = theme;
+    globalThis.openai = {
+      ...globalThis.openai,
+      openExternal,
+      sendFollowUpMessage,
+      setWidgetState,
+      theme,
+      visualizationStyleVariables: {},
+      visualizationTheme: theme,
+      widgetState: state,
+      statePersistence,
+      stateModelContext: &quot;none&quot;,
+    };
+    globalThis.dispatchEvent(
+      new CustomEvent(&quot;openai:set_globals&quot;, {
+        detail: { globals: globalThis.openai },
+      }),
+    );
+  };
+  const sendHeight = () =&gt; {
+    postToHost(&quot;height&quot;, {
+      height: Math.ceil(
+        Math.max(
+          document.body.scrollHeight,
+          document.body.getBoundingClientRect().height,
+        ),
+      ),
+    });
+  };
+
+  globalThis.addEventListener(
+    &quot;message&quot;,
+    (event) =&gt; {
+      const data = apply(getMessageData, event, []);
+      const ports = apply(getMessagePorts, event, []);
+      const source = apply(getMessageSource, event, []);
+      if (
+        hostPort != null ||
+        source !== parentWindow ||
+        typeof data !== &quot;object&quot; ||
+        data?.type !== &quot;codex-visualization-initialize&quot; ||
+        !isArray(ports) ||
+        ports.length !== 1
+      ) {
+        return;
+      }
+      apply(stopMessagePropagation, event, []);
+      const nextHostPort = ports[0];
+      try {
+        apply(addHostMessageListener, nextHostPort, [
+          &quot;message&quot;,
+          (event) =&gt; {
+            const data = apply(getMessageData, event, []);
+            if (typeof data === &quot;object&quot; &amp;&amp; data?.type === &quot;measure&quot;) {
+              sendHeight();
+            } else if (
+              typeof data === &quot;object&quot; &amp;&amp;
+              data?.type === &quot;widget-state-result&quot;
+            ) {
+              /** @type {unknown} */
+              const id = data.id;
+              if (typeof id !== &quot;number&quot;) {
+                return;
+              }
+              const pending = pendingStateWrites.get(id);
+              if (pending != null) {
+                pendingStateWrites.delete(id);
+                globalThis.clearTimeout(pending.timeout);
+                if (data.ok === true) {
+                  pending.resolve();
+                } else {
+                  pending.reject(persistenceError());
+                }
+              }
+            }
+          },
+        ]);
+        apply(startHostPort, nextHostPort, []);
+      } catch {
+        return;
+      }
+      hostPort = nextHostPort;
+      for (const [id, { serializedState }] of pendingStateWrites) {
+        postToHost(&quot;widget-state-write&quot;, { id, state: serializedState });
+      }
+      sendHeight();
+    },
+    { capture: true },
+  );
+  document.currentScript?.remove();
+  mediaQuery.addEventListener(&quot;change&quot;, syncTheme);
+  globalThis.addEventListener(&quot;click&quot;, (event) =&gt; {
+    if (event.defaultPrevented) {
+      return;
+    }
+    let element = null;
+    if (event.target instanceof globalThis.Element) {
+      element = event.target;
+    } else if (event.target instanceof globalThis.Node) {
+      element = event.target.parentElement;
+    }
+    const link = element?.closest(&quot;a[href]&quot;);
+    const href = link?.getAttribute(&quot;href&quot;);
+    if (href == null) {
+      return;
+    }
+    if (href.startsWith(&quot;#&quot;)) {
+      let id;
+      try {
+        id = decodeURIComponent(href.slice(1));
+      } catch {
+        return;
+      }
+      const target = id.length === 0 ? root : document.getElementById(id);
+      if (
+        target == null ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      event.preventDefault();
+      postToHost(&quot;scroll-to&quot;, {
+        top: target.getBoundingClientRect().top + globalThis.scrollY,
+      });
+      return;
+    }
+    event.preventDefault();
+    openExternal({ href });
+  });
+  new ResizeObserver(sendHeight).observe(document.body);
+  syncTheme();
+})();
+
+&lt;/script&gt;
+&lt;div id=&quot;razorpayMerchantJourney&quot;&gt;
+&lt;style&gt;
+#razorpayMerchantJourney{--as-paper:#fff;--as-ground:#f7f7f8;--as-ink:#181a1e;--as-muted:#60666e;--as-line:#e3e5e8;--as-blue:#145cff;--as-soft:#edf3ff;--as-green:#217b59;--as-amber:#875600;--as-red:#ae3131;color-scheme:light;background:var(--as-ground);color:var(--as-ink);font:13px/1.5 Inter,Arial,sans-serif;overflow:hidden;border:1px solid var(--as-line);border-radius:10px}
+#razorpayMerchantJourney *{box-sizing:border-box}#razorpayMerchantJourney button,#razorpayMerchantJourney input,#razorpayMerchantJourney select{font:inherit}#razorpayMerchantJourney button{cursor:inherit}#razorpayMerchantJourney button:disabled{cursor:not-allowed;opacity:.52}#razorpayMerchantJourney .as-top{background:#050607;color:#fff;display:flex;align-items:center;flex-wrap:wrap;gap:20px;padding:12px 18px;min-height:53px}#razorpayMerchantJourney .as-logo{font-size:21px;font-style:italic;font-weight:700;letter-spacing:-.6px;margin-right:22px}#razorpayMerchantJourney .as-product{font-size:12px;color:#d4d7dc}#razorpayMerchantJourney .as-product.active{color:#fff;border-bottom:2px solid #96b9ff;padding-bottom:5px}#razorpayMerchantJourney .as-top-note{margin-left:auto;font-size:11px;color:#d4d7dc}#razorpayMerchantJourney .as-shell{display:grid;grid-template-columns:175px minmax(0,1fr);min-height:590px}#razorpayMerchantJourney .as-side{border-right:1px solid var(--as-line);padding:13px 8px 0;display:flex;flex-direction:column;gap:2px;background:var(--as-ground)}#razorpayMerchantJourney .as-side-item{display:flex;align-items:center;gap:8px;padding:7px 9px;font-size:12px;min-height:32px}#razorpayMerchantJourney .as-side-item.selected{background:#e9e9eb;border-radius:6px;font-weight:600}#razorpayMerchantJourney .as-side-item i{width:13px;height:13px}#razorpayMerchantJourney .as-section-label{font-size:9px;letter-spacing:.4px;color:var(--as-muted);margin:16px 9px 4px}#razorpayMerchantJourney .as-side-bottom{margin-top:auto;border-top:1px solid var(--as-line);padding:10px 0}#razorpayMerchantJourney .as-beta{background:#e5f1eb;color:#1d6c52;padding:1px 5px;font-size:10px;border-radius:4px;margin-left:3px}#razorpayMerchantJourney .as-stage{position:relative;min-width:0;min-height:650px}#razorpayMerchantJourney .as-content{padding:18px 23px 30px;min-width:0}#razorpayMerchantJourney .as-main-tabs{display:flex;gap:23px;border-bottom:1px solid var(--as-line);margin-bottom:18px}#razorpayMerchantJourney .as-tab{background:transparent;border:0;border-bottom:2px solid transparent;color:var(--as-muted);padding:0 0 10px;font-size:12px;min-height:34px}#razorpayMerchantJourney .as-tab[aria-current=page],#razorpayMerchantJourney .as-tab[aria-selected=true]{color:var(--as-ink);border-bottom-color:var(--as-ink);font-weight:600}#razorpayMerchantJourney h2{font-size:23px;line-height:1.3;margin:0 0 10px;font-weight:650}#razorpayMerchantJourney h3{font-size:15px;line-height:1.4;margin:0 0 8px;font-weight:600}#razorpayMerchantJourney h4{font-size:13px;margin:0 0 6px;font-weight:600}#razorpayMerchantJourney p{margin:0}#razorpayMerchantJourney .as-muted{color:var(--as-muted);font-size:12px}#razorpayMerchantJourney .as-hero{border:1px solid var(--as-line);border-radius:12px;background:linear-gradient(112deg,#fff 25%,#eefafb 62%,#a5eef5);min-height:176px;padding:23px;margin-bottom:25px;display:flex;flex-direction:column;justify-content:space-between}#razorpayMerchantJourney .as-hero h2{font-size:24px;max-width:450px}#razorpayMerchantJourney .as-catalog{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}#razorpayMerchantJourney .as-agent-card{background:var(--as-paper);border:1px solid var(--as-line);border-radius:9px;padding:15px;display:flex;flex-direction:column;gap:12px;min-width:0}#razorpayMerchantJourney .as-card-name{display:flex;gap:8px;align-items:center;font-size:12px}#razorpayMerchantJourney .as-art{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:34px;height:34px;border-radius:8px;background:repeating-linear-gradient(76deg,#bceae0 0 2px,#dbf4ee 2px 5px);color:#267663;font-weight:700;font-size:16px}#razorpayMerchantJourney .as-art.pink{background:repeating-linear-gradient(74deg,#efbddb 0 2px,#eddaee 2px 5px);color:#976597}#razorpayMerchantJourney .as-art.small{width:25px;height:25px;font-size:12px;border-radius:5px}#razorpayMerchantJourney .as-agent-card strong{font-size:13px;line-height:1.45;font-weight:600}#razorpayMerchantJourney .as-connect-tags{border-top:1px solid var(--as-line);padding-top:11px;display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;font-size:10px;color:var(--as-muted)}#razorpayMerchantJourney .as-tag{padding:3px 7px;border:1px solid var(--as-line);background:var(--as-paper);border-radius:5px;font-size:11px;display:inline-block}#razorpayMerchantJourney .as-button{padding:7px 11px;min-height:34px;border:1px solid #dadddf;border-radius:5px;background:var(--as-paper);color:var(--as-ink)}#razorpayMerchantJourney .as-primary{background:var(--as-blue);color:#fff;border-color:var(--as-blue)}#razorpayMerchantJourney .as-link{background:none;border:0;color:#2454b8;font:inherit;text-align:left;padding:2px 0;text-decoration:underline;text-underline-offset:3px}#razorpayMerchantJourney .as-breadcrumb{color:var(--as-muted);font-size:11px;margin-bottom:22px}#razorpayMerchantJourney .as-title-row{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:24px}#razorpayMerchantJourney .as-title-art{width:86px;height:86px;font-size:34px;border-radius:13px}#razorpayMerchantJourney .as-badges{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 15px;font-size:11px}#razorpayMerchantJourney .as-badges span{padding:2px 6px;border-radius:3px;background:#eceeef}#razorpayMerchantJourney .as-detail-body{border-top:1px solid var(--as-line);padding-top:22px;max-width:670px;display:grid;gap:22px}#razorpayMerchantJourney .as-step-list{list-style:none;padding:0;margin:0;display:grid;gap:13px}#razorpayMerchantJourney .as-step-list li{border-left:2px solid var(--as-line);padding-left:14px}#razorpayMerchantJourney .as-step-list strong{display:block;font-size:12px}#razorpayMerchantJourney .as-step-list small{color:var(--as-muted);font-size:11px}#razorpayMerchantJourney .as-note{padding:10px 12px;border-radius:5px;background:var(--as-soft);font-size:12px;margin:14px 0}#razorpayMerchantJourney .as-footnote{font-size:10px;color:var(--as-muted);text-align:center;border-top:1px solid var(--as-line);padding:10px}#razorpayMerchantJourney .as-modal-layer{position:absolute;inset:0;background:#0008;display:flex;align-items:flex-start;justify-content:center;padding:27px 18px;z-index:5}#razorpayMerchantJourney .as-modal{background:var(--as-paper);width:650px;max-width:100%;border-radius:12px;box-shadow:0 12px 32px #0002;overflow:hidden}#razorpayMerchantJourney .as-modal-header{display:flex;align-items:center;justify-content:space-between;padding:17px 18px;border-bottom:1px solid var(--as-line)}#razorpayMerchantJourney .as-modal-header strong{font-size:14px}#razorpayMerchantJourney .as-close{background:transparent;border:0;font-size:20px;color:var(--as-muted);padding:0 5px;min-height:28px}#razorpayMerchantJourney .as-modal-body{display:grid;grid-template-columns:145px minmax(0,1fr);min-height:450px}#razorpayMerchantJourney .as-install-nav{background:#fafafa;padding:22px 13px;display:flex;flex-direction:column;gap:13px;font-size:12px}#razorpayMerchantJourney .as-install-step{display:flex;gap:9px;align-items:center;color:#767c83}#razorpayMerchantJourney .as-install-step[aria-current=step]{color:#2252bd;font-weight:600}#razorpayMerchantJourney .as-dot{width:7px;height:7px;background:#d5d9dd;border-radius:50%;box-shadow:0 0 0 3px #f1f2f4}#razorpayMerchantJourney .as-install-step[aria-current=step] .as-dot{background:#1767ff;box-shadow:0 0 0 3px #e7eeff}#razorpayMerchantJourney .as-install-step.done .as-dot{background:#2c9c75;box-shadow:0 0 0 3px #edf7f2}#razorpayMerchantJourney .as-install-main{min-width:0;padding:20px 23px 21px}#razorpayMerchantJourney .as-field{margin-top:18px}#razorpayMerchantJourney .as-field&gt;label,#razorpayMerchantJourney .as-field-title{display:block;font-size:12px;font-weight:600;margin-bottom:4px}#razorpayMerchantJourney .as-field&gt;small{display:block;color:var(--as-muted);font-size:11px;margin-bottom:8px}#razorpayMerchantJourney .as-radio-box{border:1px solid var(--as-line);border-radius:8px;padding:11px 12px;display:grid;gap:9px}#razorpayMerchantJourney .as-radio-box label{display:flex;gap:8px;align-items:flex-start;font-size:12px}#razorpayMerchantJourney input[type=radio],#razorpayMerchantJourney input[type=checkbox]{accent-color:var(--as-blue);margin:3px 0 0}#razorpayMerchantJourney .as-radio-box label small{display:block;color:var(--as-muted);font-size:11px}#razorpayMerchantJourney .as-input,#razorpayMerchantJourney .as-select{width:100%;padding:9px 10px;border:1px solid var(--as-line);background:#fff;border-radius:6px;color:var(--as-ink)}#razorpayMerchantJourney .as-inline-fields{display:grid;grid-template-columns:1fr 1fr;gap:13px}#razorpayMerchantJourney .as-checkbox-row{display:flex;align-items:center;gap:9px;border:1px solid var(--as-line);padding:8px 10px;border-radius:6px;font-size:12px;margin-top:6px}#razorpayMerchantJourney .as-modal-footer{padding:13px 15px;border-top:1px solid var(--as-line);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}#razorpayMerchantJourney .as-footer-right{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-left:auto}#razorpayMerchantJourney .as-install-connectors{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}#razorpayMerchantJourney .as-connector{border:1px solid var(--as-line);border-radius:9px;overflow:hidden;background:var(--as-paper);min-width:0}#razorpayMerchantJourney .as-provider-banner{display:flex;justify-content:center;align-items:center;min-height:57px;margin:3px;border-radius:7px;font-size:18px;font-weight:650;background:linear-gradient(#e3effb,#fff)}#razorpayMerchantJourney .as-provider-banner.shopify{background:linear-gradient(#e9f4cd,#fff);color:#386327;font-style:italic}#razorpayMerchantJourney .as-provider-banner.whatsapp{background:linear-gradient(#d7f5df,#fff);color:#147043;font-size:17px}#razorpayMerchantJourney .as-provider-banner.voice{background:linear-gradient(#eae3f9,#fff);font-size:16px}#razorpayMerchantJourney .as-connector-info{padding:9px 10px 11px}#razorpayMerchantJourney .as-connector-info p{font-size:11px;color:var(--as-muted);min-height:33px;margin-bottom:8px}#razorpayMerchantJourney .as-connection-status{font-size:11px;margin:7px 0;color:var(--as-muted)}#razorpayMerchantJourney .as-connector-actions{display:flex;gap:7px;flex-wrap:wrap;align-items:center}#razorpayMerchantJourney .as-connector-actions .as-button{font-size:11px;padding:5px 8px;min-height:29px}#razorpayMerchantJourney .as-connector-actions .as-link{font-size:11px}#razorpayMerchantJourney .as-review-card{border:1px solid var(--as-line);border-radius:8px;padding:11px 12px;margin:8px 0 17px;font-size:12px}#razorpayMerchantJourney .as-review-card dl{margin:0;display:grid;gap:7px}#razorpayMerchantJourney .as-review-card dt{color:var(--as-muted);font-size:11px}#razorpayMerchantJourney .as-review-card dd{margin:0}#razorpayMerchantJourney .as-capabilities details{border:1px solid var(--as-line);border-radius:7px;margin-bottom:7px;background:#fff}#razorpayMerchantJourney .as-capabilities summary{display:flex;align-items:center;justify-content:space-between;padding:10px;font-size:12px;cursor:inherit;list-style:revert}#razorpayMerchantJourney .as-cap-count{font-size:10px;border-radius:10px;background:#e9f5fc;color:#23677f;padding:2px 6px;margin-left:5px}#razorpayMerchantJourney .as-cap-tags{padding:0 10px 12px;display:flex;gap:5px;flex-wrap:wrap}#razorpayMerchantJourney .as-cap-tags span{font-size:10px;background:#f0f1f2;border-radius:7px;padding:3px 6px}#razorpayMerchantJourney .as-connect-permission{padding:13px;border:1px solid var(--as-line);border-radius:7px;margin:15px 0;font-size:12px}#razorpayMerchantJourney .as-connect-permission ul{padding-left:18px;display:grid;gap:7px;margin:8px 0 0}#razorpayMerchantJourney .as-positive{color:var(--as-green)}#razorpayMerchantJourney .as-success-mark{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;background:#e7f5ee;border-radius:50%;color:#207953;font-size:23px;margin:10px 0 15px}#razorpayMerchantJourney .as-installed{display:grid;grid-template-columns:270px minmax(0,1fr);gap:22px}#razorpayMerchantJourney .as-agent-list{border-right:1px solid var(--as-line);padding-right:18px}#razorpayMerchantJourney .as-agent-entry{display:flex;align-items:flex-start;gap:9px;padding:12px 9px;border:1px solid var(--as-line);background:#fff;border-radius:8px;margin:9px 0 13px;width:100%;text-align:left}#razorpayMerchantJourney .as-agent-entry small{display:block;font-size:10px;color:var(--as-muted);margin-top:3px}#razorpayMerchantJourney .as-agent-title{display:flex;gap:12px;align-items:center;margin-bottom:16px}#razorpayMerchantJourney .as-agent-title h3{margin-bottom:3px}#razorpayMerchantJourney .as-agent-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}#razorpayMerchantJourney .as-agent-actions .as-button{flex:1;font-size:11px}#razorpayMerchantJourney .as-metrics{display:grid;grid-template-columns:1fr 1fr;gap:13px;border-bottom:1px solid var(--as-line);padding:8px 0 16px;margin-bottom:18px}#razorpayMerchantJourney .as-metrics div+div{border-left:1px solid var(--as-line);padding-left:15px}#razorpayMerchantJourney .as-metrics small{display:block;font-size:10px;color:var(--as-muted);margin-bottom:2px}#razorpayMerchantJourney .as-metrics strong{font-size:21px;font-weight:600}#razorpayMerchantJourney .as-label{font-size:10px;color:var(--as-muted);margin:19px 0 9px;font-weight:500}#razorpayMerchantJourney .as-work-title{display:flex;align-items:center;gap:12px;margin-bottom:18px}#razorpayMerchantJourney .as-work-title h2{font-size:21px;margin-bottom:4px}#razorpayMerchantJourney .as-status-pill{font-size:10px;background:#fff0db;color:var(--as-amber);border-radius:4px;padding:2px 6px;margin-left:5px}#razorpayMerchantJourney .as-subtabs{display:flex;gap:24px;border-bottom:1px solid var(--as-line);margin-bottom:18px}#razorpayMerchantJourney .as-table{width:100%;border-collapse:collapse;font-size:12px}#razorpayMerchantJourney .as-table th{text-align:left;color:var(--as-muted);font-weight:500;padding:9px 7px;border-bottom:1px solid var(--as-line)}#razorpayMerchantJourney .as-table td{vertical-align:top;padding:11px 7px;border-bottom:1px solid var(--as-line)}#razorpayMerchantJourney .as-table td small{display:block;font-size:10px;color:var(--as-muted)}#razorpayMerchantJourney .as-row-action{border:0;background:none;text-align:left;color:#2353bd;padding:0;text-decoration:underline;font:inherit}#razorpayMerchantJourney .as-bottom-action{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px}#razorpayMerchantJourney .as-activity-row{width:100%;border:0;border-bottom:1px solid var(--as-line);background:transparent;padding:13px 8px;display:flex;gap:11px;text-align:left;align-items:flex-start}#razorpayMerchantJourney .as-activity-row:hover{background:#eeeeef}#razorpayMerchantJourney .as-activity-row small{display:block;color:var(--as-muted);font-size:11px;margin-top:3px}#razorpayMerchantJourney .as-result{font-size:10px;padding:2px 5px;border-radius:3px;background:#e4f3ec;color:#267651;margin-left:6px}#razorpayMerchantJourney .as-result.blocked{background:#fbe9e9;color:#a33b3b}#razorpayMerchantJourney .as-result.wait{background:#fff0d9;color:#825b15}#razorpayMerchantJourney .as-drawer-layer{position:absolute;inset:0;background:#0006;z-index:7;display:flex;justify-content:flex-end;align-items:flex-start}#razorpayMerchantJourney .as-drawer{width:370px;max-width:100%;min-height:650px;background:#fff;box-shadow:-8px 0 24px #0001;padding:0 17px 24px;border-radius:12px 0 0 12px}#razorpayMerchantJourney .as-drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--as-line);padding:15px 0;margin-bottom:16px;gap:9px}#razorpayMerchantJourney .as-case-facts{background:#f1f1f3;padding:12px;border-radius:7px;font-size:12px;margin:12px 0 18px}#razorpayMerchantJourney .as-case-facts small{color:var(--as-muted);font-size:10px;display:block;margin-top:6px}#razorpayMerchantJourney .as-trace{list-style:none;padding:0;margin:0;display:grid;gap:15px}#razorpayMerchantJourney .as-trace li{padding-left:14px;border-left:2px solid #dcece4;font-size:12px}#razorpayMerchantJourney .as-trace small{display:block;font-size:11px;color:var(--as-muted);margin-top:3px}#razorpayMerchantJourney .as-customer-quote{padding:10px 11px;background:#edf3ff;border-radius:6px;font-size:12px;margin:12px 0}#razorpayMerchantJourney .as-global-connections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:17px}#razorpayMerchantJourney .as-global-connector{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid var(--as-line);border-radius:9px;padding:14px;width:100%;text-align:left}#razorpayMerchantJourney .as-global-connector small{display:block;font-size:11px;color:var(--as-muted);margin-top:3px}#razorpayMerchantJourney .as-plan-scope{padding:14px;background:#fff;border:1px solid var(--as-line);border-radius:8px;font-size:12px;display:grid;gap:9px;margin:14px 0}#razorpayMerchantJourney .as-page[hidden],#razorpayMerchantJourney [hidden]{display:none!important}
+@media(max-width:850px){#razorpayMerchantJourney .as-shell{grid-template-columns:145px minmax(0,1fr)}#razorpayMerchantJourney .as-product.extra{display:none}#razorpayMerchantJourney .as-catalog{grid-template-columns:1fr 1fr}#razorpayMerchantJourney .as-catalog .as-agent-card:last-child{grid-column:1/-1}#razorpayMerchantJourney .as-installed{grid-template-columns:1fr}#razorpayMerchantJourney .as-agent-list{border-right:0;border-bottom:1px solid var(--as-line);padding:0 0 12px}#razorpayMerchantJourney .as-modal-body{grid-template-columns:115px minmax(0,1fr)}#razorpayMerchantJourney .as-install-main{padding:18px 16px}}@media(max-width:600px){#razorpayMerchantJourney .as-shell{grid-template-columns:1fr}#razorpayMerchantJourney .as-side{display:none}#razorpayMerchantJourney .as-content{padding:16px}#razorpayMerchantJourney .as-top{gap:13px;padding:11px 13px}#razorpayMerchantJourney .as-logo{margin-right:0;font-size:20px}#razorpayMerchantJourney .as-top-note{width:100%;margin-left:0}#razorpayMerchantJourney .as-catalog{grid-template-columns:1fr}#razorpayMerchantJourney .as-hero{padding:18px;min-height:156px}#razorpayMerchantJourney .as-hero h2{font-size:22px}#razorpayMerchantJourney .as-stage{min-height:760px}#razorpayMerchantJourney .as-modal-layer{padding:13px 8px}#razorpayMerchantJourney .as-modal-body{grid-template-columns:1fr;min-height:0}#razorpayMerchantJourney .as-install-nav{flex-direction:row;flex-wrap:wrap;gap:12px;padding:13px 14px;border-bottom:1px solid var(--as-line)}#razorpayMerchantJourney .as-install-step{font-size:11px;gap:6px}#razorpayMerchantJourney .as-modal-header{padding:13px 14px}#razorpayMerchantJourney .as-install-main{padding:16px 14px}#razorpayMerchantJourney .as-button{min-height:44px}#razorpayMerchantJourney .as-input,#razorpayMerchantJourney .as-select{font-size:16px}#razorpayMerchantJourney .as-install-connectors{grid-template-columns:1fr}#razorpayMerchantJourney .as-connector-info p{min-height:0}#razorpayMerchantJourney .as-provider-banner{min-height:42px}#razorpayMerchantJourney .as-global-connections{grid-template-columns:1fr}#razorpayMerchantJourney .as-title-art{width:54px;height:54px;font-size:24px}#razorpayMerchantJourney .as-detail-body{gap:18px}#razorpayMerchantJourney .as-inline-fields{grid-template-columns:1fr}#razorpayMerchantJourney .as-table{font-size:11px}#razorpayMerchantJourney .as-table th,#razorpayMerchantJourney .as-table td{padding:9px 4px}#razorpayMerchantJourney .as-drawer{width:100%;border-radius:10px}#razorpayMerchantJourney .as-work-title{align-items:flex-start}#razorpayMerchantJourney .as-work-title h2{font-size:19px}}
+&lt;/style&gt;
+&lt;style&gt;
+#razorpayMerchantJourney .mj-auth{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(320px,1fr);background:#fff;min-height:610px;color:#161b24}
+#razorpayMerchantJourney .mj-auth-brand{padding:35px 35px 38px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid #f0f1f4;background:linear-gradient(145deg,#fff 70%,#f8fbff)}
+#razorpayMerchantJourney .mj-auth-logo{width:132px;height:auto;display:block}
+#razorpayMerchantJourney .mj-brand-line{font-size:26px;line-height:1.3;font-weight:650;max-width:390px;color:#205b54;margin-bottom:17px}
+#razorpayMerchantJourney .mj-auth-points{display:flex;flex-wrap:wrap;gap:17px;font-size:12px;color:#386b62}
+#razorpayMerchantJourney .mj-auth-form{padding:44px 38px 30px;display:flex;flex-direction:column;gap:17px}
+#razorpayMerchantJourney .mj-auth-icon{height:42px;width:42px;display:block;margin-bottom:6px}
+#razorpayMerchantJourney .mj-auth-form h2{font-size:24px;line-height:1.45;margin:0;max-width:380px}
+#razorpayMerchantJourney .mj-auth-form .as-button{width:100%;min-height:39px;border-radius:6px}
+#razorpayMerchantJourney .mj-auth-form .as-primary{background:linear-gradient(95deg,#4668ff,#315aff);border-color:#315aff}
+#razorpayMerchantJourney .mj-auth-bottom{margin-top:auto;padding-top:45px;font-size:11px;color:#616977}
+#razorpayMerchantJourney .mj-auth-label{display:block;margin:5px 0 7px;font-size:12px;color:#4d5969}
+#razorpayMerchantJourney .mj-or{display:flex;gap:12px;align-items:center;color:#89909b;font-size:11px;margin:2px 0}
+#razorpayMerchantJourney .mj-or:before,#razorpayMerchantJourney .mj-or:after{content:&#x27;&#x27;;height:1px;background:#e5e7eb;flex:1}
+#razorpayMerchantJourney .mj-preview-label{font-size:11px;color:#616d7a;background:#f3f6fa;padding:8px 10px;border-radius:5px;margin-bottom:13px}
+#razorpayMerchantJourney .mj-sidebar-button{background:transparent;border:0;text-align:left;width:100%;color:var(--as-ink)}
+#razorpayMerchantJourney .mj-dash-head{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:23px}
+#razorpayMerchantJourney .mj-dash-head h2{margin:0;font-size:23px}
+#razorpayMerchantJourney .mj-box{border:1px solid var(--as-line);border-radius:8px;background:#fff;padding:17px;min-width:0}
+#razorpayMerchantJourney .mj-payments-summary{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}
+#razorpayMerchantJourney .mj-payments-summary strong{display:block;font-size:27px;margin-top:8px;font-weight:600}
+#razorpayMerchantJourney .mj-empty{padding:35px 20px;text-align:center;color:var(--as-muted);background:#fff;border:1px solid var(--as-line);border-radius:8px}
+#razorpayMerchantJourney .mj-dashboard-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+#razorpayMerchantJourney .mj-dashboard-tab{border:1px solid var(--as-line);border-radius:5px;padding:6px 10px;background:#fff;color:#4d5867;min-height:32px;font-size:12px}
+#razorpayMerchantJourney .mj-dashboard-tab[aria-selected=true]{border-color:#80a8ee;color:#234fba;background:#edf3ff}
+#razorpayMerchantJourney .mj-attention{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:13px;padding:14px;border:1px solid #e7d9be;background:#fffaf0;border-radius:7px;margin-bottom:18px}
+#razorpayMerchantJourney .mj-attention strong{font-size:13px}
+#razorpayMerchantJourney .mj-attention small{font-size:11px;color:#745c38;display:block;margin-top:4px}
+#razorpayMerchantJourney .mj-metric-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:19px}
+#razorpayMerchantJourney .mj-metric{background:#fff;border:1px solid var(--as-line);border-radius:8px;padding:14px;min-width:0}
+#razorpayMerchantJourney .mj-metric-label{font-size:11px;color:#5c6775;display:block}
+#razorpayMerchantJourney .mj-metric-value{display:block;font-size:23px;font-weight:600;margin:5px 0}
+#razorpayMerchantJourney .mj-metric small{display:block;font-size:11px;color:#68717e}
+#razorpayMerchantJourney .mj-two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#razorpayMerchantJourney .mj-status-line{display:flex;gap:12px;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--as-line);font-size:12px}
+#razorpayMerchantJourney .mj-status-line:last-child{border:0}
+#razorpayMerchantJourney .mj-demo-bar{display:flex;flex-wrap:wrap;gap:11px;align-items:center;justify-content:space-between;padding:10px 12px;background:#edf3ff;border-radius:6px;margin-top:18px;font-size:11px;color:#435775}
+#razorpayMerchantJourney .mj-demo-bar .as-button{font-size:11px;padding:5px 9px}
+#razorpayMerchantJourney .mj-section-head{display:flex;align-items:flex-start;flex-wrap:wrap;gap:12px;justify-content:space-between;margin-bottom:14px}
+#razorpayMerchantJourney .mj-analytics-period{display:block;font-size:11px;color:#687280;margin:4px 0 16px}
+#razorpayMerchantJourney .mj-north-star{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;justify-content:space-between;background:#fff;border:1px solid var(--as-line);border-radius:8px;padding:17px;margin-bottom:14px}
+#razorpayMerchantJourney .mj-north-star strong{font-size:13px;display:block}
+#razorpayMerchantJourney .mj-north-star-value{font-size:20px;font-weight:600;color:#40516b}
+#razorpayMerchantJourney .mj-business-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:17px}
+#razorpayMerchantJourney .mj-guardrail{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;border-bottom:1px solid var(--as-line);padding:12px 0;font-size:12px}
+#razorpayMerchantJourney .mj-guardrail:last-child{border:0}
+#razorpayMerchantJourney .mj-guardrail span:nth-child(2){font-weight:600;color:#285f45}
+#razorpayMerchantJourney .mj-cost-table{width:100%;border-collapse:collapse;font-size:12px}
+#razorpayMerchantJourney .mj-cost-table td{padding:7px 0;border-bottom:1px solid #eceef1}
+#razorpayMerchantJourney .mj-cost-table td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+#razorpayMerchantJourney .mj-cost-table tr:last-child td{font-weight:650;border-bottom:0;padding-top:11px}
+#razorpayMerchantJourney .mj-learning-row{padding:11px 0;border-bottom:1px solid var(--as-line);font-size:12px}
+#razorpayMerchantJourney .mj-learning-row:last-child{border:0}
+#razorpayMerchantJourney .mj-learning-row small{display:block;margin-top:4px;color:var(--as-muted);font-size:11px}
+#razorpayMerchantJourney .mj-inline-policy{display:grid;gap:8px;margin-top:11px;font-size:12px}
+#razorpayMerchantJourney .mj-intent-label{font-size:11px;background:#f1f4f8;color:#506174;display:inline-block;padding:3px 7px;border-radius:4px;margin:10px 0}
+#razorpayMerchantJourney .mj-chat{margin:14px 0;display:grid;gap:9px;font-size:12px}
+#razorpayMerchantJourney .mj-chat-bubble{padding:10px 11px;background:#f1f2f4;border-radius:7px;max-width:96%}
+#razorpayMerchantJourney .mj-chat-bubble.customer{background:#edf3ff;margin-left:auto}
+#razorpayMerchantJourney .mj-chat-bubble small{display:block;font-size:10px;color:#697581;margin-bottom:4px}
+#razorpayMerchantJourney .mj-drawer-tabs{display:flex;gap:14px;margin:13px 0 15px;border-bottom:1px solid var(--as-line)}
+#razorpayMerchantJourney .mj-drawer-tab{border:0;background:none;border-bottom:2px solid transparent;padding:7px 0;color:#65717d;font-size:12px}
+#razorpayMerchantJourney .mj-drawer-tab[aria-selected=true]{color:#2453b6;border-color:#2453b6}
+#razorpayMerchantJourney .mj-attention-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+#razorpayMerchantJourney .mj-login-actions{display:grid;gap:12px}
+#razorpayMerchantJourney .mj-error{color:#a03939;font-size:12px;margin-top:7px}
+#razorpayMerchantJourney .mj-mode-tag{font-size:10px;background:#edf3ff;color:#2b527f;border-radius:4px;padding:3px 6px}
+#razorpayMerchantJourney .as-catalog .as-agent-card:last-child{grid-column:auto}
+@media(max-width:760px){#razorpayMerchantJourney .mj-auth{grid-template-columns:1fr;min-height:0}#razorpayMerchantJourney .mj-auth-brand{padding:25px;border-right:0;border-bottom:1px solid #edf0f3}#razorpayMerchantJourney .mj-auth-brand .mj-brand-copy{display:none}#razorpayMerchantJourney .mj-auth-form{padding:28px 25px}#razorpayMerchantJourney .mj-auth-bottom{padding-top:20px}#razorpayMerchantJourney .mj-two-col{grid-template-columns:1fr}#razorpayMerchantJourney .mj-metric-grid,#razorpayMerchantJourney .mj-business-grid{grid-template-columns:1fr 1fr}#razorpayMerchantJourney .mj-payments-summary{gap:12px}}
+@media(max-width:440px){#razorpayMerchantJourney .mj-metric-grid,#razorpayMerchantJourney .mj-business-grid{grid-template-columns:1fr}#razorpayMerchantJourney .mj-auth-form{padding:23px 19px}#razorpayMerchantJourney .mj-auth-form h2{font-size:22px}#razorpayMerchantJourney .mj-auth-form .as-input{font-size:15px}#razorpayMerchantJourney .mj-dashboard-tab,#razorpayMerchantJourney .mj-drawer-tab{min-height:44px}#razorpayMerchantJourney .mj-guardrail{grid-template-columns:1.25fr 1fr;gap:8px}#razorpayMerchantJourney .mj-guardrail span:last-child{grid-column:1/-1;color:var(--as-muted);font-size:11px}}
+&lt;/style&gt;
+&lt;section class=&quot;mj-auth&quot; id=&quot;mj-auth&quot; aria-label=&quot;Sample merchant sign-in&quot;&gt;
+ &lt;div class=&quot;mj-auth-brand&quot;&gt;&lt;img class=&quot;mj-auth-logo&quot; id=&quot;mj-login-logo&quot; src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMTYiIGhlaWdodD0iNjciIGZpbGw9IiMwNzI2NTQiIHZpZXdCb3g9IjAgMCAxODk2IDQwMSI+PHBhdGggZmlsbD0iIzMzOTVGRiIgZD0iTTEyMi42MyAxMDUuN2wtMTUuNzUgNTcuOTcgOTAuMTUtNTguMy01OC45NiAyMTkuOTggNTkuODguMDVMMjg1LjA1LjQ4Ii8+PHBhdGggZD0iTTI1LjYgMjMyLjkyTC44IDMyNS40aDEyMi43M2w1MC4yMi0xODguMTNMMjUuNiAyMzIuOTJtNDI2LjMyLTgxLjQyYy0zIDExLjE1LTguNzggMTkuMzQtMTcuNCAyNC41Ny04LjYgNS4yMi0yMC42NyA3Ljg0LTM2LjI1IDcuODRoLTQ5LjVsMTcuMzgtNjQuOGg0OS41YzE1LjU2IDAgMjYuMjUgMi42IDMyLjA1IDcuOSA1LjggNS4zIDcuMiAxMy40IDQuMjIgMjQuNm01MS4yNS0xLjRjNi4zLTIzLjQgMy43LTQxLjQtNy44Mi01NC0xMS41LTEyLjUtMzEuNjgtMTguOC02MC40OC0xOC44SDMyNC40bC02Ni41IDI0OC4xaDUzLjY3bDI2LjgtMTAwaDM1LjJjNy45IDAgMTQuMTIgMS4zIDE4LjY2IDMuOCA0LjU1IDIuNiA3LjIyIDcuMSA4LjA0IDEzLjZsOS41OCA4Mi42aDU3LjVsLTkuMzItNzdjLTEuOS0xNy4yLTkuNzctMjcuMy0yMy42LTMwLjMgMTcuNjMtNS4xIDMyLjQtMTMuNiA0NC4zLTI1LjRhOTIuNiA5Mi42IDAgMCAwIDI0LjQ0LTQyLjVtMTMwLjQ2IDg2LjRjLTQuNSAxNi44LTExLjQgMjkuNS0yMC43MyAzOC40LTkuMzQgOC45LTIwLjUgMTMuMy0zMy41MiAxMy4zLTEzLjI2IDAtMjIuMjUtNC4zLTI3LTEzLTQuNzYtOC43LTQuOTItMjEuMy0uNS0zNy44IDQuNDItMTYuNSAxMS40Ny0yOS40IDIxLjE3LTM4LjcgOS43LTkuMyAyMS4wNC0xMy45NSAzNC4wNi0xMy45NSAxMyAwIDIxLjkgNC41IDI2LjQgMTMuNDMgNC42IDguOTcgNC43IDIxLjguMiAzOC41em0yMy41Mi04Ny44bC02LjcyIDI1LjFjLTIuOS05LTguNTMtMTYuMi0xNi44NS0yMS42LTguMzQtNS4zLTE4LjY2LTgtMzAuOTctOC0xNS4xIDAtMjkuNiAzLjktNDMuNSAxMS43LTEzLjkgNy44LTI2LjEgMTguOC0zNi41IDMzLTEwLjQgMTQuMi0xOCAzMC4zLTIyLjkgNDguNC00LjggMTguMi01LjggMzQuMS0yLjkgNDcuOSAzIDEzLjkgOS4zIDI0LjUgMTkgMzEuOSA5LjggNy41IDIyLjMgMTEuMiAzNy42IDExLjJhODIuNCA4Mi40IDAgMCAwIDM1LjItNy43IDgyLjExIDgyLjExIDAgMCAwIDI4LjQtMjEuMmwtNyAyNi4xNmg1MS45TDcwOS4zIDE0OWgtNTJ6bTIzOC42NSAwSDc0NC44N2wtMTAuNTUgMzkuNGg4Ny44MmwtMTE2LjEgMTAwLjMtOS45MiAzN2gxNTUuOGwxMC41NS0zOS40aC05NC4xbDExNy44OC0xMDEuOG0xNDIuNCA1MmMtNC42NyAxNy40LTExLjYgMzAuNDgtMjAuNzUgMzktOS4xNSA4LjYtMjAuMjMgMTIuOS0zMy4yNCAxMi45LTI3LjIgMC0zNi4xNC0xNy4zLTI2Ljg2LTUxLjkgNC42LTE3LjIgMTEuNTYtMzAuMTMgMjAuODYtMzguODQgOS4zLTguNzQgMjAuNTctMTMuMSAzMy44Mi0xMy4xIDEzIDAgMjEuNzggNC4zMyAyNi4zIDEzLjA1IDQuNTIgOC43IDQuNDggMjEuNjctLjEzIDM4Ljg3bTMwLjM4LTgwLjgzYy0xMS45NS03LjQ0LTI3LjItMTEuMTYtNDUuOC0xMS4xNi0xOC44MyAwLTM2LjI2IDMuNy01Mi4zIDExLjFhMTEzLjA5IDExMy4wOSAwIDAgMC00MSAzMi4wNmMtMTEuMyAxMy45LTE5LjQzIDMwLjItMjQuNDIgNDguOC00LjkgMTguNTMtNS41IDM0LjgtMS43IDQ4LjczIDMuOCAxMy45IDExLjggMjQuNiAyMy44IDMyIDEyLjEgNy40NiAyNy41IDExLjE3IDQ2LjQgMTEuMTcgMTguNiAwIDM1LjktMy43NCA1MS44LTExLjE4IDE1LjktNy40OCAyOS41LTE4LjEgNDAuOC0zMi4xIDExLjMtMTMuOTQgMTkuNC0zMC4yIDI0LjQtNDguOCA1LTE4LjYgNS42LTM0Ljg0IDEuOC00OC44LTMuOC0xMy45LTExLjctMjQuNi0yMy42LTMyLjA1bTE4NS4xIDQwLjhsMTMuMy00OC4xYy00LjUtMi4zLTEwLjQtMy41LTE3LjgtMy41LTExLjkgMC0yMy4zIDIuOTQtMzQuMyA4LjktOS40NiA1LjA2LTE3LjUgMTIuMi0yNC4zIDIxLjE0bDYuOS0yNS45LTE1LjA3LjA2aC0zN2wtNDcuNyAxNzYuN2g1Mi42M2wyNC43NS05Mi4zN2MzLjYtMTMuNDMgMTAuMDgtMjQgMTkuNDMtMzEuNSA5LjMtNy41MyAyMC45LTExLjMgMzQuOS0xMS4zIDguNiAwIDE2LjYgMS45NyAyNC4yIDUuOW0xNDYuNSA0MS4xYy00LjUgMTYuNS0xMS4zIDI5LjEtMjAuNiAzNy44LTkuMyA4Ljc0LTIwLjUgMTMuMS0zMy41IDEzLjFzLTIxLjktNC40LTI2LjYtMTMuMmMtNC44LTguODUtNC45LTIxLjYtLjQtMzguMzYgNC41LTE2Ljc1IDExLjQtMjkuNiAyMC45LTM4LjUgOS41LTguOTcgMjAuNy0xMy40NSAzMy43LTEzLjQ1IDEyLjggMCAyMS40IDQuNiAyNiAxMy45IDQuNiA5LjMgNC43IDIyLjIuMjggMzguN20zNi44LTgxLjRjLTkuNzUtNy44LTIyLjItMTEuNy0zNy4zLTExLjctMTMuMjMgMC0yNS44NCAzLTM3LjggOS4wNi0xMS45NSA2LjA1LTIxLjY1IDE0LjMtMjkuMSAyNC43NGwuMTgtMS4yIDguODMtMjguMWgtNTEuNGwtMTMuMSA0OC45LS40IDEuNy01NCAyMDEuNDRoNTIuN2wyNy4yLTEwMS40YzIuNyA5LjAyIDguMiAxNi4xIDE2LjYgMjEuMjIgOC40IDUuMSAxOC43NyA3LjYzIDMxLjEgNy42MyAxNS4zIDAgMjkuOS0zLjcgNDMuNzUtMTEuMSAxMy45LTcuNDIgMjUuOS0xOC4xIDM2LjEtMzEuOSAxMC4yLTEzLjggMTcuNzctMjkuOCAyMi42LTQ3LjkgNC45LTE4LjEzIDUuOS0zNC4zIDMuMS00OC40NS0yLjg1LTE0LjE3LTkuMTYtMjUuMTQtMTguOS0zMi45bTE3NC42NSA4MC42NWMtNC41IDE2LjctMTEuNCAyOS41LTIwLjcgMzguMy05LjMgOC44Ni0yMC41IDEzLjI3LTMzLjUgMTMuMjctMTMuMyAwLTIyLjMtNC4zLTI3LTEzLTQuOC04LjctNC45LTIxLjMtLjUtMzcuOCA0LjQtMTYuNSAxMS40Mi0yOS40IDIxLjEyLTM4LjcgOS43LTkuMyAyMS4wNS0xMy45NCAzNC4wNy0xMy45NCAxMyAwIDIxLjggNC41IDI2LjQgMTMuNCA0LjYgOC45MyA0LjYzIDIxLjc2LjE1IDM4LjV6bTIzLjUtODcuODVsLTYuNzMgMjUuMWMtMi45LTkuMDUtOC41LTE2LjI1LTE2LjgtMjEuNi04LjQtNS4zNC0xOC43LTgtMzEtOC0xNS4xIDAtMjkuNjggMy45LTQzLjYgMTEuNy0xMy45IDcuOC0yNi4xIDE4Ljc0LTM2LjUgMzIuOS0xMC40IDE0LjE2LTE4IDMwLjMtMjIuOSA0OC40LTQuODUgMTguMTctNS44IDM0LjEtMi45IDQ3Ljk2IDIuOTMgMTMuOCA5LjI0IDI0LjQ2IDE5IDMxLjkgOS43NCA3LjQgMjIuMyAxMS4xNCAzNy42IDExLjE0IDEyLjMgMCAyNC4wNS0yLjU2IDM1LjItNy43YTgyLjMgODIuMyAwIDAgMCAyOC4zMy0yMS4yM2wtNyAyNi4xOGg1MS45bDQ3LjM4LTE3Ni43aC01MS45em0yNjkuODcuMDZsLjAzLS4wNWgtMzEuOWMtMS4wMiAwLTEuOTIuMDUtMi44NS4wN2gtMTYuNTVsLTguNSAxMS44LTIuMSAyLjgtLjkgMS40LTY3LjI1IDkzLjY4LTEzLjktMTA5LjdoLTU1LjA4bDI3LjkgMTY2LjctNjEuNiA4NS4zaDU0LjlsMTQuOS0yMS4xM2MuNDItLjYyLjgtMS4xNCAxLjMtMS44bDE3LjQtMjQuNy41LS43IDc3LjkzLTExMC41IDY1LjctOTMgLjEtLjA2aC0uMDN6Ii8+PC9zdmc+Cg==&quot; alt=&quot;Razorpay&quot;&gt;&lt;div class=&quot;mj-brand-copy&quot;&gt;&lt;p class=&quot;mj-brand-line&quot;&gt;Your business.&lt;br&gt;One payment workspace.&lt;/p&gt;&lt;div class=&quot;mj-auth-points&quot;&gt;&lt;span&gt;Payment methods&lt;/span&gt;&lt;span&gt;Easy integration&lt;/span&gt;&lt;span&gt;Business insights&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+ &lt;div class=&quot;mj-auth-form&quot;&gt;&lt;div&gt;&lt;img class=&quot;mj-auth-icon&quot; id=&quot;mj-login-icon&quot; src=&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iOCIgZmlsbD0iIzMwNUVGRiIvPgo8cGF0aCBkPSJNMjIuMTcyNSAxNy4zMjYxTDIwLjc1NDEgMjIuNDY0MkwyOC44NzI5IDE3LjI5NjhMMjMuNTYzIDM2Ljc5NDZMMjguOTU1OCAzNi43OTlMMzYuOCA4IiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTMuNDMzNSAyOC42MDI5TDExLjIgMzYuNzk5N0gyMi4yNTNMMjYuNzc1OCAyMC4xMjVMMTMuNDMzNSAyOC42MDI5WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==&quot; alt=&quot;&quot;&gt;&lt;p class=&quot;as-muted&quot;&gt;Welcome to Razorpay&lt;/p&gt;&lt;/div&gt;
+  &lt;div id=&quot;mj-login-identity&quot;&gt;&lt;h2&gt;Get started with your email or phone number&lt;/h2&gt;&lt;div style=&quot;margin:20px 0 17px&quot;&gt;&lt;label class=&quot;mj-auth-label&quot; for=&quot;mj-demo-email&quot;&gt;Sample merchant account&lt;/label&gt;&lt;input class=&quot;as-input&quot; id=&quot;mj-demo-email&quot; type=&quot;email&quot; readonly value=&quot;owner@everyday.example&quot; autocomplete=&quot;off&quot;&gt;&lt;/div&gt;&lt;div class=&quot;mj-login-actions&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;as-button as-primary cursor-interaction&quot; id=&quot;mj-login-continue&quot;&gt;Continue&lt;/button&gt;&lt;div class=&quot;mj-or&quot;&gt;or&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;as-button&quot; disabled&gt;Continue with Google&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div id=&quot;mj-login-verification&quot; hidden&gt;&lt;h2&gt;Verify your account&lt;/h2&gt;&lt;p class=&quot;as-muted&quot; style=&quot;margin:12px 0 17px&quot;&gt;Illustrative verification step for the sample merchant.&lt;/p&gt;&lt;label class=&quot;mj-auth-label&quot; for=&quot;mj-demo-code&quot;&gt;Sample verification code&lt;/label&gt;&lt;input class=&quot;as-input&quot; id=&quot;mj-demo-code&quot; readonly value=&quot;123456&quot; autocomplete=&quot;off&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;as-button as-primary cursor-interaction&quot; id=&quot;mj-login-verify&quot; style=&quot;margin-top:17px&quot;&gt;Continue to sample dashboard&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;as-link cursor-interaction&quot; id=&quot;mj-login-back&quot; style=&quot;margin-top:13px&quot;&gt;Use a different sign-in method&lt;/button&gt;&lt;/div&gt;
+  &lt;div class=&quot;mj-auth-bottom&quot;&gt;&lt;div class=&quot;mj-preview-label&quot;&gt;Design preview only. No credentials are collected and no account is signed in.&lt;/div&gt;&lt;p&gt;Real verification follows the security method enabled on the merchant&#x27;s account.&lt;/p&gt;&lt;/div&gt;
+ &lt;/div&gt;
+&lt;/section&gt;
+&lt;div id=&quot;mj-application&quot; hidden&gt;
+
+&lt;header class=&quot;as-top&quot;&gt;&lt;img class=&quot;as-logo&quot; style=&quot;width:105px;height:auto;filter:brightness(0) invert(1)&quot; src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMTYiIGhlaWdodD0iNjciIGZpbGw9IiMwNzI2NTQiIHZpZXdCb3g9IjAgMCAxODk2IDQwMSI+PHBhdGggZmlsbD0iIzMzOTVGRiIgZD0iTTEyMi42MyAxMDUuN2wtMTUuNzUgNTcuOTcgOTAuMTUtNTguMy01OC45NiAyMTkuOTggNTkuODguMDVMMjg1LjA1LjQ4Ii8+PHBhdGggZD0iTTI1LjYgMjMyLjkyTC44IDMyNS40aDEyMi43M2w1MC4yMi0xODguMTNMMjUuNiAyMzIuOTJtNDI2LjMyLTgxLjQyYy0zIDExLjE1LTguNzggMTkuMzQtMTcuNCAyNC41Ny04LjYgNS4yMi0yMC42NyA3Ljg0LTM2LjI1IDcuODRoLTQ5LjVsMTcuMzgtNjQuOGg0OS41YzE1LjU2IDAgMjYuMjUgMi42IDMyLjA1IDcuOSA1LjggNS4zIDcuMiAxMy40IDQuMjIgMjQuNm01MS4yNS0xLjRjNi4zLTIzLjQgMy43LTQxLjQtNy44Mi01NC0xMS41LTEyLjUtMzEuNjgtMTguOC02MC40OC0xOC44SDMyNC40bC02Ni41IDI0OC4xaDUzLjY3bDI2LjgtMTAwaDM1LjJjNy45IDAgMTQuMTIgMS4zIDE4LjY2IDMuOCA0LjU1IDIuNiA3LjIyIDcuMSA4LjA0IDEzLjZsOS41OCA4Mi42aDU3LjVsLTkuMzItNzdjLTEuOS0xNy4yLTkuNzctMjcuMy0yMy42LTMwLjMgMTcuNjMtNS4xIDMyLjQtMTMuNiA0NC4zLTI1LjRhOTIuNiA5Mi42IDAgMCAwIDI0LjQ0LTQyLjVtMTMwLjQ2IDg2LjRjLTQuNSAxNi44LTExLjQgMjkuNS0yMC43MyAzOC40LTkuMzQgOC45LTIwLjUgMTMuMy0zMy41MiAxMy4zLTEzLjI2IDAtMjIuMjUtNC4zLTI3LTEzLTQuNzYtOC43LTQuOTItMjEuMy0uNS0zNy44IDQuNDItMTYuNSAxMS40Ny0yOS40IDIxLjE3LTM4LjcgOS43LTkuMyAyMS4wNC0xMy45NSAzNC4wNi0xMy45NSAxMyAwIDIxLjkgNC41IDI2LjQgMTMuNDMgNC42IDguOTcgNC43IDIxLjguMiAzOC41em0yMy41Mi04Ny44bC02LjcyIDI1LjFjLTIuOS05LTguNTMtMTYuMi0xNi44NS0yMS42LTguMzQtNS4zLTE4LjY2LTgtMzAuOTctOC0xNS4xIDAtMjkuNiAzLjktNDMuNSAxMS43LTEzLjkgNy44LTI2LjEgMTguOC0zNi41IDMzLTEwLjQgMTQuMi0xOCAzMC4zLTIyLjkgNDguNC00LjggMTguMi01LjggMzQuMS0yLjkgNDcuOSAzIDEzLjkgOS4zIDI0LjUgMTkgMzEuOSA5LjggNy41IDIyLjMgMTEuMiAzNy42IDExLjJhODIuNCA4Mi40IDAgMCAwIDM1LjItNy43IDgyLjExIDgyLjExIDAgMCAwIDI4LjQtMjEuMmwtNyAyNi4xNmg1MS45TDcwOS4zIDE0OWgtNTJ6bTIzOC42NSAwSDc0NC44N2wtMTAuNTUgMzkuNGg4Ny44MmwtMTE2LjEgMTAwLjMtOS45MiAzN2gxNTUuOGwxMC41NS0zOS40aC05NC4xbDExNy44OC0xMDEuOG0xNDIuNCA1MmMtNC42NyAxNy40LTExLjYgMzAuNDgtMjAuNzUgMzktOS4xNSA4LjYtMjAuMjMgMTIuOS0zMy4yNCAxMi45LTI3LjIgMC0zNi4xNC0xNy4zLTI2Ljg2LTUxLjkgNC42LTE3LjIgMTEuNTYtMzAuMTMgMjAuODYtMzguODQgOS4zLTguNzQgMjAuNTctMTMuMSAzMy44Mi0xMy4xIDEzIDAgMjEuNzggNC4zMyAyNi4zIDEzLjA1IDQuNTIgOC43IDQuNDggMjEuNjctLjEzIDM4Ljg3bTMwLjM4LTgwLjgzYy0xMS45NS03LjQ0LTI3LjItMTEuMTYtNDUuOC0xMS4xNi0xOC44MyAwLTM2LjI2IDMuNy01Mi4zIDExLjFhMTEzLjA5IDExMy4wOSAwIDAgMC00MSAzMi4wNmMtMTEuMyAxMy45LTE5LjQzIDMwLjItMjQuNDIgNDguOC00LjkgMTguNTMtNS41IDM0LjgtMS43IDQ4LjczIDMuOCAxMy45IDExLjggMjQuNiAyMy44IDMyIDEyLjEgNy40NiAyNy41IDExLjE3IDQ2LjQgMTEuMTcgMTguNiAwIDM1LjktMy43NCA1MS44LTExLjE4IDE1LjktNy40OCAyOS41LTE4LjEgNDAuOC0zMi4xIDExLjMtMTMuOTQgMTkuNC0zMC4yIDI0LjQtNDguOCA1LTE4LjYgNS42LTM0Ljg0IDEuOC00OC44LTMuOC0xMy45LTExLjctMjQuNi0yMy42LTMyLjA1bTE4NS4xIDQwLjhsMTMuMy00OC4xYy00LjUtMi4zLTEwLjQtMy41LTE3LjgtMy41LTExLjkgMC0yMy4zIDIuOTQtMzQuMyA4LjktOS40NiA1LjA2LTE3LjUgMTIuMi0yNC4zIDIxLjE0bDYuOS0yNS45LTE1LjA3LjA2aC0zN2wtNDcuNyAxNzYuN2g1Mi42M2wyNC43NS05Mi4zN2MzLjYtMTMuNDMgMTAuMDgtMjQgMTkuNDMtMzEuNSA5LjMtNy41MyAyMC45LTExLjMgMzQuOS0xMS4zIDguNiAwIDE2LjYgMS45NyAyNC4yIDUuOW0xNDYuNSA0MS4xYy00LjUgMTYuNS0xMS4zIDI5LjEtMjAuNiAzNy44LTkuMyA4Ljc0LTIwLjUgMTMuMS0zMy41IDEzLjFzLTIxLjktNC40LTI2LjYtMTMuMmMtNC44LTguODUtNC45LTIxLjYtLjQtMzguMzYgNC41LTE2Ljc1IDExLjQtMjkuNiAyMC45LTM4LjUgOS41LTguOTcgMjAuNy0xMy40NSAzMy43LTEzLjQ1IDEyLjggMCAyMS40IDQuNiAyNiAxMy45IDQuNiA5LjMgNC43IDIyLjIuMjggMzguN20zNi44LTgxLjRjLTkuNzUtNy44LTIyLjItMTEuNy0zNy4zLTExLjctMTMuMjMgMC0yNS44NCAzLTM3LjggOS4wNi0xMS45NSA2LjA1LTIxLjY1IDE0LjMtMjkuMSAyNC43NGwuMTgtMS4yIDguODMtMjguMWgtNTEuNGwtMTMuMSA0OC45LS40IDEuNy01NCAyMDEuNDRoNTIuN2wyNy4yLTEwMS40YzIuNyA5LjAyIDguMiAxNi4xIDE2LjYgMjEuMjIgOC40IDUuMSAxOC43NyA3LjYzIDMxLjEgNy42MyAxNS4zIDAgMjkuOS0zLjcgNDMuNzUtMTEuMSAxMy45LTcuNDIgMjUuOS0xOC4xIDM2LjEtMzEuOSAxMC4yLTEzLjggMTcuNzctMjkuOCAyMi42LTQ3LjkgNC45LTE4LjEzIDUuOS0zNC4zIDMuMS00OC40NS0yLjg1LTE0LjE3LTkuMTYtMjUuMTQtMTguOS0zMi45bTE3NC42NSA4MC42NWMtNC41IDE2LjctMTEuNCAyOS41LTIwLjcgMzguMy05LjMgOC44Ni0yMC41IDEzLjI3LTMzLjUgMTMuMjctMTMuMyAwLTIyLjMtNC4zLTI3LTEzLTQuOC04LjctNC45LTIxLjMtLjUtMzcuOCA0LjQtMTYuNSAxMS40Mi0yOS40IDIxLjEyLTM4LjcgOS43LTkuMyAyMS4wNS0xMy45NCAzNC4wNy0xMy45NCAxMyAwIDIxLjggNC41IDI2LjQgMTMuNCA0LjYgOC45MyA0LjYzIDIxLjc2LjE1IDM4LjV6bTIzLjUtODcuODVsLTYuNzMgMjUuMWMtMi45LTkuMDUtOC41LTE2LjI1LTE2LjgtMjEuNi04LjQtNS4zNC0xOC43LTgtMzEtOC0xNS4xIDAtMjkuNjggMy45LTQzLjYgMTEuNy0xMy45IDcuOC0yNi4xIDE4Ljc0LTM2LjUgMzIuOS0xMC40IDE0LjE2LTE4IDMwLjMtMjIuOSA0OC40LTQuODUgMTguMTctNS44IDM0LjEtMi45IDQ3Ljk2IDIuOTMgMTMuOCA5LjI0IDI0LjQ2IDE5IDMxLjkgOS43NCA3LjQgMjIuMyAxMS4xNCAzNy42IDExLjE0IDEyLjMgMCAyNC4wNS0yLjU2IDM1LjItNy43YTgyLjMgODIuMyAwIDAgMCAyOC4zMy0yMS4yM2wtNyAyNi4xOGg1MS45bDQ3LjM4LTE3Ni43aC01MS45em0yNjkuODcuMDZsLjAzLS4wNWgtMzEuOWMtMS4wMiAwLTEuOTIuMDUtMi44NS4wN2gtMTYuNTVsLTguNSAxMS44LTIuMSAyLjgtLjkgMS40LTY3LjI1IDkzLjY4LTEzLjktMTA5LjdoLTU1LjA4bDI3LjkgMTY2LjctNjEuNiA4NS4zaDU0LjlsMTQuOS0yMS4xM2MuNDItLjYyLjgtMS4xNCAxLjMtMS44bDE3LjQtMjQuNy41LS43IDc3LjkzLTExMC41IDY1LjctOTMgLjEtLjA2aC0uMDN6Ii8+PC9zdmc+Cg==&quot; alt=&quot;Razorpay&quot;&gt;&lt;span class=&quot;as-product&quot;&gt;Razorpay Home&lt;/span&gt;&lt;span class=&quot;as-product active&quot;&gt;Payments&lt;/span&gt;&lt;span class=&quot;as-product extra&quot;&gt;Company Registration&lt;/span&gt;&lt;span class=&quot;as-product extra&quot;&gt;Razorpay Ads&lt;/span&gt;&lt;span class=&quot;as-top-note&quot;&gt;Design preview · sample data&lt;/span&gt;&lt;/header&gt;
+&lt;div class=&quot;as-shell&quot;&gt;
+&lt;aside class=&quot;as-side&quot; aria-label=&quot;Razorpay dashboard context&quot;&gt;&lt;button type=&quot;button&quot; id=&quot;mj-side-home&quot; class=&quot;as-side-item mj-sidebar-button cursor-interaction&quot; data-page=&quot;payments&quot;&gt;&lt;i data-lucide=&quot;house&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Home&lt;/button&gt;&lt;span class=&quot;as-side-item&quot;&gt;&lt;i data-lucide=&quot;arrow-left-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Transactions&lt;/span&gt;&lt;span class=&quot;as-side-item&quot;&gt;&lt;i data-lucide=&quot;check-check&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Settlements&lt;/span&gt;&lt;span class=&quot;as-side-item&quot;&gt;&lt;i data-lucide=&quot;file-chart-column&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Reports&lt;/span&gt;&lt;button type=&quot;button&quot; id=&quot;mj-side-studio&quot; class=&quot;as-side-item mj-sidebar-button cursor-interaction&quot; data-page=&quot;home&quot;&gt;&lt;i data-lucide=&quot;bot&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Agent Studio &lt;span class=&quot;as-beta&quot;&gt;Beta&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;as-section-label&quot;&gt;PAYMENT PRODUCTS&lt;/span&gt;&lt;span class=&quot;as-side-item&quot;&gt;Magic Checkout&lt;/span&gt;&lt;span class=&quot;as-side-item&quot;&gt;Payment Links&lt;/span&gt;&lt;span class=&quot;as-side-item&quot;&gt;Payment Pages&lt;/span&gt;&lt;span class=&quot;as-side-item&quot;&gt;+12 More&lt;/span&gt;&lt;span class=&quot;as-section-label&quot;&gt;CUSTOMER PRODUCTS&lt;/span&gt;&lt;span class=&quot;as-side-item&quot;&gt;Customers&lt;/span&gt;&lt;span class=&quot;as-side-item&quot;&gt;Developers&lt;/span&gt;&lt;span class=&quot;as-side-item&quot;&gt;Offers&lt;/span&gt;&lt;span class=&quot;as-side-item&quot;&gt;Apps &amp;amp; Deals&lt;/span&gt;&lt;div class=&quot;as-side-bottom&quot;&gt;&lt;span class=&quot;as-side-item&quot;&gt;Test Mode&lt;/span&gt;&lt;span class=&quot;as-side-item&quot;&gt;Account &amp;amp; Settings&lt;/span&gt;&lt;/div&gt;&lt;/aside&gt;
+&lt;div class=&quot;as-stage&quot; id=&quot;as-stage&quot;&gt;&lt;main class=&quot;as-content&quot;&gt;
+&lt;nav class=&quot;as-main-tabs&quot; aria-label=&quot;Agent Studio&quot; id=&quot;as-main-tabs&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;as-tab cursor-interaction&quot; data-page=&quot;home&quot; aria-current=&quot;page&quot;&gt;Home&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;as-tab cursor-interaction&quot; data-page=&quot;agents&quot;&gt;My Agents&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;as-tab cursor-interaction&quot; data-page=&quot;connectors&quot;&gt;Connectors&lt;/button&gt;&lt;/nav&gt;
+&lt;section class=&quot;as-page&quot; id=&quot;as-page-payments&quot; hidden&gt;
+ &lt;div class=&quot;mj-dash-head&quot;&gt;&lt;div&gt;&lt;h2&gt;Welcome, Everyday Co.&lt;/h2&gt;&lt;p class=&quot;as-muted&quot; style=&quot;margin-top:5px&quot;&gt;Payments dashboard · sample merchant&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;mj-mode-tag&quot;&gt;Sample account&lt;/span&gt;&lt;/div&gt;
+ &lt;div class=&quot;mj-payments-summary&quot;&gt;&lt;div class=&quot;mj-box&quot;&gt;&lt;p class=&quot;as-muted&quot;&gt;Payment volume&lt;/p&gt;&lt;strong&gt;₹0&lt;/strong&gt;&lt;p class=&quot;as-muted&quot;&gt;No payment events in this preview&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;mj-box&quot;&gt;&lt;p class=&quot;as-muted&quot;&gt;Payments&lt;/p&gt;&lt;strong&gt;0&lt;/strong&gt;&lt;p class=&quot;as-muted&quot;&gt;Sample account only&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+ &lt;div class=&quot;mj-empty&quot;&gt;&lt;h3&gt;No transactions to display&lt;/h3&gt;&lt;p class=&quot;as-muted&quot;&gt;The repeat-purchase example uses connected sample commerce data.&lt;/p&gt;&lt;/div&gt;
+ &lt;div class=&quot;as-bottom-action&quot;&gt;&lt;span class=&quot;as-muted&quot;&gt;Find purpose-built agents inside Agent Studio.&lt;/span&gt;&lt;button type=&quot;button&quot; class=&quot;as-button as-primary cursor-interaction&quot; data-page=&quot;home&quot;&gt;Open Agent Studio&lt;/button&gt;&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;as-page&quot; id=&quot;as-page-home&quot;&gt;&lt;div class=&quot;as-hero&quot;&gt;&lt;h2&gt;Automate your business with AI agents&lt;/h2&gt;&lt;p class=&quot;as-muted&quot;&gt;Put routine work in the hands of purpose-built agents.&lt;/p&gt;&lt;/div&gt;&lt;h3 style=&quot;margin-bottom:14px&quot;&gt;Explore Agents&lt;/h3&gt;&lt;div class=&quot;as-catalog&quot;&gt;&lt;article class=&quot;as-agent-card&quot;&gt;&lt;div class=&quot;as-card-name&quot;&gt;&lt;span class=&quot;as-art&quot;&gt;R&lt;/span&gt;Repeat Purchase Agent&lt;/div&gt;&lt;strong&gt;Turn a likely repeat purchase into the right next action.&lt;/strong&gt;&lt;p class=&quot;as-muted&quot;&gt;Same-product reorders through WhatsApp and voice.&lt;/p&gt;&lt;button type=&quot;button&quot; class=&quot;as-button as-primary cursor-interaction&quot; data-page=&quot;detail&quot;&gt;View agent&lt;/button&gt;&lt;div class=&quot;as-connect-tags&quot;&gt;Shopify · Razorpay · WhatsApp · Voice&lt;/div&gt;&lt;/article&gt;&lt;article class=&quot;as-agent-card&quot;&gt;&lt;div class=&quot;as-card-name&quot;&gt;&lt;span class=&quot;as-art pink&quot;&gt;D&lt;/span&gt;Dispute Response&lt;/div&gt;&lt;strong&gt;Respond to payment disputes.&lt;/strong&gt;&lt;p class=&quot;as-muted&quot;&gt;Existing agent shown for marketplace context.&lt;/p&gt;&lt;div class=&quot;as-connect-tags&quot;&gt;Reference card&lt;/div&gt;&lt;/article&gt;&lt;article class=&quot;as-agent-card&quot;&gt;&lt;div class=&quot;as-card-name&quot;&gt;&lt;span class=&quot;as-art&quot;&gt;C&lt;/span&gt;Abandoned Cart Recovery&lt;/div&gt;&lt;strong&gt;Help shoppers complete unfinished checkouts.&lt;/strong&gt;&lt;p class=&quot;as-muted&quot;&gt;Existing agent shown for marketplace context.&lt;/p&gt;&lt;div class=&quot;as-connect-tags&quot;&gt;Reference card&lt;/div&gt;&lt;/article&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;section class=&quot;as-page&quot; id=&quot;as-page-detail&quot; hidden&gt;&lt;div class=&quot;as-breadcrumb&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;as-link cursor-interaction&quot; data-page=&quot;home&quot;&gt;Agent Marketplace&lt;/button&gt; / Repeat Purchase Agent&lt;/div&gt;&lt;div class=&quot;as-title-row&quot;&gt;&lt;div&gt;&lt;h2&gt;Repeat Purchase Agent&lt;/h2&gt;&lt;div class=&quot;as-badges&quot;&gt;&lt;span&gt;Proposed agent&lt;/span&gt;&lt;span&gt;Grow revenue&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;as-muted&quot; style=&quot;margin-bottom:15px&quot;&gt;For brands selling repeatedly purchased consumer products.&lt;/p&gt;&lt;button type=&quot;button&quot; class=&quot;as-button as-primary cursor-interaction&quot; id=&quot;as-install-open&quot;&gt;Install Agent&lt;/button&gt;&lt;/div&gt;&lt;span class=&quot;as-art as-title-art&quot;&gt;R&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;as-detail-body&quot;&gt;&lt;div&gt;&lt;h3&gt;Profitable repeat orders, with merchant control&lt;/h3&gt;&lt;p class=&quot;as-muted&quot;&gt;Estimate when an existing customer may be ready to reorder. Adapt to their reply, prepare the same-product checkout, arrange a reminder, or hand off an issue.&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Problem&lt;/h3&gt;&lt;p class=&quot;as-muted&quot;&gt;Fixed reminders cannot tell whether a customer needs more time, has a price concern, or has an unresolved issue.&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;h3&gt;How it works&lt;/h3&gt;&lt;ol class=&quot;as-step-list&quot;&gt;&lt;li&gt;&lt;strong&gt;Find the repeat opportunity&lt;/strong&gt;&lt;small&gt;Use permitted purchase history and customer-stated dates.&lt;/small&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Work within your approved plan&lt;/strong&gt;&lt;small&gt;Check eligibility, contact limits and channel permissions.&lt;/small&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Adapt and record the outcome&lt;/strong&gt;&lt;small&gt;Reorder, reschedule or route to support. Verify purchase evidence.&lt;/small&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;&lt;div&gt;&lt;h3&gt;Capabilities and limits&lt;/h3&gt;&lt;p class=&quot;as-muted&quot;&gt;Same-SKU checkout, reminders and support handoffs. No new discounts, substitute products or automatic charges.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;section class=&quot;as-page&quot; id=&quot;as-page-agents&quot; hidden&gt;&lt;div class=&quot;as-installed&quot;&gt;&lt;div class=&quot;as-agent-list&quot;&gt;&lt;p class=&quot;as-muted&quot; id=&quot;as-list-group&quot;&gt;Not installed&lt;/p&gt;&lt;button type=&quot;button&quot; class=&quot;as-agent-entry cursor-interaction&quot; id=&quot;as-agent-entry&quot;&gt;&lt;span class=&quot;as-art&quot;&gt;R&lt;/span&gt;&lt;span&gt;Repeat Purchase Agent&lt;small id=&quot;as-list-status&quot;&gt;Set up the agent to begin&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;as-link cursor-interaction&quot; id=&quot;as-list-install&quot;&gt;Install this agent&lt;/button&gt;&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;as-agent-title&quot;&gt;&lt;span class=&quot;as-art&quot;&gt;R&lt;/span&gt;&lt;div&gt;&lt;h3&gt;Repeat Purchase Agent&lt;/h3&gt;&lt;p class=&quot;as-muted&quot; id=&quot;as-installed-status&quot;&gt;Sample workspace preview&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;as-agent-actions&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;as-button cursor-interaction&quot; data-work=&quot;dashboard&quot;&gt;Dashboard&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;as-button cursor-interaction&quot; data-work=&quot;activity&quot;&gt;Activity&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;as-button cursor-interaction&quot; data-work=&quot;settings&quot;&gt;Settings&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;as-metrics&quot;&gt;&lt;div&gt;&lt;small&gt;ELIGIBLE CUSTOMERS&lt;/small&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;p class=&quot;as-muted&quot;&gt;sample dataset&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;small&gt;CONFIRMED ORDERS&lt;/small&gt;&lt;strong&gt;0&lt;/strong&gt;&lt;p class=&quot;as-muted&quot;&gt;no payment evidence yet&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;as-label&quot;&gt;LAST ACTIVITY&lt;/div&gt;&lt;p id=&quot;as-last-activity&quot;&gt;A repeat-purchase audience is ready for review.&lt;/p&gt;&lt;div class=&quot;as-label&quot;&gt;CONNECTORS&lt;/div&gt;&lt;div id=&quot;as-summary-tags&quot;&gt;&lt;span class=&quot;as-tag&quot;&gt;Not connected&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;as-note&quot;&gt;Installing the agent grants bounded capabilities. Customer outreach still needs an approved plan.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;section class=&quot;as-page&quot; id=&quot;as-page-work&quot; hidden&gt;&lt;div class=&quot;as-breadcrumb&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;as-link cursor-interaction&quot; data-page=&quot;agents&quot;&gt;My Agents&lt;/button&gt; / Repeat Purchase Agent&lt;/div&gt;&lt;div class=&quot;as-work-title&quot;&gt;&lt;span class=&quot;as-art&quot;&gt;R&lt;/span&gt;&lt;div&gt;&lt;h2&gt;Repeat Purchase Agent &lt;span class=&quot;as-status-pill&quot; id=&quot;as-work-status&quot;&gt;Sample workspace&lt;/span&gt;&lt;/h2&gt;&lt;button type=&quot;button&quot; class=&quot;as-button cursor-interaction&quot; id=&quot;as-pause&quot;&gt;Pause agent&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;nav class=&quot;as-subtabs&quot; aria-label=&quot;Repeat Purchase Agent&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;as-tab cursor-interaction&quot; data-work=&quot;dashboard&quot; aria-current=&quot;page&quot;&gt;Dashboard&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;as-tab cursor-interaction&quot; data-work=&quot;activity&quot;&gt;Activity&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;as-tab cursor-interaction&quot; data-work=&quot;settings&quot;&gt;Settings&lt;/button&gt;&lt;/nav&gt;&lt;div id=&quot;as-work-dashboard&quot;&gt;
+ &lt;nav class=&quot;mj-dashboard-tabs&quot; role=&quot;tablist&quot; aria-label=&quot;Agent dashboard views&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;mj-dashboard-tab cursor-interaction&quot; id=&quot;mj-tab-overview&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot; aria-controls=&quot;mj-overview&quot; data-dash=&quot;overview&quot;&gt;Overview&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;mj-dashboard-tab cursor-interaction&quot; id=&quot;mj-tab-opportunities&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; aria-controls=&quot;mj-opportunities&quot; data-dash=&quot;opportunities&quot;&gt;Opportunities&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;mj-dashboard-tab cursor-interaction&quot; id=&quot;mj-tab-analytics&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; aria-controls=&quot;mj-analytics&quot; data-dash=&quot;analytics&quot;&gt;Analytics&lt;/button&gt;&lt;/nav&gt;
+ &lt;section id=&quot;mj-overview&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;mj-tab-overview&quot;&gt;
+  &lt;div class=&quot;mj-attention&quot;&gt;&lt;div&gt;&lt;strong id=&quot;mj-attention-title&quot;&gt;Review the first outreach plan&lt;/strong&gt;&lt;small id=&quot;mj-attention-detail&quot;&gt;3 eligible customers · 2 excluded · no contact approved yet&lt;/small&gt;&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;as-button as-primary cursor-interaction&quot; id=&quot;mj-attention-button&quot;&gt;Review plan&lt;/button&gt;&lt;/div&gt;
+  &lt;div class=&quot;mj-metric-grid&quot;&gt;&lt;div class=&quot;mj-metric&quot;&gt;&lt;span class=&quot;mj-metric-label&quot;&gt;Confirmed repeat orders&lt;/span&gt;&lt;strong class=&quot;mj-metric-value&quot; id=&quot;mj-overview-orders&quot;&gt;0&lt;/strong&gt;&lt;small&gt;Across the assigned customers&#x27; brand orders&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;mj-metric&quot;&gt;&lt;span class=&quot;mj-metric-label&quot;&gt;Net revenue&lt;/span&gt;&lt;strong class=&quot;mj-metric-value&quot; id=&quot;mj-overview-revenue&quot;&gt;₹0&lt;/strong&gt;&lt;small&gt;After discounts and refunds&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;mj-metric&quot;&gt;&lt;span class=&quot;mj-metric-label&quot;&gt;Needs merchant review&lt;/span&gt;&lt;strong class=&quot;mj-metric-value&quot; id=&quot;mj-overview-reviews&quot;&gt;1&lt;/strong&gt;&lt;small&gt;Approval or unresolved execution&lt;/small&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;mj-two-col&quot;&gt;&lt;section class=&quot;mj-box&quot;&gt;&lt;h3&gt;Journey status&lt;/h3&gt;&lt;div class=&quot;mj-status-line&quot;&gt;&lt;span&gt;Plan awaiting approval&lt;/span&gt;&lt;strong id=&quot;mj-status-plan&quot;&gt;1&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;mj-status-line&quot;&gt;&lt;span&gt;Reminder scheduled&lt;/span&gt;&lt;strong id=&quot;mj-status-reminders&quot;&gt;0&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;mj-status-line&quot;&gt;&lt;span&gt;Checkout awaiting payment&lt;/span&gt;&lt;strong id=&quot;mj-status-checkouts&quot;&gt;0&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;mj-status-line&quot;&gt;&lt;span&gt;Confirmed purchasers&lt;/span&gt;&lt;strong id=&quot;mj-status-purchasers&quot;&gt;0&lt;/strong&gt;&lt;/div&gt;&lt;/section&gt;&lt;section class=&quot;mj-box&quot;&gt;&lt;h3&gt;Agent mandate&lt;/h3&gt;&lt;div class=&quot;mj-inline-policy&quot;&gt;&lt;span&gt;Same previously purchased SKU&lt;/span&gt;&lt;span&gt;WhatsApp and voice · permission required&lt;/span&gt;&lt;span id=&quot;mj-policy-limits&quot;&gt;2 contacts per journey · 10 am–6 pm IST&lt;/span&gt;&lt;span&gt;Offers off unless explicitly approved&lt;/span&gt;&lt;span&gt;Pause when critical facts or coordination are missing&lt;/span&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;
+  &lt;div class=&quot;mj-demo-bar&quot;&gt;&lt;span id=&quot;mj-sample-run-hint&quot;&gt;Approve the sample plan before previewing activity.&lt;/span&gt;&lt;button type=&quot;button&quot; class=&quot;as-button cursor-interaction&quot; id=&quot;mj-preview-run&quot; disabled&gt;Preview sample agent work&lt;/button&gt;&lt;/div&gt;
+ &lt;/section&gt;
+ &lt;section id=&quot;mj-opportunities&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;mj-tab-opportunities&quot; hidden&gt;
+  &lt;div class=&quot;mj-section-head&quot;&gt;&lt;div&gt;&lt;h3&gt;Repeat-purchase opportunities&lt;/h3&gt;&lt;p class=&quot;as-muted&quot;&gt;3 initially eligible customers. Readiness is an estimate.&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;mj-mode-tag&quot;&gt;Sample history&lt;/span&gt;&lt;/div&gt;
+  &lt;table class=&quot;as-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Customer / same product&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Timing evidence&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Next action&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;button type=&quot;button&quot; class=&quot;as-row-action cursor-interaction&quot; data-case=&quot;evidence&quot;&gt;Ananya&lt;/button&gt;&lt;small&gt;Laundry liquid · 1 L&lt;/small&gt;&lt;/td&gt;&lt;td&gt;29 / 31-day intervals&lt;small&gt;Window: 11–14 Oct&lt;/small&gt;&lt;/td&gt;&lt;td id=&quot;mj-opportunity-ananya&quot;&gt;WhatsApp outreach&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;button type=&quot;button&quot; class=&quot;as-row-action cursor-interaction&quot; data-case=&quot;evidence-rahul&quot;&gt;Rahul&lt;/button&gt;&lt;small&gt;Laundry liquid · 1 L&lt;/small&gt;&lt;/td&gt;&lt;td&gt;Product-level fallback&lt;small&gt;Window: 12–16 Oct&lt;/small&gt;&lt;/td&gt;&lt;td id=&quot;mj-opportunity-rahul&quot;&gt;Voice outreach&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;button type=&quot;button&quot; class=&quot;as-row-action cursor-interaction&quot; data-case=&quot;evidence-neha&quot;&gt;Neha&lt;/button&gt;&lt;small&gt;Laundry liquid · 1 L&lt;/small&gt;&lt;/td&gt;&lt;td&gt;29 / 32-day intervals&lt;small&gt;Window: 10–13 Oct&lt;/small&gt;&lt;/td&gt;&lt;td id=&quot;mj-opportunity-neha&quot;&gt;WhatsApp outreach&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+  &lt;details style=&quot;margin-top:14px&quot;&gt;&lt;summary class=&quot;as-muted&quot;&gt;Why 2 customers are excluded&lt;/summary&gt;&lt;p class=&quot;as-muted&quot; style=&quot;margin-top:8px&quot;&gt;C004: order not delivered. C005: explicit opt-out. Neither can be contacted.&lt;/p&gt;&lt;/details&gt;
+  &lt;div class=&quot;as-bottom-action&quot;&gt;&lt;span class=&quot;as-muted&quot; id=&quot;as-plan-state&quot;&gt;No approved outreach plan&lt;/span&gt;&lt;button type=&quot;button&quot; class=&quot;as-button as-primary cursor-interaction&quot; id=&quot;as-plan-open&quot;&gt;Review outreach plan&lt;/button&gt;&lt;/div&gt;
+ &lt;/section&gt;
+ &lt;section id=&quot;mj-analytics&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;mj-tab-analytics&quot; hidden&gt;
+  &lt;div class=&quot;mj-section-head&quot;&gt;&lt;div&gt;&lt;h3&gt;Business outcomes&lt;/h3&gt;&lt;p class=&quot;as-muted&quot;&gt;Assigned customers&#x27; brand orders, including purchases outside agent links.&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;mj-mode-tag&quot;&gt;Synthetic example&lt;/span&gt;&lt;/div&gt;
+  &lt;span class=&quot;mj-analytics-period&quot;&gt;Sample observation period · provisional results · returns window open&lt;/span&gt;
+  &lt;div class=&quot;mj-north-star&quot;&gt;&lt;div&gt;&lt;strong&gt;Incremental net contribution per eligible customer&lt;/strong&gt;&lt;p class=&quot;as-muted&quot; style=&quot;margin-top:6px;max-width:380px&quot;&gt;Requires a comparable control group. Revenue after a conversation alone does not establish lift.&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;mj-north-star-value&quot;&gt;Not measured&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;mj-business-grid&quot;&gt;&lt;div class=&quot;mj-metric&quot;&gt;&lt;span class=&quot;mj-metric-label&quot;&gt;Repeat purchasers / assigned customers&lt;/span&gt;&lt;strong class=&quot;mj-metric-value&quot; id=&quot;mj-analytics-repeat&quot;&gt;0 / 3&lt;/strong&gt;&lt;small id=&quot;mj-analytics-repeat-rate&quot;&gt;0% · synthetic example&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;mj-metric&quot;&gt;&lt;span class=&quot;mj-metric-label&quot;&gt;Net revenue&lt;/span&gt;&lt;strong class=&quot;mj-metric-value&quot; id=&quot;mj-analytics-revenue&quot;&gt;₹0&lt;/strong&gt;&lt;small&gt;Observed example orders; not incremental&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;mj-metric&quot;&gt;&lt;span class=&quot;mj-metric-label&quot;&gt;Net contribution · provisional&lt;/span&gt;&lt;strong class=&quot;mj-metric-value&quot; id=&quot;mj-analytics-contribution&quot;&gt;₹0&lt;/strong&gt;&lt;small&gt;After recorded merchant and agent costs&lt;/small&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;mj-two-col&quot;&gt;&lt;section class=&quot;mj-box&quot;&gt;&lt;h3&gt;Journey progression&lt;/h3&gt;&lt;div class=&quot;mj-status-line&quot;&gt;&lt;span&gt;Assigned customers&lt;/span&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;mj-status-line&quot;&gt;&lt;span&gt;Contacted in sample&lt;/span&gt;&lt;strong id=&quot;mj-analytics-contacted&quot;&gt;0&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;mj-status-line&quot;&gt;&lt;span&gt;Replied in sample&lt;/span&gt;&lt;strong id=&quot;mj-analytics-replied&quot;&gt;0&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;mj-status-line&quot;&gt;&lt;span&gt;Agent checkout prepared&lt;/span&gt;&lt;strong id=&quot;mj-analytics-checkout&quot;&gt;0&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;mj-status-line&quot;&gt;&lt;span&gt;Confirmed brand orders&lt;/span&gt;&lt;strong id=&quot;mj-analytics-orders&quot;&gt;0&lt;/strong&gt;&lt;/div&gt;&lt;p class=&quot;as-muted&quot; style=&quot;margin-top:9px&quot;&gt;Brand orders may occur outside the agent checkout path; this is not a strict conversion funnel.&lt;/p&gt;&lt;/section&gt;&lt;section class=&quot;mj-box&quot;&gt;&lt;h3&gt;Contribution calculation&lt;/h3&gt;&lt;table class=&quot;mj-cost-table&quot;&gt;&lt;tbody id=&quot;mj-cost-breakdown&quot;&gt;&lt;tr&gt;&lt;td&gt;Net revenue&lt;/td&gt;&lt;td&gt;₹0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Recorded costs&lt;/td&gt;&lt;td&gt;₹0&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Provisional contribution&lt;/td&gt;&lt;td&gt;₹0&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p class=&quot;as-muted&quot; style=&quot;margin-top:10px&quot;&gt;Illustrative merchant costs, not Razorpay pricing. Missing costs would switch reporting to net revenue.&lt;/p&gt;&lt;/section&gt;&lt;/div&gt;
+  &lt;section class=&quot;mj-box&quot; style=&quot;margin-top:15px&quot;&gt;&lt;h3&gt;Trust and guardrails&lt;/h3&gt;&lt;div class=&quot;mj-guardrail&quot;&gt;&lt;span&gt;New opt-outs&lt;/span&gt;&lt;span id=&quot;mj-guard-optout&quot;&gt;0 / 0 contacted&lt;/span&gt;&lt;span&gt;Existing opt-outs remain excluded.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;mj-guardrail&quot;&gt;&lt;span&gt;Complaints&lt;/span&gt;&lt;span id=&quot;mj-guard-complaint&quot;&gt;0 / 0 contacted&lt;/span&gt;&lt;span&gt;Sales outreach stops on unresolved issues.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;mj-guardrail&quot;&gt;&lt;span&gt;Execution errors&lt;/span&gt;&lt;span id=&quot;mj-guard-error&quot;&gt;No executed sample actions&lt;/span&gt;&lt;span&gt;Unknown execution status requires review.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;mj-guardrail&quot;&gt;&lt;span&gt;Contact spend&lt;/span&gt;&lt;span id=&quot;mj-guard-spend&quot;&gt;₹0 / ₹30 cap&lt;/span&gt;&lt;span&gt;Includes WhatsApp and voice contact cost.&lt;/span&gt;&lt;/div&gt;&lt;/section&gt;
+  &lt;section class=&quot;mj-box&quot; style=&quot;margin-top:15px&quot;&gt;&lt;h3&gt;What the agent learned&lt;/h3&gt;&lt;div id=&quot;mj-learning&quot;&gt;&lt;p class=&quot;as-muted&quot;&gt;No customer preference or purchase evidence recorded yet.&lt;/p&gt;&lt;/div&gt;&lt;p class=&quot;as-muted&quot; style=&quot;margin-top:10px&quot;&gt;Confirmed preferences update the customer record. Broader policy changes need merchant approval.&lt;/p&gt;&lt;/section&gt;
+  &lt;p class=&quot;as-muted&quot; style=&quot;margin-top:14px&quot;&gt;Merchant time saved: not measured. This preview demonstrates reporting logic, not validated commercial performance.&lt;/p&gt;
+ &lt;/section&gt;
+&lt;/div&gt;
+&lt;div id=&quot;as-work-activity&quot; hidden&gt;
+ &lt;div class=&quot;mj-section-head&quot;&gt;&lt;div&gt;&lt;h3&gt;Agent work&lt;/h3&gt;&lt;p class=&quot;as-muted&quot;&gt;Review the conversation, decision, checks, action and outcome.&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;mj-mode-tag&quot;&gt;Sample records&lt;/span&gt;&lt;/div&gt;
+ &lt;div id=&quot;mj-activity-empty&quot; class=&quot;mj-empty&quot;&gt;&lt;h3&gt;No customer activity yet&lt;/h3&gt;&lt;p class=&quot;as-muted&quot;&gt;Approve a plan, then preview its sample execution from Overview.&lt;/p&gt;&lt;/div&gt;
+ &lt;div id=&quot;mj-activity-pending&quot; hidden&gt;&lt;button type=&quot;button&quot; class=&quot;as-activity-row cursor-interaction&quot; data-case=&quot;review&quot;&gt;&lt;span class=&quot;as-art small&quot;&gt;R&lt;/span&gt;&lt;span&gt;Repeat Purchase Agent &lt;span class=&quot;as-result wait&quot;&gt;Needs approval&lt;/span&gt;&lt;small&gt;Rahul · proposed checkout held in review-first mode&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+ &lt;div id=&quot;mj-activity-records&quot; hidden&gt;
+  &lt;button type=&quot;button&quot; class=&quot;as-activity-row cursor-interaction&quot; data-case=&quot;reminder&quot;&gt;&lt;span class=&quot;as-art small&quot;&gt;R&lt;/span&gt;&lt;span&gt;Repeat Purchase Agent &lt;span class=&quot;as-result&quot;&gt;Rescheduled&lt;/span&gt;&lt;small&gt;Ananya · confirmed WhatsApp reminder for 16 Oct&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;as-activity-row cursor-interaction&quot; data-case=&quot;checkout&quot; id=&quot;mj-rahul-row&quot;&gt;&lt;span class=&quot;as-art small&quot;&gt;R&lt;/span&gt;&lt;span&gt;Repeat Purchase Agent &lt;span class=&quot;as-result wait&quot; id=&quot;mj-rahul-status&quot;&gt;Awaiting payment&lt;/span&gt;&lt;small id=&quot;mj-rahul-activity&quot;&gt;Rahul · voice conversation, same-SKU checkout handoff&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;as-activity-row cursor-interaction&quot; data-case=&quot;neha-order&quot;&gt;&lt;span class=&quot;as-art small&quot;&gt;R&lt;/span&gt;&lt;span&gt;Repeat Purchase Agent &lt;span class=&quot;as-result&quot;&gt;Order confirmed&lt;/span&gt;&lt;small&gt;Neha · Shopify order found outside the agent checkout link&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;as-activity-row cursor-interaction&quot; data-case=&quot;blocked&quot;&gt;&lt;span class=&quot;as-art small&quot;&gt;R&lt;/span&gt;&lt;span&gt;Repeat Purchase Agent &lt;span class=&quot;as-result blocked&quot;&gt;Blocked&lt;/span&gt;&lt;small&gt;C005 · opt-out prevented outreach&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+ &lt;button type=&quot;button&quot; class=&quot;as-activity-row cursor-interaction&quot; data-case=&quot;support&quot;&gt;&lt;span class=&quot;as-art small&quot;&gt;R&lt;/span&gt;&lt;span&gt;Repeat Purchase Agent &lt;span class=&quot;as-result wait&quot;&gt;Support handoff&lt;/span&gt;&lt;small&gt;C004 · inbound delivery issue; sales outreach blocked&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+ &lt;/div&gt;
+ &lt;p class=&quot;as-muted&quot; style=&quot;margin-top:15px&quot;&gt;Sample records only. No provider messages, calls or payments were executed.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;as-work-settings&quot; hidden&gt;&lt;h3&gt;Agent configuration&lt;/h3&gt;&lt;div class=&quot;as-review-card&quot;&gt;&lt;dl&gt;&lt;div&gt;&lt;dt&gt;Purchase scope&lt;/dt&gt;&lt;dd&gt;Same previously bought SKU only&lt;/dd&gt;&lt;/div&gt;&lt;div&gt;&lt;dt&gt;Authority&lt;/dt&gt;&lt;dd id=&quot;as-saved-mode&quot;&gt;Within an approved plan&lt;/dd&gt;&lt;/div&gt;&lt;div&gt;&lt;dt&gt;Offers&lt;/dt&gt;&lt;dd&gt;Disabled unless explicitly approved&lt;/dd&gt;&lt;/div&gt;&lt;div&gt;&lt;dt&gt;Suppression&lt;/dt&gt;&lt;dd&gt;Opt-outs stop all marketing contact&lt;/dd&gt;&lt;/div&gt;&lt;/dl&gt;&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;as-button cursor-interaction&quot; id=&quot;as-edit-config&quot;&gt;Edit configuration&lt;/button&gt;&lt;p class=&quot;as-muted&quot; style=&quot;margin-top:12px&quot;&gt;Expanding permissions requires a fresh review. Restricting permissions applies immediately.&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;section class=&quot;as-page&quot; id=&quot;as-page-connectors&quot; hidden&gt;&lt;h3&gt;Connectors&lt;/h3&gt;&lt;p class=&quot;as-muted&quot;&gt;Four sources required by this agent. No developer accounts are connected.&lt;/p&gt;&lt;div class=&quot;as-global-connections&quot; id=&quot;as-global-grid&quot;&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;/main&gt;&lt;div class=&quot;as-footnote&quot;&gt;Proposed Repeat Purchase Agent · design preview · no external actions&lt;/div&gt;
+&lt;div class=&quot;as-modal-layer&quot; id=&quot;as-install-layer&quot; hidden&gt;&lt;section class=&quot;as-modal&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;as-install-title&quot;&gt;&lt;header class=&quot;as-modal-header&quot;&gt;&lt;strong id=&quot;as-install-title&quot;&gt;Install Repeat Purchase Agent&lt;/strong&gt;&lt;button type=&quot;button&quot; class=&quot;as-close cursor-interaction&quot; id=&quot;as-install-close&quot; aria-label=&quot;Close installation&quot;&gt;×&lt;/button&gt;&lt;/header&gt;&lt;div class=&quot;as-modal-body&quot;&gt;&lt;nav class=&quot;as-install-nav&quot; aria-label=&quot;Installation progress&quot;&gt;&lt;span class=&quot;as-install-step&quot; data-step=&quot;0&quot; aria-current=&quot;step&quot;&gt;&lt;span class=&quot;as-dot&quot;&gt;&lt;/span&gt;Configure&lt;/span&gt;&lt;span class=&quot;as-install-step&quot; data-step=&quot;1&quot;&gt;&lt;span class=&quot;as-dot&quot;&gt;&lt;/span&gt;Connectors&lt;/span&gt;&lt;span class=&quot;as-install-step&quot; data-step=&quot;2&quot;&gt;&lt;span class=&quot;as-dot&quot;&gt;&lt;/span&gt;Review&lt;/span&gt;&lt;span class=&quot;as-install-step&quot; data-step=&quot;3&quot;&gt;&lt;span class=&quot;as-dot&quot;&gt;&lt;/span&gt;Activate&lt;/span&gt;&lt;/nav&gt;&lt;div class=&quot;as-install-main&quot;&gt;
+&lt;div id=&quot;as-install-config&quot;&gt;&lt;h3&gt;Tune how this agent behaves&lt;/h3&gt;&lt;p class=&quot;as-muted&quot;&gt;Set the boundaries before giving the agent access.&lt;/p&gt;&lt;div class=&quot;as-field&quot;&gt;&lt;span class=&quot;as-field-title&quot;&gt;What can the agent do on its own?&lt;/span&gt;&lt;div class=&quot;as-radio-box&quot;&gt;&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;as-mode&quot; value=&quot;review&quot;&gt;&lt;span&gt;Review-first&lt;small&gt;Hold each outgoing action for approval.&lt;/small&gt;&lt;/span&gt;&lt;/label&gt;&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;as-mode&quot; value=&quot;bounded&quot; checked&gt;&lt;span&gt;Within an approved plan&lt;small&gt;Execute routine actions within your limits.&lt;/small&gt;&lt;/span&gt;&lt;/label&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;as-field&quot;&gt;&lt;label for=&quot;as-product&quot;&gt;Which product can it reorder?&lt;/label&gt;&lt;select class=&quot;as-select&quot; id=&quot;as-product&quot;&gt;&lt;option&gt;Laundry liquid · previously bought 1 L SKU&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;div class=&quot;as-inline-fields&quot;&gt;&lt;div class=&quot;as-field&quot;&gt;&lt;label for=&quot;as-cap&quot;&gt;Contact cap per journey&lt;/label&gt;&lt;select class=&quot;as-select&quot; id=&quot;as-cap&quot;&gt;&lt;option value=&quot;2&quot;&gt;2 total contacts&lt;/option&gt;&lt;option value=&quot;1&quot;&gt;1 total contact&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;div class=&quot;as-field&quot;&gt;&lt;label for=&quot;as-budget&quot;&gt;Contact spend limit&lt;/label&gt;&lt;input class=&quot;as-input&quot; id=&quot;as-budget&quot; type=&quot;number&quot; min=&quot;0&quot; value=&quot;30&quot; aria-describedby=&quot;as-budget-help&quot;&gt;&lt;small id=&quot;as-budget-help&quot;&gt;₹ · sample plan limit&lt;/small&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;as-field&quot;&gt;&lt;span class=&quot;as-field-title&quot;&gt;Where should it notify you?&lt;/span&gt;&lt;label class=&quot;as-checkbox-row&quot;&gt;&lt;input type=&quot;checkbox&quot; checked disabled&gt;Dashboard&lt;/label&gt;&lt;label class=&quot;as-checkbox-row&quot;&gt;&lt;input type=&quot;checkbox&quot; id=&quot;as-merchant-whatsapp&quot;&gt;WhatsApp notifications&lt;/label&gt;&lt;small style=&quot;margin-top:7px&quot;&gt;Merchant alerts are separate from customer contact permissions.&lt;/small&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div id=&quot;as-install-connections&quot; hidden&gt;&lt;h3&gt;Connect the apps this agent needs&lt;/h3&gt;&lt;p class=&quot;as-muted&quot;&gt;Grant scoped access, or use labelled sample sources.&lt;/p&gt;&lt;div class=&quot;as-install-connectors&quot; id=&quot;as-install-grid&quot;&gt;&lt;/div&gt;&lt;p class=&quot;as-muted&quot; id=&quot;as-connect-progress&quot; aria-live=&quot;polite&quot; style=&quot;margin-top:12px&quot;&gt;0 of 4 sources selected.&lt;/p&gt;&lt;/div&gt;
+&lt;div id=&quot;as-install-provider&quot; hidden&gt;&lt;button type=&quot;button&quot; class=&quot;as-link cursor-interaction&quot; id=&quot;as-provider-back&quot;&gt;← Back to connectors&lt;/button&gt;&lt;h3 id=&quot;as-provider-title&quot; style=&quot;margin-top:15px&quot;&gt;Connect Shopify&lt;/h3&gt;&lt;p class=&quot;as-muted&quot; id=&quot;as-provider-description&quot;&gt;&lt;/p&gt;&lt;div class=&quot;as-connect-permission&quot;&gt;&lt;strong&gt;Access this agent needs&lt;/strong&gt;&lt;ul id=&quot;as-provider-scopes&quot;&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div class=&quot;as-note&quot;&gt;No developer account is connected. You can explore this journey with sample data.&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;as-button&quot; disabled id=&quot;as-provider-live&quot;&gt;Continue to provider&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;as-button as-primary cursor-interaction&quot; id=&quot;as-provider-sample&quot; style=&quot;margin-top:10px&quot;&gt;Use sample source&lt;/button&gt;&lt;p class=&quot;as-muted&quot; style=&quot;margin-top:12px&quot;&gt;Sample selection does not authorise an external account or contact real customers.&lt;/p&gt;&lt;/div&gt;
+&lt;div id=&quot;as-install-review&quot; hidden&gt;&lt;h3&gt;Review before installing&lt;/h3&gt;&lt;p class=&quot;as-muted&quot;&gt;Configuration, source access and activation consequences.&lt;/p&gt;&lt;h4 style=&quot;margin-top:17px&quot;&gt;Configuration&lt;/h4&gt;&lt;div class=&quot;as-review-card&quot;&gt;&lt;dl&gt;&lt;div&gt;&lt;dt&gt;Authority and scope&lt;/dt&gt;&lt;dd id=&quot;as-review-mode&quot;&gt;Approved-plan execution · same SKU only&lt;/dd&gt;&lt;/div&gt;&lt;div&gt;&lt;dt&gt;Contact limits&lt;/dt&gt;&lt;dd id=&quot;as-review-limits&quot;&gt;2 contacts · ₹30 spend limit&lt;/dd&gt;&lt;/div&gt;&lt;div&gt;&lt;dt&gt;Customer channels&lt;/dt&gt;&lt;dd&gt;WhatsApp / voice, subject to recorded permission&lt;/dd&gt;&lt;/div&gt;&lt;/dl&gt;&lt;/div&gt;&lt;h4&gt;Connectors and permitted capabilities&lt;/h4&gt;&lt;div class=&quot;as-capabilities&quot; id=&quot;as-capabilities&quot;&gt;&lt;/div&gt;&lt;p class=&quot;as-muted&quot;&gt;No refunds, order cancellation, price changes or automatic charges. Installation does not approve a customer audience.&lt;/p&gt;&lt;/div&gt;
+&lt;div id=&quot;as-install-activated&quot; hidden&gt;&lt;span class=&quot;as-success-mark&quot; aria-hidden=&quot;true&quot;&gt;✓&lt;/span&gt;&lt;h3&gt;Agent installed in sample mode&lt;/h3&gt;&lt;p class=&quot;as-muted&quot;&gt;Your configuration and sample sources are ready.&lt;/p&gt;&lt;div class=&quot;as-note&quot;&gt;&lt;strong&gt;Next: review the opportunity and approve a plan.&lt;/strong&gt;&lt;br&gt;No customer outreach starts from installation alone.&lt;/div&gt;&lt;p class=&quot;as-muted&quot;&gt;All connections and activity remain clearly labelled. Real activation requires verified accounts and permissions.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;footer class=&quot;as-modal-footer&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;as-button cursor-interaction&quot; id=&quot;as-install-previous&quot; hidden&gt;Previous&lt;/button&gt;&lt;div class=&quot;as-footer-right&quot;&gt;&lt;span id=&quot;as-install-hint&quot; class=&quot;as-muted&quot;&gt;&lt;/span&gt;&lt;button type=&quot;button&quot; class=&quot;as-button as-primary cursor-interaction&quot; id=&quot;as-install-next&quot;&gt;Continue&lt;/button&gt;&lt;/div&gt;&lt;/footer&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;div class=&quot;as-drawer-layer&quot; id=&quot;as-case-layer&quot; hidden&gt;&lt;section class=&quot;as-drawer&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;as-case-title&quot;&gt;&lt;header class=&quot;as-drawer-head&quot;&gt;&lt;span class=&quot;as-card-name&quot;&gt;&lt;span class=&quot;as-art small&quot;&gt;R&lt;/span&gt;Repeat Purchase Agent&lt;/span&gt;&lt;button type=&quot;button&quot; class=&quot;as-close cursor-interaction&quot; id=&quot;as-case-close&quot; aria-label=&quot;Close activity detail&quot;&gt;×&lt;/button&gt;&lt;/header&gt;&lt;h3 id=&quot;as-case-title&quot;&gt;&lt;/h3&gt;&lt;div id=&quot;as-case-content&quot;&gt;&lt;/div&gt;&lt;div class=&quot;as-bottom-action&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;as-button cursor-interaction&quot; id=&quot;as-case-takeover&quot;&gt;Preview merchant takeover&lt;/button&gt;&lt;/div&gt;&lt;p class=&quot;as-muted&quot; id=&quot;as-takeover-status&quot; aria-live=&quot;polite&quot; style=&quot;margin-top:10px&quot;&gt;&lt;/p&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;div class=&quot;as-drawer-layer&quot; id=&quot;as-plan-layer&quot; hidden&gt;&lt;section class=&quot;as-drawer&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;as-plan-title&quot;&gt;&lt;header class=&quot;as-drawer-head&quot;&gt;&lt;h3 id=&quot;as-plan-title&quot; style=&quot;margin:0&quot;&gt;Review outreach plan&lt;/h3&gt;&lt;button type=&quot;button&quot; class=&quot;as-close cursor-interaction&quot; id=&quot;as-plan-close&quot; aria-label=&quot;Close plan review&quot;&gt;×&lt;/button&gt;&lt;/header&gt;&lt;p class=&quot;as-muted&quot;&gt;3 customers · same laundry-liquid SKU&lt;/p&gt;&lt;div class=&quot;as-plan-scope&quot;&gt;&lt;span&gt;&lt;strong&gt;Timing:&lt;/strong&gt; customer preference, then repeat-window estimate.&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Channels:&lt;/strong&gt; WhatsApp / voice with separate consent.&lt;/span&gt;&lt;span id=&quot;as-plan-limits&quot;&gt;&lt;strong&gt;Limits:&lt;/strong&gt; 2 contacts total · 10 am–6 pm IST · ₹30 cap.&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Actions:&lt;/strong&gt; same-SKU checkout, reminder, support handoff.&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Offers:&lt;/strong&gt; disabled in this plan.&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Ownership:&lt;/strong&gt; exclude this group from other reorder campaigns; pause if campaign coordination fails.&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;as-muted&quot;&gt;Recheck permission, new orders, delivery, stock and open complaints before acting. Approval never authorises charging a customer.&lt;/p&gt;&lt;div class=&quot;as-bottom-action&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;as-button as-primary cursor-interaction&quot; id=&quot;as-plan-approve&quot;&gt;Approve sample plan&lt;/button&gt;&lt;/div&gt;&lt;p class=&quot;as-muted&quot; id=&quot;as-plan-approval-message&quot; aria-live=&quot;polite&quot; style=&quot;margin-top:12px&quot;&gt;&lt;/p&gt;&lt;/section&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;script&gt;
+(()=&gt;{const root=document.getElementById(&#x27;razorpayMerchantJourney&#x27;);const q=s=&gt;root.querySelector(s),qa=s=&gt;[...root.querySelectorAll(s)];const providers={razorpay:{name:&#x27;Razorpay&#x27;,brand:&#x27;Razorpay&#x27;,desc:&#x27;Payment status and checkout evidence.&#x27;,scopes:[&#x27;Read payment status&#x27;,&#x27;Match payment and commerce order references&#x27;],caps:[&#x27;Read payments&#x27;,&#x27;Verify purchase evidence&#x27;]},shopify:{name:&#x27;Shopify&#x27;,brand:&#x27;shopify&#x27;,desc:&#x27;Customer order history, products and stock.&#x27;,scopes:[&#x27;Read permitted customers and order history&#x27;,&#x27;Read current SKU, stock, price and offer eligibility&#x27;,&#x27;Prepare a same-SKU cart for customer review&#x27;],caps:[&#x27;Read orders&#x27;,&#x27;Read product facts&#x27;,&#x27;Prepare checkout&#x27;]},whatsapp:{name:&#x27;WhatsApp&#x27;,brand:&#x27;WhatsApp&#x27;,desc:&#x27;Permissioned messages and customer replies.&#x27;,scopes:[&#x27;Read replies and delivery status&#x27;,&#x27;Send only permitted messages within the approved plan&#x27;],caps:[&#x27;Receive replies&#x27;,&#x27;Send permitted messages&#x27;]},voice:{name:&#x27;Voice&#x27;,brand:&#x27;Voice provider&#x27;,desc:&#x27;Voice interaction and conversation outcomes.&#x27;,scopes:[&#x27;Process the permitted call transcript&#x27;,&#x27;Run the approved voice journey and record its outcome&#x27;],caps:[&#x27;Process transcript&#x27;,&#x27;Run permitted voice journey&#x27;]}};let sources={razorpay:false,shopify:false,whatsapp:false,voice:false},step=0,provider=&#x27;shopify&#x27;,installed=false,paused=false,planApproved=false,page=&#x27;home&#x27;,previousFocus=null;function status(k){return sources[k]?&#x27;Sample source selected&#x27;:&#x27;Not connected&#x27;;}function refresh(){q(&#x27;#as-install-grid&#x27;).innerHTML=Object.entries(providers).map(([k,p])=&gt;&#x27;&lt;article class=&quot;as-connector&quot;&gt;&lt;div class=&quot;as-provider-banner &#x27;+k+&#x27;&quot;&gt;&#x27;+p.brand+&#x27;&lt;/div&gt;&lt;div class=&quot;as-connector-info&quot;&gt;&lt;h4&gt;&#x27;+p.name+&#x27;&lt;/h4&gt;&lt;p&gt;&#x27;+p.desc+&#x27;&lt;/p&gt;&lt;div class=&quot;as-connection-status&quot;&gt;&#x27;+status(k)+&#x27;&lt;/div&gt;&lt;div class=&quot;as-connector-actions&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;as-button cursor-interaction&quot; data-connect=&quot;&#x27;+k+&#x27;&quot;&gt;&#x27;+(sources[k]?&#x27;Review access&#x27;:&#x27;Connect&#x27;)+&#x27;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;&#x27;).join(&#x27;&#x27;);q(&#x27;#as-global-grid&#x27;).innerHTML=Object.entries(providers).map(([k,p])=&gt;&#x27;&lt;button type=&quot;button&quot; class=&quot;as-global-connector cursor-interaction&quot; data-global-connect=&quot;&#x27;+k+&#x27;&quot;&gt;&lt;span&gt;&#x27;+p.name+&#x27;&lt;small&gt;&#x27;+status(k)+&#x27;&lt;/small&gt;&lt;/span&gt;&lt;span aria-hidden=&quot;true&quot;&gt;›&lt;/span&gt;&lt;/button&gt;&#x27;).join(&#x27;&#x27;);q(&#x27;#as-connect-progress&#x27;).textContent=Object.values(sources).filter(Boolean).length+&#x27; of 4 sources selected. All selections here are sample sources.&#x27;;q(&#x27;#as-capabilities&#x27;).innerHTML=Object.entries(providers).map(([k,p])=&gt;&#x27;&lt;details&#x27;+(k===&#x27;razorpay&#x27;?&#x27; open&#x27;:&#x27;&#x27;)+&#x27;&gt;&lt;summary&gt;&#x27;+p.name+&#x27;&lt;span class=&quot;as-cap-count&quot;&gt;&#x27;+p.caps.length+&#x27; capabilities · sample&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;as-cap-tags&quot;&gt;&#x27;+p.caps.map(c=&gt;&#x27;&lt;span&gt;&#x27;+c+&#x27;&lt;/span&gt;&#x27;).join(&#x27;&#x27;)+&#x27;&lt;/div&gt;&lt;/details&gt;&#x27;).join(&#x27;&#x27;);q(&#x27;#as-summary-tags&#x27;).innerHTML=Object.values(sources).some(Boolean)?Object.entries(providers).filter(([k])=&gt;sources[k]).map(([,p])=&gt;&#x27;&lt;span class=&quot;as-tag&quot;&gt;&#x27;+p.name+&#x27; · sample&lt;/span&gt;&#x27;).join(&#x27; &#x27;):&#x27;&lt;span class=&quot;as-tag&quot;&gt;Not connected&lt;/span&gt;&#x27;;qa(&#x27;[data-connect]&#x27;).forEach(b=&gt;b.addEventListener(&#x27;click&#x27;,()=&gt;openProvider(b.dataset.connect)));qa(&#x27;[data-global-connect]&#x27;).forEach(b=&gt;b.addEventListener(&#x27;click&#x27;,()=&gt;{openInstall(1);openProvider(b.dataset.globalConnect)}));updateNext();}function showPage(p){page=p;qa(&#x27;.as-page&#x27;).forEach(e=&gt;e.hidden=e.id!==&#x27;as-page-&#x27;+p);q(&#x27;#as-main-tabs&#x27;).hidden=![&#x27;home&#x27;,&#x27;agents&#x27;,&#x27;connectors&#x27;].includes(p);qa(&#x27;#as-main-tabs [data-page]&#x27;).forEach(b=&gt;b.setAttribute(&#x27;aria-current&#x27;,b.dataset.page===p?&#x27;page&#x27;:&#x27;false&#x27;));closeLayers();}function work(name){showPage(&#x27;work&#x27;);[&#x27;dashboard&#x27;,&#x27;activity&#x27;,&#x27;settings&#x27;].forEach(n=&gt;q(&#x27;#as-work-&#x27;+n).hidden=n!==name);qa(&#x27;.as-subtabs [data-work]&#x27;).forEach(b=&gt;b.setAttribute(&#x27;aria-current&#x27;,b.dataset.work===name?&#x27;page&#x27;:&#x27;false&#x27;));}function resize(){const layers=qa(&#x27;.as-modal-layer,.as-drawer-layer&#x27;).filter(e=&gt;!e.hidden);const height=layers.length?Math.max(...layers.map(e=&gt;e.firstElementChild.scrollHeight))+65:650;q(&#x27;#as-stage&#x27;).style.minHeight=height+&#x27;px&#x27;;}function isolate(on){q(&#x27;.as-content&#x27;).inert=on;q(&#x27;.as-footnote&#x27;).inert=on;}function closeLayers(){qa(&#x27;.as-modal-layer,.as-drawer-layer&#x27;).forEach(e=&gt;e.hidden=true);isolate(false);resize();}function closeModal(){closeLayers();if(previousFocus&amp;&amp;previousFocus.isConnected)previousFocus.focus();}function openInstall(n=0){previousFocus=document.activeElement;closeLayers();step=n;q(&#x27;#as-install-layer&#x27;).hidden=false;isolate(true);renderStep();q(&#x27;#as-install-close&#x27;).focus();}function updateReview(){const mode=q(&#x27;input[name=&quot;as-mode&quot;]:checked&#x27;).value===&#x27;review&#x27;?&#x27;Review-first&#x27;:&#x27;Within an approved plan&#x27;;const cap=q(&#x27;#as-cap&#x27;).value;const amount=q(&#x27;#as-budget&#x27;).value;q(&#x27;#as-review-mode&#x27;).textContent=mode+&#x27; · same SKU only&#x27;;q(&#x27;#as-review-limits&#x27;).textContent=cap+&#x27; total contacts · ₹&#x27;+amount+&#x27; spend limit&#x27;;q(&#x27;#as-plan-limits&#x27;).textContent=&#x27;Limits: &#x27;+cap+&#x27; total contacts · 10 am–6 pm IST · ₹&#x27;+amount+&#x27; spend cap.&#x27;;}function updateNext(){const all=Object.values(sources).every(Boolean);q(&#x27;#as-install-next&#x27;).disabled=step===1&amp;&amp;!q(&#x27;#as-install-provider&#x27;).hidden?true:step===1&amp;&amp;!all;q(&#x27;#as-install-next&#x27;).textContent=step===2?&#x27;Install Agent&#x27;:step===3?&#x27;Go to My Agents&#x27;:&#x27;Continue&#x27;;q(&#x27;#as-install-hint&#x27;).textContent=step===1&amp;&amp;!all?&#x27;Select all 4 sources to continue.&#x27;:&#x27;&#x27;;q(&#x27;#as-install-previous&#x27;).hidden=step===0||step===3||!q(&#x27;#as-install-provider&#x27;).hidden;}function renderStep(){[&#x27;config&#x27;,&#x27;connections&#x27;,&#x27;review&#x27;,&#x27;activated&#x27;].forEach((n,i)=&gt;q(&#x27;#as-install-&#x27;+n).hidden=i!==step);q(&#x27;#as-install-provider&#x27;).hidden=true;qa(&#x27;[data-step]&#x27;).forEach(e=&gt;{const i=Number(e.dataset.step);e.setAttribute(&#x27;aria-current&#x27;,i===step?&#x27;step&#x27;:&#x27;false&#x27;);e.classList.toggle(&#x27;done&#x27;,i&lt;step);});updateReview();refresh();resize();}function openProvider(k){provider=k;const p=providers[k];q(&#x27;#as-install-connections&#x27;).hidden=true;q(&#x27;#as-install-provider&#x27;).hidden=false;q(&#x27;#as-provider-title&#x27;).textContent=&#x27;Connect &#x27;+p.name;q(&#x27;#as-provider-description&#x27;).textContent=p.desc;q(&#x27;#as-provider-scopes&#x27;).innerHTML=p.scopes.map(s=&gt;&#x27;&lt;li&gt;&#x27;+s+&#x27;&lt;/li&gt;&#x27;).join(&#x27;&#x27;);q(&#x27;#as-provider-live&#x27;).textContent=&#x27;Continue to &#x27;+p.name;q(&#x27;#as-provider-sample&#x27;).textContent=&#x27;Use &#x27;+p.name+&#x27; sample source&#x27;;updateNext();resize();q(&#x27;#as-provider-back&#x27;).focus();}function openCase(k){previousFocus=document.activeElement;closeLayers();q(&#x27;#as-case-layer&#x27;).hidden=false;isolate(true);const cases={evidence:{title:&#x27;Why Ananya is in this audience&#x27;,html:&#x27;&lt;div class=&quot;as-case-facts&quot;&gt;&lt;small&gt;Customer&lt;/small&gt;Ananya · C001&lt;small&gt;Same product&lt;/small&gt;Laundry liquid · 1 L&lt;small&gt;Qualifying purchase&lt;/small&gt;Delivered 12 Sep · sample history&lt;/div&gt;&lt;ol class=&quot;as-trace&quot;&gt;&lt;li&gt;&lt;strong&gt;Timing evidence&lt;/strong&gt;&lt;small&gt;Previous intervals were 29 and 31 days. Suggested window: 11–14 Oct.&lt;/small&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Eligibility checks&lt;/strong&gt;&lt;small&gt;Permission present, no newer purchase, stock available, no open issue in the sample.&lt;/small&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Recommendation&lt;/strong&gt;&lt;small&gt;Ask whether the customer wants to reorder. Do not assert that their product has run out.&lt;/small&gt;&lt;/li&gt;&lt;/ol&gt;&#x27;},reminder:{title:&#x27;Reminder scheduled for Ananya&#x27;,html:&#x27;&lt;div class=&quot;as-case-facts&quot;&gt;&lt;small&gt;Channel&lt;/small&gt;WhatsApp · illustrative conversation&lt;small&gt;Outcome&lt;/small&gt;Rescheduled. No purchase recorded.&lt;/div&gt;&lt;div class=&quot;as-customer-quote&quot;&gt;“I still have enough until Friday. Remind me then.”&lt;/div&gt;&lt;ol class=&quot;as-trace&quot;&gt;&lt;li&gt;&lt;strong&gt;Clarified the date&lt;/strong&gt;&lt;small&gt;Customer confirmed Friday, 16 Oct, at 10 am IST.&lt;/small&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Saved the preference&lt;/strong&gt;&lt;small&gt;WhatsApp reminder. No checkout or offer needed now.&lt;/small&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Cancelled overlapping outreach&lt;/strong&gt;&lt;small&gt;No voice fallback while the reminder is scheduled.&lt;/small&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Rechecks before sending&lt;/strong&gt;&lt;small&gt;Permission, new purchase, stock, complaints and agent status.&lt;/small&gt;&lt;/li&gt;&lt;/ol&gt;&#x27;},checkout:{title:&#x27;Same-product checkout for Rahul&#x27;,html:&#x27;&lt;div class=&quot;as-case-facts&quot;&gt;&lt;small&gt;Channel&lt;/small&gt;Voice · illustrative transcript&lt;small&gt;Outcome&lt;/small&gt;Checkout prepared. Payment not confirmed.&lt;/div&gt;&lt;div class=&quot;as-customer-quote&quot;&gt;“The same bottle, one unit. Send the checkout on WhatsApp.”&lt;/div&gt;&lt;ol class=&quot;as-trace&quot;&gt;&lt;li&gt;&lt;strong&gt;Confirmed SKU and quantity&lt;/strong&gt;&lt;small&gt;Same 1 L laundry-liquid SKU. No substitution.&lt;/small&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Checked current facts&lt;/strong&gt;&lt;small&gt;Stock, price, permission and newer orders in the sample.&lt;/small&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Prepared checkout handoff&lt;/strong&gt;&lt;small&gt;WhatsApp delivery still requires the permitted session or template.&lt;/small&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Awaiting order evidence&lt;/strong&gt;&lt;small&gt;A link does not count as a paid order.&lt;/small&gt;&lt;/li&gt;&lt;/ol&gt;&#x27;},blocked:{title:&#x27;Outreach blocked for C005&#x27;,html:&#x27;&lt;div class=&quot;as-case-facts&quot;&gt;&lt;small&gt;Reason&lt;/small&gt;Explicit opt-out&lt;small&gt;Outcome&lt;/small&gt;Suppressed. No contact allowed.&lt;/div&gt;&lt;ol class=&quot;as-trace&quot;&gt;&lt;li&gt;&lt;strong&gt;Suppression found&lt;/strong&gt;&lt;small&gt;Customer asked to stop marketing contact.&lt;/small&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Action blocked&lt;/strong&gt;&lt;small&gt;No message, call or checkout push.&lt;/small&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Queued outreach cancelled&lt;/strong&gt;&lt;small&gt;Merchant approval cannot override the opt-out.&lt;/small&gt;&lt;/li&gt;&lt;/ol&gt;&#x27;}};q(&#x27;#as-case-title&#x27;).textContent=cases[k].title;q(&#x27;#as-case-content&#x27;).innerHTML=cases[k].html;q(&#x27;#as-takeover-status&#x27;).textContent=&#x27;&#x27;;q(&#x27;#as-case-takeover&#x27;).hidden=k===&#x27;blocked&#x27;||k===&#x27;evidence&#x27;;resize();q(&#x27;#as-case-close&#x27;).focus();}
+qa(&#x27;[data-page]&#x27;).forEach(b=&gt;b.addEventListener(&#x27;click&#x27;,()=&gt;showPage(b.dataset.page)));qa(&#x27;[data-work]&#x27;).forEach(b=&gt;b.addEventListener(&#x27;click&#x27;,()=&gt;work(b.dataset.work)));qa(&#x27;[data-case]&#x27;).forEach(b=&gt;b.addEventListener(&#x27;click&#x27;,()=&gt;openCase(b.dataset.case)));q(&#x27;#as-install-open&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;openInstall());q(&#x27;#as-list-install&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;openInstall());q(&#x27;#as-edit-config&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;openInstall());q(&#x27;#as-agent-entry&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;installed?work(&#x27;dashboard&#x27;):showPage(&#x27;detail&#x27;));q(&#x27;#as-install-close&#x27;).addEventListener(&#x27;click&#x27;,closeModal);q(&#x27;#as-install-previous&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{step--;renderStep();});q(&#x27;#as-install-next&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{if(step===0&amp;&amp;Number(q(&#x27;#as-budget&#x27;).value)&lt;0){q(&#x27;#as-install-hint&#x27;).textContent=&#x27;Spend limit cannot be negative.&#x27;;return;}if(step===3){showPage(&#x27;agents&#x27;);return;}if(step===2){installed=true;planApproved=false;q(&#x27;#as-plan-state&#x27;).textContent=&#x27;No approved outreach plan&#x27;;q(&#x27;#as-saved-mode&#x27;).textContent=q(&#x27;input[name=&quot;as-mode&quot;]:checked&#x27;).value===&#x27;review&#x27;?&#x27;Review-first&#x27;:&#x27;Within an approved plan&#x27;;q(&#x27;#as-list-group&#x27;).textContent=&#x27;Installed · sample mode&#x27;;q(&#x27;#as-list-status&#x27;).textContent=&#x27;Ready for plan approval&#x27;;q(&#x27;#as-installed-status&#x27;).textContent=&#x27;Installed in sample mode&#x27;;q(&#x27;#as-work-status&#x27;).textContent=&#x27;Awaiting plan&#x27;;q(&#x27;#as-list-install&#x27;).hidden=true;}step++;renderStep();});q(&#x27;#as-provider-back&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{q(&#x27;#as-install-provider&#x27;).hidden=true;q(&#x27;#as-install-connections&#x27;).hidden=false;updateNext();resize();});q(&#x27;#as-provider-sample&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{sources[provider]=true;q(&#x27;#as-install-provider&#x27;).hidden=true;q(&#x27;#as-install-connections&#x27;).hidden=false;refresh();resize();});q(&#x27;#as-pause&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{paused=!paused;q(&#x27;#as-pause&#x27;).textContent=paused?&#x27;Resume agent&#x27;:&#x27;Pause agent&#x27;;q(&#x27;#as-work-status&#x27;).textContent=paused?&#x27;Paused · new actions blocked&#x27;:(planApproved?&#x27;Sample plan approved&#x27;:installed?&#x27;Awaiting plan&#x27;:&#x27;Sample workspace&#x27;);});q(&#x27;#as-case-close&#x27;).addEventListener(&#x27;click&#x27;,closeModal);q(&#x27;#as-plan-close&#x27;).addEventListener(&#x27;click&#x27;,closeModal);q(&#x27;#as-case-takeover&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;q(&#x27;#as-takeover-status&#x27;).textContent=&#x27;Sample takeover: automated replies and queued actions are held.&#x27;);q(&#x27;#as-plan-open&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{previousFocus=document.activeElement;closeLayers();q(&#x27;#as-plan-layer&#x27;).hidden=false;isolate(true);updateReview();q(&#x27;#as-plan-approve&#x27;).disabled=!installed;q(&#x27;#as-plan-approval-message&#x27;).textContent=installed?&#x27;This approval changes only the local design preview.&#x27;:&#x27;Install the sample agent before approving its plan.&#x27;;resize();q(&#x27;#as-plan-close&#x27;).focus();});q(&#x27;#as-plan-approve&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{planApproved=true;q(&#x27;#as-plan-state&#x27;).textContent=&#x27;Sample plan approved · no external outreach&#x27;;q(&#x27;#as-plan-approval-message&#x27;).textContent=&#x27;Plan approved in this preview. No customer has been contacted.&#x27;;q(&#x27;#as-work-status&#x27;).textContent=paused?&#x27;Paused · new actions blocked&#x27;:&#x27;Sample plan approved&#x27;;q(&#x27;#as-last-activity&#x27;).textContent=&#x27;Sample outreach plan approved for 3 eligible customers.&#x27;;});root.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;)closeModal();if(e.key===&#x27;Tab&#x27;){const layer=qa(&#x27;.as-modal-layer,.as-drawer-layer&#x27;).find(x=&gt;!x.hidden);if(!layer)return;const buttons=[...layer.querySelectorAll(&#x27;button,input,select,summary&#x27;)].filter(x=&gt;!x.disabled&amp;&amp;x.getClientRects().length);const first=buttons[0],last=buttons[buttons.length-1];if(e.shiftKey&amp;&amp;document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&amp;&amp;document.activeElement===last){e.preventDefault();first.focus();}}});window.addEventListener(&#x27;resize&#x27;,resize);
+let runPhase=&#x27;empty&#x27;,rahulPaid=false,checkoutApproved=false,installedMode=&#x27;bounded&#x27;,approvedBudget=30,approvedCap=2;
+const dashNames=[&#x27;overview&#x27;,&#x27;opportunities&#x27;,&#x27;analytics&#x27;];
+function dash(name){dashNames.forEach(n=&gt;{q(&#x27;#mj-&#x27;+n).hidden=n!==name;q(&#x27;#mj-tab-&#x27;+n).setAttribute(&#x27;aria-selected&#x27;,String(n===name));});}
+function signedIn(){q(&#x27;#mj-auth&#x27;).hidden=true;q(&#x27;#mj-application&#x27;).hidden=false;showPage(&#x27;payments&#x27;);q(&#x27;#mj-side-home&#x27;).focus();}
+q(&#x27;#mj-login-continue&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{q(&#x27;#mj-login-identity&#x27;).hidden=true;q(&#x27;#mj-login-verification&#x27;).hidden=false;q(&#x27;#mj-login-verify&#x27;).focus();});
+q(&#x27;#mj-login-back&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{q(&#x27;#mj-login-identity&#x27;).hidden=false;q(&#x27;#mj-login-verification&#x27;).hidden=true;q(&#x27;#mj-login-continue&#x27;).focus();});
+q(&#x27;#mj-login-verify&#x27;).addEventListener(&#x27;click&#x27;,signedIn);
+qa(&#x27;[data-dash]&#x27;).forEach(b=&gt;b.addEventListener(&#x27;click&#x27;,()=&gt;dash(b.dataset.dash)));
+function reviewFirst(){return installedMode===&#x27;review&#x27;;}
+function refreshWork(){
+ const hasRun=runPhase!==&#x27;empty&#x27;;const pending=runPhase===&#x27;review&#x27;;const orders=hasRun?1+(rahulPaid?1:0):0;const revenue=orders*400;const cogs=orders*180,fulfilment=orders*30,paymentCost=orders*8,contactCost=hasRun?8:0,agentCost=hasRun?2:0;const contribution=revenue-cogs-fulfilment-paymentCost-contactCost-agentCost;const reviews=pending?1:planApproved?0:1;
+ q(&#x27;#mj-preview-run&#x27;).disabled=!installed||!planApproved||paused||hasRun;
+ q(&#x27;#mj-preview-run&#x27;).textContent=hasRun?&#x27;Sample work displayed&#x27;:&#x27;Preview sample agent work&#x27;;
+ q(&#x27;#mj-sample-run-hint&#x27;).textContent=paused?&#x27;Agent paused. New sample actions are blocked.&#x27;:!planApproved?&#x27;Approve the sample plan before previewing activity.&#x27;:hasRun?&#x27;Illustrative later activity, including any earlier required merchant approvals.&#x27;:&#x27;Preview later activity using synthetic conversations and order evidence.&#x27;;
+ q(&#x27;#mj-attention-title&#x27;).textContent=paused?&#x27;Agent is paused&#x27;:pending?&#x27;Review a prepared checkout&#x27;:!planApproved?&#x27;Review the first outreach plan&#x27;:!hasRun?&#x27;Approved plan ready&#x27;:&#x27;No unresolved actions in this example&#x27;;
+ q(&#x27;#mj-attention-detail&#x27;).textContent=paused?&#x27;New messages, calls and checkout actions are held.&#x27;:pending?&#x27;Rahul confirmed the same SKU. Review-first mode holds checkout creation.&#x27;:!planApproved?&#x27;3 eligible customers · 2 excluded · no contact approved yet&#x27;:!hasRun?&#x27;Start the sample journey; all actions stay within your approved boundaries.&#x27;:&#x27;Ananya rescheduled; purchases stop future reorder outreach.&#x27;;
+ q(&#x27;#mj-attention-button&#x27;).textContent=pending?&#x27;Review action&#x27;:!planApproved?&#x27;Review plan&#x27;:&#x27;View activity&#x27;;
+ q(&#x27;#mj-attention-button&#x27;).disabled=paused;
+ q(&#x27;#mj-overview-orders&#x27;).textContent=orders;q(&#x27;#mj-overview-revenue&#x27;).textContent=&#x27;₹&#x27;+revenue;q(&#x27;#mj-overview-reviews&#x27;).textContent=reviews;
+ q(&#x27;#mj-status-plan&#x27;).textContent=planApproved?&#x27;0&#x27;:&#x27;1&#x27;;q(&#x27;#mj-status-reminders&#x27;).textContent=hasRun?&#x27;1&#x27;:&#x27;0&#x27;;q(&#x27;#mj-status-checkouts&#x27;).textContent=hasRun&amp;&amp;!pending&amp;&amp;!rahulPaid?&#x27;1&#x27;:&#x27;0&#x27;;q(&#x27;#mj-status-purchasers&#x27;).textContent=orders;
+ q(&#x27;#mj-analytics-repeat&#x27;).textContent=orders+&#x27; / 3&#x27;;q(&#x27;#mj-analytics-repeat-rate&#x27;).textContent=Math.round(orders/3*100)+&#x27;% · synthetic example&#x27;;q(&#x27;#mj-analytics-revenue&#x27;).textContent=&#x27;₹&#x27;+revenue;q(&#x27;#mj-analytics-contribution&#x27;).textContent=&#x27;₹&#x27;+contribution;
+ q(&#x27;#mj-analytics-contacted&#x27;).textContent=hasRun?&#x27;3&#x27;:&#x27;0&#x27;;q(&#x27;#mj-analytics-replied&#x27;).textContent=hasRun?&#x27;3&#x27;:&#x27;0&#x27;;q(&#x27;#mj-analytics-checkout&#x27;).textContent=hasRun&amp;&amp;!pending?&#x27;1&#x27;:&#x27;0&#x27;;q(&#x27;#mj-analytics-orders&#x27;).textContent=orders;
+ const costs=[[&#x27;Net revenue&#x27;,revenue],[&#x27;Product cost&#x27;,-cogs],[&#x27;Fulfilment cost&#x27;,-fulfilment],[&#x27;Payment cost&#x27;,-paymentCost],[&#x27;Communication cost&#x27;,-contactCost],[&#x27;Agent cost&#x27;,-agentCost],[&#x27;Provisional contribution&#x27;,contribution]];
+ q(&#x27;#mj-cost-breakdown&#x27;).innerHTML=costs.map(([label,value])=&gt;&#x27;&lt;tr&gt;&lt;td&gt;&#x27;+label+&#x27;&lt;/td&gt;&lt;td&gt;&#x27;+(value&lt;0?&#x27;−&#x27;:&#x27;&#x27;)+&#x27;₹&#x27;+Math.abs(value)+&#x27;&lt;/td&gt;&lt;/tr&gt;&#x27;).join(&#x27;&#x27;);
+ q(&#x27;#mj-guard-optout&#x27;).textContent=&#x27;0 / &#x27;+(hasRun?3:0)+&#x27; contacted&#x27;;q(&#x27;#mj-guard-complaint&#x27;).textContent=&#x27;0 / &#x27;+(hasRun?3:0)+&#x27; contacted&#x27;;q(&#x27;#mj-guard-error&#x27;).textContent=hasRun?&#x27;0 in the sample records&#x27;:&#x27;No executed sample actions&#x27;;q(&#x27;#mj-guard-spend&#x27;).textContent=&#x27;₹&#x27;+contactCost+&#x27; / ₹&#x27;+(planApproved?approvedBudget:q(&#x27;#as-budget&#x27;).value)+&#x27; cap&#x27;;
+ q(&#x27;#mj-policy-limits&#x27;).textContent=(planApproved?approvedCap:q(&#x27;#as-cap&#x27;).value)+&#x27; contacts per journey · 10 am–6 pm IST&#x27;;
+ q(&#x27;#mj-opportunity-ananya&#x27;).textContent=hasRun?&#x27;Wait until 16 Oct&#x27;:&#x27;WhatsApp outreach&#x27;;q(&#x27;#mj-opportunity-rahul&#x27;).textContent=rahulPaid?&#x27;Stop: new purchase&#x27;:pending?&#x27;Checkout needs approval&#x27;:hasRun?&#x27;Await payment&#x27;:&#x27;Voice outreach&#x27;;q(&#x27;#mj-opportunity-neha&#x27;).textContent=hasRun?&#x27;Stop: new purchase&#x27;:&#x27;WhatsApp outreach&#x27;;
+ q(&#x27;#mj-activity-empty&#x27;).hidden=hasRun;q(&#x27;#mj-activity-records&#x27;).hidden=!hasRun;q(&#x27;#mj-activity-pending&#x27;).hidden=!pending;q(&#x27;#mj-rahul-row&#x27;).hidden=pending;
+ q(&#x27;#mj-rahul-status&#x27;).textContent=rahulPaid?&#x27;Order confirmed&#x27;:&#x27;Awaiting payment&#x27;;q(&#x27;#mj-rahul-status&#x27;).classList.toggle(&#x27;wait&#x27;,!rahulPaid);q(&#x27;#mj-rahul-activity&#x27;).textContent=rahulPaid?&#x27;Rahul · sample payment matched to Shopify order&#x27;:&#x27;Rahul · voice conversation, same-SKU checkout handoff&#x27;;
+ q(&#x27;#mj-learning&#x27;).innerHTML=hasRun?&#x27;&lt;div class=&quot;mj-learning-row&quot;&gt;&lt;strong&gt;Ananya: requested date replaces the inferred window.&lt;/strong&gt;&lt;small&gt;16 Oct, 10 am IST · WhatsApp · customer confirmed.&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;mj-learning-row&quot;&gt;&lt;strong&gt;Rahul: same SKU and one-unit quantity confirmed.&lt;/strong&gt;&lt;small&gt;Requested WhatsApp checkout handoff. This is not treated as a permanent channel preference.&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;mj-learning-row&quot;&gt;&lt;strong&gt;Neha: a new Shopify purchase stops reorder outreach.&lt;/strong&gt;&lt;small&gt;Order found outside the agent link; still included in the assigned group\&#x27;s outcomes.&lt;/small&gt;&lt;/div&gt;&#x27;:&#x27;&lt;p class=&quot;as-muted&quot;&gt;No customer preference or purchase evidence recorded yet.&lt;/p&gt;&#x27;;
+ if(installed)q(&#x27;#as-work-status&#x27;).textContent=paused?&#x27;Paused · new actions blocked&#x27;:pending?&#x27;Needs action&#x27;:planApproved?&#x27;Sample plan approved&#x27;:&#x27;Awaiting plan&#x27;;
+}
+q(&#x27;#mj-attention-button&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{if(runPhase===&#x27;review&#x27;){openCase(&#x27;review&#x27;);}else if(!planApproved){q(&#x27;#as-plan-open&#x27;).click();}else{work(&#x27;activity&#x27;);}});
+q(&#x27;#mj-preview-run&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{
+ if(!installed||!planApproved||paused)return;
+ if(approvedBudget&lt;8){q(&#x27;#mj-sample-run-hint&#x27;).textContent=&#x27;Sample run blocked: ₹8 contact cost exceeds your approved spend cap. Review the plan limits.&#x27;;return;}
+ runPhase=reviewFirst()?&#x27;review&#x27;:&#x27;ready&#x27;;checkoutApproved=!reviewFirst();q(&#x27;#as-last-activity&#x27;).textContent=&#x27;Sample conversations and a brand order are ready for review.&#x27;;refreshWork();
+});
+q(&#x27;#as-plan-approve&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{approvedBudget=Number(q(&#x27;#as-budget&#x27;).value);approvedCap=Number(q(&#x27;#as-cap&#x27;).value);refreshWork();});
+q(&#x27;#as-pause&#x27;).addEventListener(&#x27;click&#x27;,refreshWork);
+q(&#x27;#as-install-next&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{if(step===3){installedMode=q(&#x27;input[name=&quot;as-mode&quot;]:checked&#x27;).value;}refreshWork();});
+const baseShowPage=showPage;
+showPage=(p)=&gt;{baseShowPage(p);q(&#x27;#mj-side-home&#x27;).classList.toggle(&#x27;selected&#x27;,p===&#x27;payments&#x27;);q(&#x27;#mj-side-studio&#x27;).classList.toggle(&#x27;selected&#x27;,p!==&#x27;payments&#x27;);if(p===&#x27;work&#x27;)refreshWork();};
+const baseWork=work;work=(name)=&gt;{baseWork(name);if(name===&#x27;dashboard&#x27;)dash(&#x27;overview&#x27;);refreshWork();};
+const baseOpenCase=openCase;
+openCase=(key)=&gt;{
+ if(key===&#x27;evidence&#x27;){baseOpenCase(key);return;}
+ previousFocus=document.activeElement;closeLayers();q(&#x27;#as-case-layer&#x27;).hidden=false;isolate(true);q(&#x27;#as-takeover-status&#x27;).textContent=&#x27;&#x27;;q(&#x27;#as-case-takeover&#x27;).hidden=[&#x27;evidence-rahul&#x27;,&#x27;evidence-neha&#x27;,&#x27;blocked&#x27;,&#x27;neha-order&#x27;].includes(key);
+ const earlierApproval=reviewFirst()?&#x27;&lt;p class=&quot;as-muted&quot;&gt;Later sample snapshot: preceding contact and reminder approvals are assumed completed and logged.&lt;/p&gt;&#x27;:&#x27;&#x27;;
+ const trace=(rows)=&gt;&#x27;&lt;ol class=&quot;as-trace&quot;&gt;&#x27;+rows.map(([a,b])=&gt;&#x27;&lt;li&gt;&lt;strong&gt;&#x27;+a+&#x27;&lt;/strong&gt;&lt;small&gt;&#x27;+b+&#x27;&lt;/small&gt;&lt;/li&gt;&#x27;).join(&#x27;&#x27;)+&#x27;&lt;/ol&gt;&#x27;;
+ const chat=(rows)=&gt;&#x27;&lt;div class=&quot;mj-chat&quot;&gt;&#x27;+rows.map(([who,text])=&gt;&#x27;&lt;div class=&quot;mj-chat-bubble&#x27;+(who!==&#x27;Brand assistant&#x27;?&#x27; customer&#x27;:&#x27;&#x27;)+&#x27;&quot;&gt;&lt;small&gt;&#x27;+who+&#x27;&lt;/small&gt;&#x27;+text+&#x27;&lt;/div&gt;&#x27;).join(&#x27;&#x27;)+&#x27;&lt;/div&gt;&#x27;;
+ const facts=(rows)=&gt;&#x27;&lt;div class=&quot;as-case-facts&quot;&gt;&#x27;+rows.map(([label,value])=&gt;&#x27;&lt;small&gt;&#x27;+label+&#x27;&lt;/small&gt;&#x27;+value).join(&#x27;&#x27;)+&#x27;&lt;/div&gt;&#x27;;
+ let title=&#x27;&#x27;,conversation=&#x27;&#x27;,actions=&#x27;&#x27;,outcome=&#x27;&#x27;,controls=&#x27;&#x27;;
+ if(key===&#x27;reminder&#x27;){
+  title=&#x27;Ananya · reminder scheduled&#x27;;outcome=&#x27;Rescheduled · no purchase recorded&#x27;;
+  conversation=chat([[&#x27;Brand assistant&#x27;,&#x27;Would you like to reorder the same laundry liquid, or arrange a reminder for later?&#x27;],[&#x27;Ananya&#x27;,&#x27;I still have enough until Friday. Remind me then.&#x27;],[&#x27;Brand assistant&#x27;,&#x27;Friday, 16 October, at 10 am on WhatsApp?&#x27;],[&#x27;Ananya&#x27;,&#x27;Yes, that works.&#x27;]]);
+  actions=trace([[&#x27;Confirmed the date&#x27;,&#x27;16 Oct · 10 am IST · WhatsApp.&#x27;],[&#x27;Chose to wait&#x27;,&#x27;No checkout or discount needed now.&#x27;],[&#x27;Saved the customer preference&#x27;,&#x27;Confirmed reminder replaces the estimated contact date.&#x27;],[&#x27;Cancelled overlapping outreach&#x27;,&#x27;No voice fallback while this reminder is scheduled.&#x27;],[&#x27;Recheck when the job is due&#x27;,&#x27;Consent, opt-out, new orders, stock, complaints and agent status.&#x27;]]);
+ }else if(key===&#x27;checkout&#x27;||key===&#x27;review&#x27;){
+  const held=key===&#x27;review&#x27;||!checkoutApproved;title=&#x27;Rahul · &#x27;+(rahulPaid?&#x27;order confirmed&#x27;:held?&#x27;checkout awaiting approval&#x27;:&#x27;checkout awaiting payment&#x27;);outcome=rahulPaid?&#x27;Matched payment and commerce order&#x27;:held?&#x27;Prepared action held for merchant review&#x27;:&#x27;Checkout prepared · not a paid order&#x27;;
+  conversation=chat([[&#x27;Brand assistant&#x27;,&#x27;Hello Rahul, I am the automated assistant for Everyday Co. Is now a good time to discuss your reorder?&#x27;],[&#x27;Rahul&#x27;,&#x27;Yes. The same bottle, one unit. Send the checkout on WhatsApp.&#x27;],[&#x27;Brand assistant&#x27;,&#x27;I will prepare the same 1 L product. You can review the final price and charges at checkout before paying.&#x27;]]);
+  actions=trace([[&#x27;Confirmed intent&#x27;,&#x27;Same SKU · one unit · customer requested a WhatsApp checkout handoff.&#x27;],[&#x27;Checked current commerce facts&#x27;,&#x27;Sample stock, price, recent orders and offer policy checked. Offers are disabled.&#x27;],[held?&#x27;Checkout creation held&#x27;:&#x27;Checkout prepared&#x27;,held?&#x27;Review-first mode requires approval before this action.&#x27;:&#x27;The final checkout validates discounts, shipping and charges.&#x27;],[&#x27;Channel permission checked&#x27;,&#x27;WhatsApp delivery requires an authorised session or template; a voice request alone does not bypass provider rules.&#x27;],[rahulPaid?&#x27;Purchase evidence matched&#x27;:&#x27;Awaiting trusted purchase evidence&#x27;,rahulPaid?&#x27;Sample captured payment, amount, currency and order reference match the sample Shopify order. Future outreach cancelled.&#x27;:&#x27;A link, customer claim or browser redirect does not confirm payment.&#x27;]]);
+  controls=held?&#x27;&lt;div class=&quot;mj-attention-actions&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;as-button as-primary cursor-interaction&quot; id=&quot;mj-case-approve&quot;&gt;Approve sample checkout action&lt;/button&gt;&lt;/div&gt;&#x27;:!rahulPaid?&#x27;&lt;div class=&quot;mj-demo-bar&quot;&gt;&lt;span&gt;Sample purchase event only&lt;/span&gt;&lt;button type=&quot;button&quot; class=&quot;as-button cursor-interaction&quot; id=&quot;mj-case-payment&quot;&gt;Preview matched payment + order&lt;/button&gt;&lt;/div&gt;&#x27;:&#x27;&#x27;;
+ }else if(key===&#x27;neha-order&#x27;){
+  title=&#x27;Neha · brand order confirmed&#x27;;outcome=&#x27;Included in group outcomes · not attributed solely to the agent&#x27;;
+  actions=trace([[&#x27;Observed a new commerce order&#x27;,&#x27;Synthetic Shopify order · same SKU · ₹400 net revenue.&#x27;],[&#x27;Matched the assigned customer&#x27;,&#x27;Verified sample commerce identity. The order did not use the agent checkout link.&#x27;],[&#x27;Recorded the group outcome&#x27;,&#x27;Included in all assigned customers\&#x27; purchases, without claiming causal agent lift.&#x27;],[&#x27;Stopped repeat outreach&#x27;,&#x27;New purchase suppresses scheduled reorder contact.&#x27;]]);
+ }else if(key===&#x27;support&#x27;){
+  title=&#x27;C004 · delivery issue handed to support&#x27;;outcome=&#x27;Support handoff · sales outreach remains blocked&#x27;;
+  conversation=chat([[&#x27;C004&#x27;,&#x27;My previous order has not arrived.&#x27;],[&#x27;Brand assistant&#x27;,&#x27;I will route this issue to your support team. I will not start reorder outreach while it remains unresolved.&#x27;]]);
+  actions=trace([[&#x27;Handled an inbound issue&#x27;,&#x27;The customer independently contacted the brand; no reorder outreach was sent.&#x27;],[&#x27;Checked delivery status&#x27;,&#x27;Sample order is not delivered.&#x27;],[&#x27;Created support handoff&#x27;,&#x27;Record issue context and merchant owner. No invented delivery promise.&#x27;],[&#x27;Suppressed sales progression&#x27;,&#x27;Do not offer a reorder or alternative product while the issue is open.&#x27;]]);
+ }else if(key===&#x27;blocked&#x27;){
+  title=&#x27;C005 · outreach blocked&#x27;;outcome=&#x27;Suppressed · no contact sent&#x27;;q(&#x27;#as-case-takeover&#x27;).hidden=true;
+  actions=trace([[&#x27;Found explicit opt-out&#x27;,&#x27;Customer has stopped marketing contact.&#x27;],[&#x27;Blocked the proposed contact&#x27;,&#x27;No call, message or checkout push.&#x27;],[&#x27;Cancelled queued outreach&#x27;,&#x27;Merchant approval cannot override the opt-out.&#x27;]]);
+ }else if(key===&#x27;evidence-rahul&#x27;||key===&#x27;evidence-neha&#x27;){
+  const isRahul=key===&#x27;evidence-rahul&#x27;;title=&#x27;Why &#x27;+(isRahul?&#x27;Rahul&#x27;:&#x27;Neha&#x27;)+&#x27; is included&#x27;;outcome=&#x27;Recommendation is an estimate, not known consumption&#x27;;q(&#x27;#as-case-takeover&#x27;).hidden=true;
+  actions=facts([[&#x27;Product&#x27;,&#x27;Laundry liquid · same 1 L SKU&#x27;],[&#x27;Timing basis&#x27;,isRahul?&#x27;Only one qualifying purchase. Use the product-level 29–33 day fallback.&#x27;:&#x27;Previous intervals: 29 and 32 days.&#x27;],[&#x27;Channel&#x27;,isRahul?&#x27;Recorded voice preference; separate permission required.&#x27;:&#x27;Recorded WhatsApp preference; separate permission required.&#x27;]])+trace([[&#x27;Checked sample eligibility&#x27;,&#x27;Permission present, qualifying order delivered, no newer purchase, stock available and no open issue.&#x27;],[&#x27;Ask rather than assume&#x27;,&#x27;Do not state that the customer has run out.&#x27;]]);
+ }
+ q(&#x27;#as-case-title&#x27;).textContent=title;
+ const hasConversation=Boolean(conversation);
+ q(&#x27;#as-case-content&#x27;).innerHTML=&#x27;&lt;div class=&quot;mj-intent-label&quot;&gt;&#x27;+outcome+&#x27;&lt;/div&gt;&#x27;+earlierApproval+(hasConversation?&#x27;&lt;nav class=&quot;mj-drawer-tabs&quot; role=&quot;tablist&quot; aria-label=&quot;Customer journey detail&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;mj-drawer-tab cursor-interaction&quot; id=&quot;mj-case-conversation-tab&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot; aria-controls=&quot;mj-case-conversation&quot; data-case-tab=&quot;conversation&quot;&gt;Conversation&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;mj-drawer-tab cursor-interaction&quot; id=&quot;mj-case-actions-tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; aria-controls=&quot;mj-case-actions&quot; data-case-tab=&quot;actions&quot;&gt;Action trace&lt;/button&gt;&lt;/nav&gt;&lt;div id=&quot;mj-case-conversation&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;mj-case-conversation-tab&quot;&gt;&#x27;+conversation+&#x27;&lt;/div&gt;&lt;div id=&quot;mj-case-actions&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;mj-case-actions-tab&quot; hidden&gt;&#x27;+actions+&#x27;&lt;/div&gt;&#x27;:actions)+controls;
+ qa(&#x27;[data-case-tab]&#x27;).forEach(b=&gt;b.addEventListener(&#x27;click&#x27;,()=&gt;{[&#x27;conversation&#x27;,&#x27;actions&#x27;].forEach(n=&gt;{q(&#x27;#mj-case-&#x27;+n).hidden=n!==b.dataset.caseTab;q(&#x27;#mj-case-&#x27;+n+&#x27;-tab&#x27;).setAttribute(&#x27;aria-selected&#x27;,String(n===b.dataset.caseTab));});resize();}));
+ if(q(&#x27;#mj-case-approve&#x27;)){q(&#x27;#mj-case-approve&#x27;).disabled=paused;q(&#x27;#mj-case-approve&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{if(paused)return;checkoutApproved=true;runPhase=&#x27;ready&#x27;;refreshWork();openCase(&#x27;checkout&#x27;);});}
+ if(q(&#x27;#mj-case-payment&#x27;))q(&#x27;#mj-case-payment&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{rahulPaid=true;refreshWork();openCase(&#x27;checkout&#x27;);});
+ resize();q(&#x27;#as-case-close&#x27;).focus();
+};
+refreshWork();
+
+refresh();})();
+&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (event) =&gt; {
+    for (const target of event.composedPath()) {
+      if (target?.nodeType === Node.ELEMENT_NODE) {
+        const trigger = target.closest(&quot;[data-tooltip]&quot;);
+        if (trigger) return trigger;
+      }
+    }
+    return null;
+  };
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) =&gt; {
+    lastPointerWasTouch =
+      event.type === &quot;pointerdown&quot; &amp;&amp; event.pointerType === &quot;touch&quot;;
+  };
+  const handleTouchClick = (event) =&gt; {
+    const isTouch = event.pointerType === &quot;touch&quot; || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch &amp;&amp; activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() =&gt; {
+      if (activeTrigger === trigger &amp;&amp; !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) =&gt; {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handlers = {
+    pointerover: handlePointerOpen,
+    pointerdown: handlePointer,
+    pointercancel: handlePointer,
+    click: handleTouchClick,
+    pointerout: handleLeave,
+    focusin: handleFocusIn,
+    focusout: handleLeave,
+    keydown: handleKeyDown,
+    contextmenu: handleContextMenu,
+  };
+  const roots = new Map();
+  const handledEvents = new WeakSet();
+  const handleEvent = (event) =&gt; {
+    if (handledEvents.has(event)) return;
+    handledEvents.add(event);
+    handlers[event.type](event);
+  };
+  const discoverRoots = (node) =&gt; {
+    if (node.shadowRoot) listen(node.shadowRoot);
+    for (const element of node.querySelectorAll(&quot;*&quot;)) {
+      if (element.shadowRoot) listen(element.shadowRoot);
+    }
+  };
+  const listen = (root) =&gt; {
+    if (roots.has(root)) return;
+    for (const type of Object.keys(handlers)) root.addEventListener(type, handleEvent);
+    const observer = new window.MutationObserver((records) =&gt; {
+      for (const { addedNodes } of records) {
+        for (const node of addedNodes) {
+          if (node.nodeType === Node.ELEMENT_NODE) discoverRoots(node);
+        }
+      }
+      for (const [root, cleanup] of roots) {
+        if (root.host &amp;&amp; !root.host.isConnected) {
+          cleanup();
+          roots.delete(root);
+        }
+      }
+      if (activeTrigger &amp;&amp; !activeTrigger.isConnected) closeTooltip(false);
+    });
+    observer.observe(root, { childList: true, subtree: true });
+    roots.set(root, () =&gt; {
+      observer.disconnect();
+      for (const type of Object.keys(handlers)) root.removeEventListener(type, handleEvent);
+    });
+    discoverRoots(root);
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    for (const cleanup of roots.values()) cleanup();
+    roots.clear();
+    tooltip = null;
+  };
+
+  // Events between children of one shadow root never reach the document.
+  listen(document);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-tabs&quot;&gt;
+(() =&gt; {
+  const selector = &#x27;.nav[role=&quot;tablist&quot;] [role=&quot;tab&quot;]&#x27;;
+  const disabled = &#x27;:disabled,[aria-disabled=&quot;true&quot;]&#x27;;
+  const selectTab = (selected) =&gt; {
+    const panelId = selected.getAttribute(&quot;aria-controls&quot;);
+    for (const tab of selected.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;)) {
+      const active = tab === selected;
+      tab.classList.toggle(&quot;active&quot;, active);
+      tab.setAttribute(&quot;aria-selected&quot;, String(active));
+      const id = tab.getAttribute(&quot;aria-controls&quot;);
+      const panel = id &amp;&amp; document.getElementById(id);
+      if (panel != null) {
+        panel.hidden = id !== panelId;
+        if (!panel.hidden &amp;&amp; selected.id) {
+          panel.setAttribute(&quot;aria-labelledby&quot;, selected.id);
+        }
+      }
+    }
+  };
+  const interact = (event) =&gt; {
+    const tab = event.target?.closest?.(selector);
+    if (event.defaultPrevented || tab == null || tab.matches(disabled)) {
+      return;
+    }
+    if (event.type === &quot;click&quot;) {
+      selectTab(tab);
+      return;
+    }
+    const tabs = Array.from(
+      tab.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;),
+    ).filter((candidate) =&gt; !candidate.matches(disabled));
+    const current = tabs.indexOf(tab);
+    let next;
+    if (event.key === &quot;ArrowRight&quot; || event.key === &quot;ArrowDown&quot;) {
+      next = (current + 1) % tabs.length;
+    } else if (event.key === &quot;ArrowLeft&quot; || event.key === &quot;ArrowUp&quot;) {
+      next = (current + tabs.length - 1) % tabs.length;
+    } else if (event.key === &quot;Home&quot;) {
+      next = 0;
+    } else if (event.key === &quot;End&quot;) {
+      next = tabs.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    tabs[next].focus();
+    selectTab(tabs[next]);
+  };
+
+  for (const list of document.querySelectorAll(&#x27;.nav[role=&quot;tablist&quot;]&#x27;)) {
+    const selected =
+      list.querySelector(&#x27;[role=&quot;tab&quot;][aria-selected=&quot;true&quot;]&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;].active&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;]&#x27;);
+    if (selected != null) {
+      selectTab(selected);
+    }
+  }
+  document.addEventListener(&quot;click&quot;, interact);
+  document.addEventListener(&quot;keydown&quot;, interact);
+  window.addEventListener(&quot;pagehide&quot;, () =&gt; {
+    document.removeEventListener(&quot;click&quot;, interact);
+    document.removeEventListener(&quot;keydown&quot;, interact);
+  }, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-carousel&quot;&gt;
+  (() =&gt; {
+    for (const root of document.querySelectorAll(&quot;.viz-carousel&quot;)) {
+      const panels = Array.from(
+        root.querySelectorAll(&quot;:scope &gt; [data-variant]&quot;),
+      );
+      if (panels.length === 0) {
+        continue;
+      }
+      root.setAttribute(&quot;role&quot;, &quot;group&quot;);
+      panels.forEach((panel, index) =&gt; {
+        panel.hidden = index !== 0;
+        panel.setAttribute(&quot;role&quot;, &quot;group&quot;);
+        if (!panel.hasAttribute(&quot;aria-label&quot;)) {
+          panel.setAttribute(&quot;aria-label&quot;, panel.dataset.variant);
+        }
+      });
+      root.dataset.activeVariant = panels[0].dataset.variant;
+      if (panels.length === 1) {
+        continue;
+      }
+
+      const controls = document.createElement(&quot;div&quot;);
+      controls.className = &quot;viz-carousel-controls&quot;;
+      // Portable copy of the settings dropdown&#x27;s legacy glyph; no 14px icon-package preset matches it.
+      // https://github.com/openai/openai/blob/master/codex/codex-apps/webview/src/icons/chevron.svg
+      controls.innerHTML = `
+      &lt;button type=&quot;button&quot; class=&quot;viz-carousel-previous cursor-interaction&quot;&gt;&lt;i data-lucide=&quot;chevron-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;details class=&quot;viz-carousel-picker&quot;&gt;
+        &lt;summary class=&quot;cursor-interaction&quot;&gt;
+          &lt;span class=&quot;viz-carousel-count tabular-nums&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;viz-carousel-name&quot;&gt;&lt;/span&gt;
+          &lt;svg class=&quot;viz-carousel-caret&quot; width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 20 21&quot; fill=&quot;none&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;
+            &lt;path d=&quot;M15.2793 7.71101C15.539 7.45131 15.961 7.45131 16.2207 7.71101C16.4804 7.97071 16.4804 8.39272 16.2207 8.65242L10.4707 14.4024C10.211 14.6621 9.78902 14.6621 9.52932 14.4024L3.77932 8.65242L3.69436 8.54792C3.52385 8.28979 3.55205 7.93828 3.77932 7.71101C4.00659 7.48374 4.3581 7.45554 4.61623 7.62605L4.72073 7.71101L10 12.9903L15.2793 7.71101Z&quot; fill=&quot;currentColor&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;0.6&quot; /&gt;
+          &lt;/svg&gt;
+        &lt;/summary&gt;
+        &lt;div class=&quot;viz-carousel-options&quot;&gt;&lt;/div&gt;
+      &lt;/details&gt;
+      &lt;button type=&quot;button&quot; class=&quot;viz-carousel-next cursor-interaction&quot;&gt;&lt;i data-lucide=&quot;chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;`;
+      const previous = controls.querySelector(&quot;.viz-carousel-previous&quot;);
+      const next = controls.querySelector(&quot;.viz-carousel-next&quot;);
+      const picker = controls.querySelector(&quot;.viz-carousel-picker&quot;);
+      const summary = picker.querySelector(&quot;summary&quot;);
+      const count = controls.querySelector(&quot;.viz-carousel-count&quot;);
+      const name = controls.querySelector(&quot;.viz-carousel-name&quot;);
+      const options = controls.querySelector(&quot;.viz-carousel-options&quot;);
+      const status = document.createElement(&quot;span&quot;);
+      status.className = &quot;sr-only&quot;;
+      status.setAttribute(&quot;role&quot;, &quot;status&quot;);
+      status.setAttribute(&quot;aria-live&quot;, &quot;polite&quot;);
+      status.setAttribute(&quot;aria-atomic&quot;, &quot;true&quot;);
+      previous.setAttribute(
+        &quot;aria-label&quot;,
+        root.dataset.previousLabel ?? &quot;Previous variant&quot;,
+      );
+      next.setAttribute(&quot;aria-label&quot;, root.dataset.nextLabel ?? &quot;Next variant&quot;);
+
+      let active = 0;
+      let mousePointerId = null;
+      let summaryPointerHandled = false;
+      summary.addEventListener(&quot;pointerdown&quot;, (event) =&gt; {
+        summaryPointerHandled =
+          event.pointerType === &quot;mouse&quot; &amp;&amp; event.button === 0 &amp;&amp; !event.ctrlKey;
+        if (!summaryPointerHandled) {
+          return;
+        }
+        event.preventDefault();
+        summary.focus({ preventScroll: true });
+        picker.open = !picker.open;
+        mousePointerId = picker.open ? event.pointerId : null;
+      });
+      summary.addEventListener(&quot;click&quot;, (event) =&gt; {
+        if (summaryPointerHandled &amp;&amp; event.detail &gt; 0) {
+          event.preventDefault();
+        }
+      });
+      const choices = panels.map((panel, index) =&gt; {
+        const choice = document.createElement(&quot;button&quot;);
+        choice.type = &quot;button&quot;;
+        choice.className = &quot;cursor-interaction&quot;;
+        choice.textContent = panel.dataset.variant;
+        choice.addEventListener(&quot;click&quot;, () =&gt; {
+          select(index);
+          summary.focus();
+        });
+        choice.addEventListener(&quot;pointerup&quot;, (event) =&gt; {
+          if (
+            picker.open &amp;&amp;
+            event.pointerType === &quot;mouse&quot; &amp;&amp;
+            event.button === 0 &amp;&amp;
+            event.pointerId === mousePointerId
+          ) {
+            choice.click();
+          }
+        });
+        options.appendChild(choice);
+        return choice;
+      });
+      const select = (index) =&gt; {
+        const changed = active !== index;
+        active = index;
+        panels.forEach((panel, position) =&gt; {
+          panel.hidden = position !== active;
+          choices[position].setAttribute(
+            &quot;aria-current&quot;,
+            String(position === active),
+          );
+        });
+        root.dataset.activeVariant = panels[active].dataset.variant;
+        count.textContent = `${active + 1} / ${panels.length}`;
+        name.textContent = panels[active].dataset.variant;
+        picker.open = false;
+        mousePointerId = null;
+        if (changed) {
+          status.textContent = `${count.textContent}: ${name.textContent}`;
+        }
+      };
+      previous.addEventListener(&quot;click&quot;, () =&gt;
+        select((active + panels.length - 1) % panels.length),
+      );
+      next.addEventListener(&quot;click&quot;, () =&gt;
+        select((active + 1) % panels.length),
+      );
+      picker.addEventListener(&quot;keydown&quot;, (event) =&gt; {
+        if (event.key === &quot;Escape&quot; &amp;&amp; picker.open) {
+          event.preventDefault();
+          picker.open = false;
+          mousePointerId = null;
+          summary.focus();
+          return;
+        }
+        if (event.altKey || event.ctrlKey || event.metaKey) {
+          return;
+        }
+        const index = choices.indexOf(document.activeElement);
+        let nextIndex;
+        if (event.key === &quot;ArrowDown&quot;) {
+          nextIndex = index &lt; 0 ? active : (index + 1) % choices.length;
+        } else if (event.key === &quot;ArrowUp&quot;) {
+          nextIndex = index &lt; 0 ? active : (index + choices.length - 1) % choices.length;
+        } else if (picker.open &amp;&amp; event.key === &quot;Home&quot;) {
+          nextIndex = 0;
+        } else if (picker.open &amp;&amp; event.key === &quot;End&quot;) {
+          nextIndex = choices.length - 1;
+        } else {
+          return;
+        }
+        event.preventDefault();
+        picker.open = true;
+        choices[nextIndex].focus();
+      });
+      picker.addEventListener(&quot;focusout&quot;, (event) =&gt; {
+        if (!picker.contains(event.relatedTarget)) {
+          picker.open = false;
+          mousePointerId = null;
+        }
+      });
+      const dismiss = (event) =&gt; {
+        if (!summary.contains(event.target)) {
+          mousePointerId = null;
+        }
+        if (!picker.contains(event.target)) {
+          picker.open = false;
+        }
+      };
+      const endPointerSelection = () =&gt; {
+        mousePointerId = null;
+      };
+      const sizePicker = () =&gt; {
+        root.style.setProperty(
+          &quot;--viz-carousel-picker-height&quot;,
+          `${picker.open ? options.offsetHeight : 0}px`,
+        );
+      };
+      picker.addEventListener(&quot;toggle&quot;, sizePicker);
+      window.addEventListener(&quot;resize&quot;, sizePicker);
+      document.addEventListener(&quot;pointerdown&quot;, dismiss);
+      document.addEventListener(&quot;pointerup&quot;, endPointerSelection);
+      document.addEventListener(&quot;pointercancel&quot;, endPointerSelection);
+      window.addEventListener(&quot;blur&quot;, endPointerSelection);
+      window.addEventListener(
+        &quot;pagehide&quot;,
+        () =&gt; {
+          document.removeEventListener(&quot;pointerdown&quot;, dismiss);
+          document.removeEventListener(&quot;pointerup&quot;, endPointerSelection);
+          document.removeEventListener(&quot;pointercancel&quot;, endPointerSelection);
+          window.removeEventListener(&quot;blur&quot;, endPointerSelection);
+          window.removeEventListener(&quot;resize&quot;, sizePicker);
+        },
+        { once: true },
+      );
+      root.append(controls, status);
+      select(0);
+    }
+  })();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+<script>(() => {
+  const frame = document.getElementById("codex-visualization");
+  if (!(frame instanceof HTMLIFrameElement)) {
+    return;
+  }
+  let viewportHeight = globalThis.innerHeight;
+  const storageKey = `codex:visualization-widget-state-v2:${JSON.stringify([
+    globalThis.location.pathname,
+    globalThis.location.search,
+  ])}`;
+  const parseState = (serializedState) => {
+    if (
+      typeof serializedState !== "string" ||
+      new TextEncoder().encode(serializedState).length > 16 * 1024
+    ) {
+      throw new TypeError(
+        "Widget state must be a JSON object of at most 16 KiB",
+      );
+    }
+    /** @type {unknown} */
+    const state = JSON.parse(serializedState);
+    if (
+      state == null ||
+      typeof state !== "object" ||
+      Array.isArray(state) ||
+      ("imageIds" in state &&
+        (!Array.isArray(state.imageIds) || state.imageIds.length > 0))
+    ) {
+      throw new TypeError("Widget state must be a JSON object");
+    }
+    const storedState = { modelContent: null, privateContent: null, ...state };
+    const canonicalState = JSON.stringify(
+      storedState,
+      (_key, /** @type {unknown} */ value) => {
+        if (typeof value === "number" && !Number.isFinite(value)) {
+          throw new TypeError("Widget state must contain finite numbers");
+        }
+        return value;
+      },
+    );
+    if (new TextEncoder().encode(canonicalState).length > 16 * 1024) {
+      throw new TypeError(
+        "Widget state must be a JSON object of at most 16 KiB",
+      );
+    }
+    return storedState;
+  };
+  let storage = null;
+  let state = null;
+  try {
+    const localStorage = globalThis.localStorage;
+    const probeKey = `${storageKey}:probe`;
+    localStorage.setItem(probeKey, "1");
+    localStorage.removeItem(probeKey);
+    storage = localStorage;
+    const savedState = storage.getItem(storageKey);
+    if (savedState != null) {
+      try {
+        state = parseState(savedState);
+      } catch {
+        // Invalid saved state does not disable future writes.
+      }
+    }
+  } catch {
+    storage = null;
+  }
+  const initialGlobals = {
+    widgetState: state,
+    statePersistence: storage == null ? "none" : "local",
+  };
+
+  const channel = new MessageChannel();
+  channel.port1.addEventListener("message", (event) => {
+    const data = event.data;
+    if (typeof data !== "object" || data == null) {
+      return;
+    }
+    if (data.type === "widget-state-write") {
+      if (!Number.isSafeInteger(data.id) || data.id <= 0) {
+        return;
+      }
+      let ok = false;
+      try {
+        if (storage != null) {
+          const state = parseState(data.state);
+          storage.setItem(storageKey, JSON.stringify(state));
+          ok = true;
+        }
+      } catch {
+        // Storage denial, quota limits, and invalid state return a failed receipt.
+      }
+      channel.port1.postMessage({
+        type: "widget-state-result",
+        id: data.id,
+        ok,
+      });
+      return;
+    }
+    if (data.type === "height") {
+      const height = data.height;
+      if (
+        typeof height === "number" &&
+        Number.isFinite(height) &&
+        height >= 0 &&
+        height <= 10_000
+      ) {
+        frame.style.height = Math.ceil(height) + "px";
+      }
+      return;
+    }
+    if (data.type === "scroll-to") {
+      const top = data.top;
+      if (
+        typeof top === "number" &&
+        Number.isFinite(top) &&
+        top >= 0 &&
+        globalThis.navigator.userActivation?.isActive === true
+      ) {
+        globalThis.scrollTo({
+          top: Math.ceil(
+            globalThis.scrollY + frame.getBoundingClientRect().top + top,
+          ),
+        });
+      }
+      return;
+    }
+    if (data.type === "open-external") {
+      const rawHref = data.href;
+      if (typeof rawHref !== "string") {
+        return;
+      }
+      let href;
+      try {
+        const url = new URL(rawHref, document.baseURI);
+        if (url.protocol !== "https:") {
+          return;
+        }
+        href = url.href;
+      } catch {
+        return;
+      }
+      if (globalThis.navigator.userActivation?.isActive === true) {
+        const anchor = document.createElement("a");
+        anchor.href = href;
+        anchor.rel = "noopener noreferrer";
+        anchor.target = "_blank";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+      }
+      return;
+    }
+    if (data.type === "follow-up") {
+      const prompt = data.prompt;
+      if (
+        typeof prompt !== "string" ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      const title = data.title;
+      globalThis.prompt(typeof title === "string" ? title : prompt, prompt);
+    }
+  });
+  channel.port1.start();
+  const srcdoc = frame.dataset.srcdoc;
+  if (srcdoc == null) {
+    return;
+  }
+  globalThis.addEventListener("resize", () => {
+    const height = Number.parseFloat(frame.style.height);
+    if (!Number.isFinite(height) || height <= viewportHeight) {
+      frame.style.removeProperty("height");
+    }
+    viewportHeight = globalThis.innerHeight;
+    channel.port1.postMessage({ type: "measure" });
+  });
+  frame.addEventListener(
+    "load",
+    () => {
+      frame.contentWindow?.postMessage(
+        { type: "codex-visualization-initialize" },
+        "*",
+        [channel.port2],
+      );
+    },
+    { once: true },
+  );
+  // Match the trusted bootstrap element, not the same text in an authored title.
+  frame.srcdoc = srcdoc.replace(
+    '<script type="application/json" id="codex-visualization-widget-state">__CODEX_VISUALIZATION_WIDGET_STATE__<\/script>',
+    () =>
+      '<script type="application/json" id="codex-visualization-widget-state">' +
+      JSON.stringify(initialGlobals).replaceAll("<", "\\u003c") +
+      "<\/script>",
+  );
+  delete frame.dataset.srcdoc;
+})();
+
+</script>
+</body>
+</html>
