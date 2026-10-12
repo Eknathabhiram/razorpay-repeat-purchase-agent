@@ -1,6 +1,8 @@
 # Repeat Purchase Agent — final UI/UX implementation handoff
 
-Version 1.0 · 12 October 2026 · Intended implementer: GPT-6.1-sol, low reasoning effort
+Version 2.0 · 12 October 2026 · Intended implementer: GPT-6.1-sol, low reasoning effort
+
+**Merchant-facing revision:** Read `MERCHANT-UI-V2.md` first. The owner rejected the first visual execution as generic and presentation-like. The current `frontend/design-handoff.html` now contains the v2 merchant workspace, built from `merchant-preview.template.html`, `merchant-app.css` and `merchant-app.js`. V2 navigation, layout and copy supersede the v1 composition below where they differ; the product requirements, Razorpay evidence and execution boundaries still apply. V1 screenshots remain historical evidence, not the current design target.
 
 **Design direction: considerate replenishment.** A familiar Razorpay operating environment containing a specialist that understands when a customer is ready, knows when to wait, and leaves evidence for every action. Its identity comes from the way it makes decisions visible and respects customer timing.
 
