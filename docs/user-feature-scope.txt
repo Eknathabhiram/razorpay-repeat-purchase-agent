@@ -1,0 +1,38 @@
+Build the full Repeat Purchase Agent journey: identify → decide → act → learn. Keep the current scope to reordering the same previously purchased product.
+#	Feature	What to include
+1	Razorpay-style entry and navigation	Login and verification preview, payments-dashboard entry, Agent Studio discovery, agent details, Home / My Agents / Connectors, and the agent’s Dashboard / Activity / Settings. Preserve the patterns observed in Razorpay’s public walkthroughs.
+2	Agent installation	The four-step modal: Configure → Connectors → Review → Activate. Explain capabilities, limitations, required access and activation consequences. Installation must remain separate from approval to contact customers.
+3	Connections and integration health	Shopify commerce data, Razorpay payments, WhatsApp, voice and a support/delivery source. Show actual permissions, connection mode, health and last successful sync. Clearly distinguish disconnected, simulated, test and live sources.
+4	Merchant operating policy	Select repeatable products, customer channels, contact timing, quiet hours, contact caps, spend limits, approved offers, required margin floors and execution mode. Save policy versions and show changes.
+5	Repeat-purchase opportunity detection	Use qualifying delivered purchases, SKU/variant, quantity, previous purchase intervals, elapsed time and confirmed customer dates. Suggest a customer-specific repeat window, with a product-level fallback for sparse history. Show the evidence and uncertainty.
+6	Eligibility and suppression	Exclude customers with a newer relevant purchase, undelivered or returned orders, unresolved issues, missing permission, opt-out or unavailable stock. Recheck eligibility before execution. Show exclusion reasons.
+7	Audience and plan approval	Present the proposed customer group, products, schedule, channels, contact limits, spend, permitted actions and offers. Let merchants change timing, exclude customers, approve or reject. Expanded scope requires fresh approval.
+8	WhatsApp automation	Interpret natural replies and adapt: reorder, wait, price concern, coupon enquiry, complaint, refusal or opt-out. Support both free text and useful shortcuts. Follow the provider’s session/template conditions and record delivery status.
+9	Voice automation	Identify the assistant, explain the purpose, confirm intent, dates, SKU and quantity, and record the transcript and outcome. Support a permitted checkout handoff to WhatsApp. Browser audio is the current demonstration direction; real telephone calls require a verified connection.
+10	Shared channel coordination	Maintain one customer journey across WhatsApp and voice. Respect recorded preference, separate channel permissions, shared contact caps and quiet hours. Replies and purchases cancel competing queued outreach. Non-response alone does not authorise calling.
+11	Same-product checkout and purchase verification	Retrieve current stock, price and commercial terms; confirm SKU and quantity; prepare a valid checkout. The customer reviews charges and pays. Confirm purchases using trusted payment and commerce evidence. Keep checkout created, payment confirmed, order created, fulfilled and delivered distinct.
+12	Conditional approved offers	Offer use is off unless authorised. Check existing approved offers only for price concerns or explicit offer enquiries. Validate eligibility, expiry, limits, budget and required margin conditions. Never invent discounts, negotiate prices or automatically offer incentives after silence.
+13	Reminders, support and opt-out	Save confirmed dates and channels, reschedule and recheck eligibility when due. Stop sales progression for unresolved complaints or product dislike and route the issue to support. Apply opt-outs immediately, including while the agent is paused.
+14	Merchant supervision and action review	Support bounded execution and review-first. Show actions awaiting approval, allow rejection and appropriate edits, provide conversation takeover, cancel queued outreach, and expose pause/resume. Resume must recheck current permissions and facts.
+15	Activity, audit and failure recovery	Show customer words, interpreted intent, verified facts, concise decision reasons, checks, actions, execution receipts and outcomes. Handle missing/stale data, ambiguous intent, provider failures, duplicate events and uncertain execution. Check status before retrying; never blindly repeat a potentially completed action.
+16	Learning from outcomes	Record confirmed dates, customer preferences, reply reasons and verified purchases within the merchant account. Use these to improve subsequent decisions. Do not infer permanent preferences from a one-off handoff. Broader policy changes need merchant review.
+17	Business analytics	Show assigned customers, journey states, confirmed brand orders, repeat-purchase rate, net revenue, costs and provisional net contribution. Include purchases outside agent checkout links. Show cost completeness, returns maturity and calculation details.
+18	Usable, trustworthy interface	Clear hierarchy, consistent components and spacing, readable typography, one primary action per decision, progressive disclosure, responsive layouts, keyboard access and proper overlay focus. Include first-use, empty, loading, disconnected, blocked, paused, uncertain and success states. Keep demonstration controls separate from merchant actions.
+
+
+The analytics decisions are:
+- North star: incremental net contribution per eligible customer.
+- Fallback: incremental net revenue when reliable costs are unavailable.
+- Supporting: repeat-order rate and merchant time saved.
+- Guardrails: opt-outs, complaints and execution errors; monitor contact and discount spend.
+- Contribution includes sales after discounts and refunds, less product, fulfilment, payment, communication and agent costs.
+- The prototype must label synthetic outcomes and leave incremental lift “not measured” without a valid comparison. Experiment setup is a rollout requirement, not a prototype screen.
+The demonstration must include:
+- A customer requesting a later reminder.
+- A voice customer confirming the same product and requesting checkout.
+- A purchase detected outside the agent link.
+- A support issue and an opt-out.
+- Review-first approval, pause/takeover and a blocked action.
+- Purchase evidence updating activity, learning and analytics.
+Keep these outside current execution: alternative products, pack recommendations, broader cross-sell, acquisition, subscription creation, autonomous pricing, automatic charges, refunds, cancellations and address changes. Alternatives/packs and broader cross-sell belong in the moonshot roadmap.
+Implementation choices still open: the AI/speech provider, hosting stack, actual account access, telephone provider, and final commerce/payment connection. Native Shopify checkout with Razorpay test payments is the recommendation, subject to compatibility. Code will go into GitHub; you will deploy.
