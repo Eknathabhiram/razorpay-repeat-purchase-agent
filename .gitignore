@@ -1,0 +1,26 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+
+# Generated dependencies and builds
+node_modules/
+.venv/
+venv/
+__pycache__/
+dist/
+build/
+coverage/
+
+# Local tooling
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+
+# Confidential original assignment: retain locally, do not upload
+docs/challenge-brief.pdf
