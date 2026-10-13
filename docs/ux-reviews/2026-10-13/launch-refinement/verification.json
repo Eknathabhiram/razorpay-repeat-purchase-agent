@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "Desktop/mobile setup and readable review: no AI checkbox or raw Unset/settings keys; no accessibility violations or page overflow",
+    "200-customer source, 160 eligible, pagination and filtered bulk selection preserve unsaved-scope guards",
+    "Merchant queue defaults to exceptions/opt-outs; the separate WhatsApp test tab is preserved",
+    "Approved-offer card displays terms and supports selection (browser fixture only; no discount authority saved)"
+  ],
+  "errors": []
+}
