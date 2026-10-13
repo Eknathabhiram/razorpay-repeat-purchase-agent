@@ -1,10 +1,5 @@
-import {Badge,Button,Panel} from '../components/shared';
+import {Badge,Button,Icon} from '../components/shared';
 import type {ViewsProps} from './AgentViews';
-export default function MyAgents({state,go,open}:ViewsProps){
-  return <Panel title="My agents"><div className="settings-body">
-    <div className="agent-identity"><div className="agent-symbol"><span/><span/></div><div><h3>Repeat Purchase Agent</h3><p className="muted">Same-product reorders within merchant-approved limits.</p></div></div>
-    <div className="service-row"><div><Badge>{state?state.installed?'Installed · demo':'Setup required':'Development engine pending'}</Badge><p className="field-help">Dashboard, Activity and Settings share one customer journey.</p></div><Button primary onClick={()=>go('dashboard')}>Open agent</Button></div>
-    {state&&!state.installed&&<Button onClick={()=>go('launch')}>Continue installation</Button>}
-  </div></Panel>;
+export default function MyAgents({state,go}:ViewsProps){
+ return <div className="avime-agents"><div className="avime-page-title"><div><h1>My agents</h1><p>Your agents for customer retention and growth.</p></div><Button onClick={()=>go('studio')}>Explore agents</Button></div><div className="avime-agent-grid"><article className="avime-agent-card"><div className="avime-agent-card-top"><span className="avime-agent-emblem" aria-hidden="true"><Icon name="activity"/></span><Badge tone="teal">{state?.installed?'Installed':'Available'}</Badge></div><h3>Repeat Purchase Agent</h3><p>Bring customers back for the products they love, at the right time.</p><div className="avime-agent-features"><span>Same-product reorders</span><span>WhatsApp conversations</span><span>Approved offers & spend limits</span></div><div className="avime-agent-card-bottom"><Button primary onClick={()=>go('dashboard')}>Open agent →</Button><button className="text-button" onClick={()=>go('launch')}>Create campaign</button></div></article></div></div>;
 }
-

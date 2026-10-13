@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "view": "agents",
+      "width": 1440,
+      "overflow": false,
+      "accessibility_violations": 0
+    },
+    {
+      "view": "agents",
+      "width": 1024,
+      "overflow": false,
+      "accessibility_violations": 0
+    },
+    {
+      "view": "agents",
+      "width": 768,
+      "overflow": false,
+      "accessibility_violations": 0
+    },
+    {
+      "view": "agents",
+      "width": 390,
+      "overflow": false,
+      "accessibility_violations": 0
+    },
+    {
+      "view": "agents",
+      "width": 320,
+      "overflow": false,
+      "accessibility_violations": 0
+    }
+  ],
+  "errors": [],
+  "page": "My agents"
+}

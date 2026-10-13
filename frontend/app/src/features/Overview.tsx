@@ -38,5 +38,3 @@ export default function Overview({workspace,go,activity=false}:{workspace:{id:st
  <Panel title="Cohort distribution"><div className="settings-body"><p className="field-help">{number(data.journey_count)} journeys in the latest approved plan. A customer may have multiple variants.</p><dl className="definition-list">{Object.entries(data.distribution).map(([key,count])=><div key={key}><dt>{label(key)}</dt><dd>{number(count)}</dd></div>)}</dl>{!data.journey_count&&<p>No approved cohort yet.</p>}</div></Panel>
  <Panel title="Source readiness"><div className="settings-body"><ModeNotice environment={workspace.environment}/><p className="section-space">{data.coverage_complete?'Planning source coverage recorded.':'Planning evidence is incomplete; affected outreach is blocked.'}</p><Button onClick={()=>go('connections')}>Review connections</Button></div></Panel></aside></div></div>;
 }
-
-

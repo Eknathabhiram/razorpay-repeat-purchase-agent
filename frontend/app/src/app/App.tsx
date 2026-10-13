@@ -18,7 +18,7 @@ const WhatsApp=lazy(()=>import('../features/WhatsApp'));
 const Intelligence=lazy(()=>import('../features/Intelligence'));
 const OutcomeEvidence=lazy(()=>import('../features/Outcomes'));
 const Analytics=lazy(()=>import('../features/Analytics'));
-const Overview=lazy(()=>import('../features/Overview'));
+const Overview=lazy(()=>import('../features/AvimeOverview'));
 const views=['whatsapp-test','analytics','launch','receipts','dashboard','activity','settings','planning','execution','commerce','whatsapp','intelligence','outcomes','studio','agents','agent','connections','payments','transactions','customers','entry','plan','outcomes'];
 
 function Login({onLogin,notice}:{onLogin:()=>Promise<unknown>;notice:string}) {
@@ -57,7 +57,7 @@ export default function App() {
     return ()=>{window.removeEventListener('session-expired',expired);window.removeEventListener('online',connected);window.removeEventListener('offline',disconnected);};
   },[client]);
   const session=useQuery({queryKey:['session'],queryFn:restoreSession,retry:false,staleTime:Infinity});
-  const workspace=session.data?.workspaces.find(w=>w.id===params.get('workspace'))??session.data?.workspaces[0];
+  const workspace=session.data?.workspaces.find(w=>w.id===params.get('workspace'))??session.data?.workspaces.find(w=>w.environment==='demo'&&w.name.includes('200'))??session.data?.workspaces[0];
   const ui=useQuery({queryKey:['ui',workspace?.id],queryFn:({signal})=>api<UIState>('/workspaces/'+workspace!.id+'/ui-state','GET',undefined,undefined,{signal}),
     enabled:!!workspace,refetchInterval:5000});
   const state=ui.data?.state as DemoState|null|undefined;
@@ -118,9 +118,9 @@ export default function App() {
   return <CommandErrorContext.Provider value={commandError}><a className="skip-link" href="#workspace" onClick={e=>{e.preventDefault();document.getElementById('workspace')?.focus();}}>Skip to workspace</a>
     <header className="product-header"><button ref={navigationToggle} className="icon-button mobile-toggle" aria-label={menu?'Close navigation':'Open navigation'} aria-expanded={menu} aria-controls="sidebar" onClick={()=>setMenu(!menu)}><Icon name="menu"/></button>
       <Link className="brand" to={link('payments')}>Razorpay<span className="brand-mark">/</span></Link><span className="product-switch">Payments</span>
-      <div className="header-right"><button className="mode-button" onClick={()=>setModal('environment')}><span className="mode-dot"/>{workspace.environment==='demo'?'Demo mode':workspace.environment==='development'?'Development':'Live'}</button>
+      <div className="header-right"><Link className="header-connections" to={link('connections')}>Connections</Link>
         <label className="sr-only" htmlFor="workspace-selector">Active workspace</label><select id="workspace-selector" className="workspace-select" value={workspace.id} onChange={e=>setParams({workspace:e.target.value})}>
-          {session.data.workspaces.map(w=><option key={w.id} value={w.id}>{w.environment==='demo'?'Demo':'Development'} · {w.name}</option>)}</select>
+          {session.data.workspaces.map((w,index)=><option key={w.id} value={w.id}>{w.environment==='development'?'Avime Herbal · Shopify store':w.name.includes('200')?'Avime Herbal · 200 customers':'Avime Herbal · Design review'}</option>)}</select>
         <button className="text-button header-signout" disabled={signingOut} onClick={()=>void signOut()}>{signingOut?'Signing out…':'Sign out'}</button>
       </div></header>
     {menu&&<button className="navigation-backdrop" aria-label="Close navigation" tabIndex={-1} onClick={()=>setMenu(false)}/>}
@@ -130,13 +130,13 @@ export default function App() {
       </nav><div className="sidebar-label studio-label">AGENT STUDIO</div><nav className="primary-nav" aria-label="Agent Studio">
         {[['studio','Explore agents','grid'],['agents','My agents','activity'],['connections','Connections','link']].map(([path,title,icon])=><Link key={path} to={link(path)} onClick={()=>setMenu(false)} className={view===path||(path==='agents'&&!globalView)?'selected':''}><Icon name={icon}/>{title}</Link>)}
       </nav><div className="sidebar-bottom"><button className="nav-button" onClick={()=>setModal('help')}><Icon name="settings"/>Help & support</button>
-        <div className="account-row"><span className="avatar light">LE</span><div><strong>Loop Essentials</strong><span>{workspace.environment} workspace</span></div></div></div>
+        <div className="account-row"><span className="avatar light">AH</span><div><strong>Avime Herbal</strong><span>Merchant account</span></div></div></div>
     </aside><main id="workspace" tabIndex={-1}>
       {!online&&<div className="notice warning" role="alert"><p>You’re offline. Reconnect and refresh before approving or saving changes.</p></div>}
       {workspace.role==='viewer'&&<div className="access-note"><Icon name="box"/><span>View-only access. An owner or operator can approve and save changes.</span></div>}
-      <div className="breadcrumb"><Link to={link('studio')}>Agent Studio</Link><span>/</span><Link to={link('agents')}>My agents</Link><span>/</span><span>Repeat Purchase</span></div>
-      <div className="agent-heading"><div className="agent-identity"><div className="agent-symbol"><span/><span/></div><div><h1>{globalView?'Agent Studio':'Repeat Purchase Agent'}</h1><p>{globalView?'Specialists for your merchant operations.':'Customer reorders, managed within your limits.'}</p></div></div>
-        {!globalView&&<MerchantControls workspace={workspace}/>}</div>
+      <div className="breadcrumb"><Link to={link('studio')}>Agent Studio</Link><span>/</span>{globalView?<span>{view==='agents'?'My agents':view==='connections'?'Connections':'Explore agents'}</span>:<><Link to={link('agents')}>My agents</Link><span>/</span><span>Repeat Purchase</span></>}</div>
+      {view!=='agents'&&<div className="agent-heading"><div className="agent-identity"><div className="agent-symbol"><span/><span/></div><div><h1>{globalView?'Agent Studio':'Repeat Purchase Agent'}</h1><p>{globalView?'Specialists for your merchant operations.':'Customer reorders, managed within your limits.'}</p></div></div>
+        {!globalView&&<MerchantControls workspace={workspace}/>}</div>}
       {!globalView&&<nav className="agent-tabs" aria-label="Repeat Purchase Agent">{['dashboard','launch','whatsapp','whatsapp-test','analytics','activity','settings'].map(path=><Link key={path} to={link(path)} className={(view===path||(path==='launch'&&['planning','execution'].includes(view)))?'selected':''} aria-current={(view===path||(path==='launch'&&['planning','execution'].includes(view)))?'page':undefined}>{path==='launch'?'Launch campaign':path==='whatsapp'?'Conversations':path==='whatsapp-test'?'WhatsApp test':path.charAt(0).toUpperCase()+path.slice(1)}</Link>)}</nav>}
       {state?.paused&&['studio','agents','agent','payments','plan'].includes(view)&&<div className="notice warning"><div><strong>Outreach is paused</strong><p>New messages and calls are on hold. Orders and opt-outs continue to update.</p></div><Button onClick={()=>setModal('pause')}>Resume</Button></div>}
       {state?.plan_needs_review&&['studio','agents','agent','payments','plan'].includes(view)&&<div className="notice warning"><p>Your policy changed. Review the plan before further demo outreach.</p><Button onClick={()=>go('plan')}>Review plan</Button></div>}
@@ -155,7 +155,7 @@ export default function App() {
        view==='planning'?<Planning key={workspace.id} workspace={workspace} go={go}/>:
        view==='connections'?<Connections key={workspace.id} workspace={workspace} notify={notify} go={go} openDevelopment={()=>{const dev=session.data?.workspaces.find(w=>w.environment==='development');if(dev)setParams({workspace:dev.id});}}/>:
        view==='entry'?<Panel title="Razorpay-style entry preview"><div className="settings-body"><Badge>Simulated entry</Badge><h3 className="section-space">{entryStep===0?'Sign-in preview':entryStep===1?'Verification preview':'Payments home entry'}</h3>
-         <p className="field-help">This illustrates the agreed entry journey. No Razorpay credentials or verification code are collected.</p><div className="field"><label className="input-label" htmlFor="sample-merchant">Sample merchant</label><input id="sample-merchant" value="Loop Essentials" readOnly/></div>
+         <p className="field-help">This illustrates the agreed entry journey. No Razorpay credentials or verification code are collected.</p><div className="field"><label className="input-label" htmlFor="sample-merchant">Sample merchant</label><input id="sample-merchant" value="Avime Herbal" readOnly/></div>
          <Button primary onClick={()=>entryStep<2?setEntryStep(entryStep+1):go('payments')}>{entryStep===0?'Continue to verification':entryStep===1?'Continue with simulated verification':'Open payments home'}</Button></div></Panel>:
        view==='studio'?<Studio {...props}/>:view==='agents'?<MyAgents {...props}/>:view==='agent'?<AgentDetail {...props}/>:view==='payments'?<Payments {...props}/>:
        view==='transactions'||view==='customers'?<Panel title={view==='transactions'?'Transactions':'Customers'}><Empty title="Use source records in Connections" action={<Button onClick={()=>go('connections')}>View Shopify records</Button>}>These dashboard areas are entry references; no separate live merchant dashboard is connected.</Empty></Panel>:
@@ -163,7 +163,7 @@ export default function App() {
        view==='activity'?<Activity {...props}/>:view==='settings'?<SettingsView key={workspace.id+state.policy.version} {...props} reviewPolicy={reviewPolicy}/>:
        view==='plan'?<Plan key={workspace.id+state.scenario} {...props}/>:<Dashboard {...props}/>}
       </Suspense>
-      <footer className="workspace-footer"><span>All times in IST</span><span>{workspace.environment==='demo'?'Synthetic journeys · server-persisted demo actions':'Development source reads · agent execution pending'}</span></footer>
+
     </main></div>
     {modal==='environment'&&<Dialog title="Workspace source mode" onClose={()=>setModal(null)} footer={<Button onClick={()=>state?setModal('scenarios'):switchDemo()}>{state?'Manage demo scenarios':'Open Demo workspace'}</Button>}>
       <p>{ui.data?.notice}</p><div className="section-space"><h3>Separate environments</h3><p className="field-help">Demo commands are persisted on the server and cannot change Development provider records. Actual source capabilities appear in Connections.</p></div><Button onClick={()=>go('connections')}>Review connections</Button></Dialog>}
@@ -204,4 +204,3 @@ export default function App() {
     {toast&&<div className="toast" role="status" aria-live="polite">{toast}</div>}
   </CommandErrorContext.Provider>;
 }
-

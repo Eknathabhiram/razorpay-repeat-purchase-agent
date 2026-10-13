@@ -28,5 +28,3 @@ try{
  expect(errors).toEqual([]);expect(accessibility.flatMap(x=>x.violations)).toEqual([]);
  await fs.writeFile(path.join(output,'verification.json'),JSON.stringify({checks,errors,accessibility},null,2));console.log(JSON.stringify({checks,errors,accessibility},null,2));
 }finally{await browser.close();}
-
-
