@@ -55,22 +55,23 @@ test('mobile navigation supports keyboard dismissal and backdrop',async ({page})
 });
 
 test('launch explains the stages and keeps data, audience and approval distinct',async ({page})=>{
- await page.goto('#/launch?step=setup');await expect(page.getByRole('heading',{name:'Step 1: Data & limits'})).toBeVisible();
- await expect(page.getByRole('heading',{name:'Operating limits & automation'})).toBeVisible();await expect(page.getByRole('heading',{name:/Opportunity audience/})).toHaveCount(0);
- await page.getByRole('button',{name:'Continue to audience',exact:true}).click();await expect(page.getByRole('heading',{name:'Step 2: Choose audience'})).toBeVisible();
- await expect(page.getByRole('heading',{name:/Opportunity audience/})).toBeVisible();await expect(page.getByRole('heading',{name:'Operating limits & automation'})).toHaveCount(0);
- await expect(page.getByRole('button',{name:'Continue to initial review',exact:true})).toBeDisabled();
+ await page.route('**/api/v1/workspaces/*/merchant/planning',route=>route.fulfill({json:{data:{...planning,counts:{total:200,eligible:160,excluded:40},policy:{...planning.policy,config_json:{...planning.policy.config_json,mode:'bounded',conversation_automation:true,contextual_replies:true,provider_processing:true,approved_offer_refs:[]}}}}}));
+ await page.goto('#/launch?step=setup');await expect(page.getByRole('heading',{name:'Products & limits'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Campaign settings'})).toBeVisible();await expect(page.getByRole('heading',{name:/Filter your audience/})).toHaveCount(0);
+ await page.getByRole('button',{name:'Continue to audience',exact:true}).click();await expect(page.getByRole('heading',{name:'Choose your audience'})).toBeVisible();
+ await expect(page.getByRole('heading',{name:/Filter your audience/})).toBeVisible();await expect(page.getByRole('heading',{name:'Campaign settings'})).toHaveCount(0);
+ await expect(page.getByRole('button',{name:'Continue to review',exact:true})).toBeDisabled();
 });
 
 test('audience changes must be saved before continuing to the initial review',async ({page})=>{
  await page.route('**/api/v1/workspaces/*/merchant/planning',route=>route.fulfill({json:{data:{...planning,counts:{total:200,eligible:160,excluded:40},draft:{revision:1,selected_count:160,stale:false,digest:'saved-cohort',expires_at:'2026-10-14T08:00:00Z'}}}}));
  await page.goto('#/launch?step=audience');
- const next=page.getByRole('button',{name:'Continue to initial review',exact:true});
+ const next=page.getByRole('button',{name:'Continue to review',exact:true});
  await expect(next).toHaveCount(1);await expect(next).toBeEnabled();
  await page.getByRole('button',{name:'Clear selection',exact:true}).click();
- await expect(page.getByText('Selection changed. Save this cohort before continuing to initial review.')).toBeVisible();
+ await expect(page.getByText('Selection changed. Save your audience selection before continuing.')).toBeVisible();
  await expect(next).toBeDisabled();
- await expect(page.getByRole('button',{name:'3 Review & launch Approve the cohort, style and boundaries once',exact:true})).toBeDisabled();
+ await expect(page).toHaveURL(/step=audience/);
 });
 
 test('session outage is recoverable and is distinguished from signed-out state',async ({page})=>{
@@ -78,7 +79,7 @@ test('session outage is recoverable and is distinguished from signed-out state',
   await page.goto('');await expect(page.getByRole('heading',{name:'Unable to reach your workspace'})).toBeVisible();
   await expect(page.getByText('The service is temporarily unavailable.')).toBeVisible();
   await page.unroute('**/api/v1/auth/session');await page.getByRole('button',{name:'Try again'}).click();
-  await expect(page.getByRole('heading',{name:'Needs your decision'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Overview'})).toBeVisible();
 });
 
 test('expired session clears workspace data and requires sign-in',async ({page})=>{
@@ -97,13 +98,13 @@ test('failed logout keeps the session visible and explains recovery',async ({pag
 
 test('unknown routes provide a clear recovery action',async ({page})=>{
   await page.goto('#/missing-page');await expect(page.getByRole('heading',{name:'Page not found'})).toBeVisible();
-  await page.getByRole('button',{name:'Return to dashboard'}).click();await expect(page.getByRole('heading',{name:'Needs your decision'})).toBeVisible();
+  await page.getByRole('button',{name:'Return to dashboard'}).click();await expect(page.getByRole('heading',{name:'Overview'})).toBeVisible();
 });
 
 test('background refresh failure preserves data and blocks approvals',async ({page})=>{
-  await page.goto('#/dashboard');await expect(page.getByRole('heading',{name:'Needs your decision'})).toBeVisible();
+  await page.goto('#/dashboard');await expect(page.getByRole('heading',{name:'Overview'})).toBeVisible();
   await page.route('**/api/v1/workspaces/*/merchant/overview',route=>route.fulfill({status:503,body:'Unavailable'}));
   await expect(page.getByRole('alert')).toContainText('Showing the last loaded data',{timeout:25000});
-  await expect(page.getByRole('heading',{name:'Needs your decision'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Overview'})).toBeVisible();
   await expect(page.getByRole('button',{name:'Pause agent',exact:true})).toBeDisabled();
 });

@@ -8,7 +8,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.encoders import jsonable_encoder
 from fastapi.exceptions import RequestValidationError
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from shopify_app import connector as existing_shopify
@@ -99,7 +99,7 @@ def create_app(settings=None, shopify=None, razorpay=None, twilio=None, together
 
     @application.get("/")
     async def preview():
-        return FileResponse(REPOSITORY / "frontend" / "design-handoff.html")
+        return RedirectResponse("/app/", status_code=307)
 
     @application.get("/foundation")
     async def review():

@@ -570,5 +570,3 @@ async def merchant_audience(workspace_id: uuid.UUID, body: AudienceSelection, re
 async def merchant_demo_choice(workspace_id: uuid.UUID, body: DemoChoice, request: Request, session: 'Session'):
     actor=await actor_for(request,session,mutation=True);scope=await resolve_scope(session,actor['user_id'],workspace_id,mutate=True)
     return envelope(request,await whatsapp.demo_choice(session,scope,body))
-
-

@@ -39,7 +39,7 @@ async def protect(session,scope,customer_id,classification,event_ref,source_mode
     for journey in journeys:
         if journey['state']=='opted_out' and classification!='opt_out': continue
         if journey['state'] in ('purchased','purchase_under_review','support','unknown_outcome') and classification not in ('opt_out','support'): continue
-        auto=automated and not journey['owner_id'] and journey['state'] not in ('unknown_outcome',) 
+        auto=automated and not journey['owner_id'] and journey['state'] not in ('unknown_outcome',)
         await session.execute(t.journeys.update().where(repo.where(t.journeys),t.journeys.c.id==journey['id']).values(state='contacted' if auto else state,owner_id=journey['owner_id'] if classification=='not_now' else None if auto else journey['owner_id'] or scope.user_id))
         if classification=='support':
             await session.execute(insert(t.support_cases).values(merchant_id=scope.merchant_id,workspace_id=scope.workspace_id,journey_id=journey['id'],state='open',owner_id=scope.user_id).on_conflict_do_nothing(index_elements=[t.support_cases.c.merchant_id,t.support_cases.c.workspace_id,t.support_cases.c.journey_id]))

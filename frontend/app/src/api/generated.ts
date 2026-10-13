@@ -872,6 +872,74 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/workspaces/{workspace_id}/test-conversations/catalogue": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Test Catalogue */
+        get: operations["test_catalogue_api_v1_workspaces__workspace_id__test_conversations_catalogue_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/test-conversations": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Start Test */
+        post: operations["start_test_api_v1_workspaces__workspace_id__test_conversations_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/test-conversations/{conversation_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Test Thread */
+        get: operations["test_thread_api_v1_workspaces__workspace_id__test_conversations__conversation_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/test-conversations/{conversation_id}/reply": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Test Reply */
+        post: operations["test_reply_api_v1_workspaces__workspace_id__test_conversations__conversation_id__reply_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/workspaces/{workspace_id}/merchant/overview": {
         parameters: {
             query?: never;
@@ -1946,6 +2014,29 @@ export interface components {
              */
             provider: "baseline" | "together";
         };
+        /** StartTest */
+        StartTest: {
+            /** Phone */
+            phone: string;
+            /** Variant Id */
+            variant_id: string;
+            /**
+             * Confirmed Own Number
+             * @constant
+             */
+            confirmed_own_number: true;
+            /**
+             * Confirmed Provider Processing
+             * @constant
+             */
+            confirmed_provider_processing: true;
+            /**
+             * Mode
+             * @default preview
+             * @enum {string}
+             */
+            mode: "preview" | "whatsapp";
+        };
         /** StoreView */
         StoreView: {
             /** Shop Name */
@@ -1983,6 +2074,15 @@ export interface components {
             decision: "accept" | "reject";
             /** Expected Policy Revision */
             expected_policy_revision: number;
+        };
+        /** TestReply */
+        TestReply: {
+            /** Expected Version */
+            expected_version: number;
+            /** Choice */
+            choice?: ("yes" | "no" | "price" | "later" | "support" | "not_needed" | "stop") | null;
+            /** Text */
+            text?: string | null;
         };
         /** TextTurn */
         TextTurn: {
@@ -3745,6 +3845,144 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["Envelope_OutcomeView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    test_catalogue_api_v1_workspaces__workspace_id__test_conversations_catalogue_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    start_test_api_v1_workspaces__workspace_id__test_conversations_post: {
+        parameters: {
+            query?: never;
+            header: {
+                "idempotency-key": string;
+            };
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StartTest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    test_thread_api_v1_workspaces__workspace_id__test_conversations__conversation_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                conversation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    test_reply_api_v1_workspaces__workspace_id__test_conversations__conversation_id__reply_post: {
+        parameters: {
+            query?: never;
+            header: {
+                "idempotency-key": string;
+            };
+            path: {
+                workspace_id: string;
+                conversation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TestReply"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
                 };
             };
             /** @description Validation Error */

@@ -106,4 +106,3 @@ Built-in ImageGen produced the concepts. Final prompt set: preserve the accepted
 # Implementation update
 
 The owner's later decision supersedes routine per-message approval in the conceptual examples below: approve the audience, reply style and limits once, then automate routine conversations, confirmed checkout and reminders within that authority. Merchant involvement is limited to exceptions. The implemented Demo uses the owner's requested 200-customer dataset, city/date filters and actual backend counts. See [the implementation and verification notes](IMPLEMENTED.md).
-

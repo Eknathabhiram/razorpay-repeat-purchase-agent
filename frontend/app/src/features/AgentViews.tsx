@@ -132,5 +132,3 @@ export function AgentDetail({go}:ViewsProps) {
 export function Payments({go}:ViewsProps) {
   return <Panel title="Payments workspace"><Empty title="Your merchant operations" action={<Button primary onClick={()=>go('studio')}>Explore Agent Studio</Button>}>Open your specialist agent to review customers, decisions and source connections.</Empty></Panel>;
 }
-
-
