@@ -1,0 +1,31 @@
+{
+  "name": "repeat-purchase-merchant-app",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "types": "openapi-typescript ./openapi.json -o src/api/generated.ts",
+    "check": "tsc --noEmit",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test:browser": "playwright test",
+    "test:api": "node --experimental-strip-types --test tests/production/api-client.test.mjs"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router": "^7.0.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.55.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "openapi-typescript": "^7.0.0",
+    "typescript": "^5.8.0",
+    "vite": "^7.0.0"
+  }
+}
