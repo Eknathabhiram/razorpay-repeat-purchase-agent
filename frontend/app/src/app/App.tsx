@@ -3,14 +3,23 @@ import {Link,useLocation,useNavigate,useSearchParams} from 'react-router';
 import {useMutation,useQuery,useQueryClient} from '@tanstack/react-query';
 import {api,clearSession,login,logout,restoreSession,ApiError,type Command,type DemoState,type Policy,type UIState} from '../api/client';
 import {Badge,Button,Dialog,Empty,Icon,Loading,RefreshNotice,Panel,CommandErrorContext} from '../components/shared';
-import {Dashboard,Activity,Plan,SettingsView,Outcomes,Studio,AgentDetail,Payments,type ViewsProps} from '../features/AgentViews';
+import {Dashboard,Activity,Plan,SettingsView,Studio,AgentDetail,Payments,type ViewsProps} from '../features/AgentViews';
 import MyAgents from '../features/MyAgents';
+import {MerchantControls} from '../components/merchant';
 import {people,fixtureBasis,type PersonKey} from '../features/fixtures';
+const TestConversation=lazy(()=>import('../features/TestConversation'));
 const Connections=lazy(()=>import('../features/Connections'));
 const Planning=lazy(()=>import('../features/Planning'));
-const Execution=lazy(()=>import('../features/Execution'));
+const Execution=lazy(()=>import('../features/Launch'));
+const LaunchJourney=lazy(()=>import('../features/LaunchJourney'));
+const Receipts=lazy(()=>import('../features/Execution'));
 const Commerce=lazy(()=>import('../features/Commerce'));
-const views=['dashboard','activity','settings','planning','execution','commerce','studio','agents','agent','connections','payments','transactions','customers','entry','plan','outcomes'];
+const WhatsApp=lazy(()=>import('../features/WhatsApp'));
+const Intelligence=lazy(()=>import('../features/Intelligence'));
+const OutcomeEvidence=lazy(()=>import('../features/Outcomes'));
+const Analytics=lazy(()=>import('../features/Analytics'));
+const Overview=lazy(()=>import('../features/Overview'));
+const views=['whatsapp-test','analytics','launch','receipts','dashboard','activity','settings','planning','execution','commerce','whatsapp','intelligence','outcomes','studio','agents','agent','connections','payments','transactions','customers','entry','plan','outcomes'];
 
 function Login({onLogin,notice}:{onLogin:()=>Promise<unknown>;notice:string}) {
   const [error,setError]=useState(''),[pending,setPending]=useState(false);
@@ -53,7 +62,7 @@ export default function App() {
     enabled:!!workspace,refetchInterval:5000});
   const state=ui.data?.state as DemoState|null|undefined;
   const view=location.pathname.replace(/^\//,'')||'dashboard';
-  const link=(path:string)=>'/'+path+(workspace?'?workspace='+workspace.id:'');
+  const link=(path:string)=>{const [route,query]=path.split('?');return '/'+route+'?'+new URLSearchParams({...Object.fromEntries(new URLSearchParams(query)),...(workspace?{workspace:workspace.id}:{})});};
   function go(path:string){setModal(null);setMenu(false);navigate(link(path));}
   function notify(message:string){setToast(message);}
   useEffect(()=>{if(!toast)return;const id=window.setTimeout(()=>setToast(''),6000);return()=>clearTimeout(id);},[toast]);
@@ -121,26 +130,30 @@ export default function App() {
       </nav><div className="sidebar-label studio-label">AGENT STUDIO</div><nav className="primary-nav" aria-label="Agent Studio">
         {[['studio','Explore agents','grid'],['agents','My agents','activity'],['connections','Connections','link']].map(([path,title,icon])=><Link key={path} to={link(path)} onClick={()=>setMenu(false)} className={view===path||(path==='agents'&&!globalView)?'selected':''}><Icon name={icon}/>{title}</Link>)}
       </nav><div className="sidebar-bottom"><button className="nav-button" onClick={()=>setModal('help')}><Icon name="settings"/>Help & support</button>
-        <Link className="nav-button" to={link('entry')}>Entry journey preview</Link><div className="account-row"><span className="avatar light">LE</span><div><strong>Loop Essentials</strong><span>{workspace.environment} workspace</span></div></div></div>
+        <div className="account-row"><span className="avatar light">LE</span><div><strong>Loop Essentials</strong><span>{workspace.environment} workspace</span></div></div></div>
     </aside><main id="workspace" tabIndex={-1}>
       {!online&&<div className="notice warning" role="alert"><p>You’re offline. Reconnect and refresh before approving or saving changes.</p></div>}
       {workspace.role==='viewer'&&<div className="access-note"><Icon name="box"/><span>View-only access. An owner or operator can approve and save changes.</span></div>}
       <div className="breadcrumb"><Link to={link('studio')}>Agent Studio</Link><span>/</span><Link to={link('agents')}>My agents</Link><span>/</span><span>Repeat Purchase</span></div>
       <div className="agent-heading"><div className="agent-identity"><div className="agent-symbol"><span/><span/></div><div><h1>{globalView?'Agent Studio':'Repeat Purchase Agent'}</h1><p>{globalView?'Specialists for your merchant operations.':'Customer reorders, managed within your limits.'}</p></div></div>
-        {!globalView&&!['planning','execution','commerce'].includes(view)&&<div className="agent-controls"><span className={'status '+(state?.paused?'paused':'')}><span className="status-dot"/>{state?(state.paused?'Paused':state.installed?'Demo active':'Setup required'):'Engine pending'}</span>
-          <Button disabled={!state||busy} onClick={()=>setModal('pause')}><Icon name="pause"/>{state?.paused?'Resume':'Pause agent'}</Button></div>}</div>
-      {!globalView&&<nav className="agent-tabs" aria-label="Repeat Purchase Agent">{['dashboard','activity','settings','planning','execution','commerce'].map(path=><Link key={path} to={link(path)} className={view===path?'selected':''} aria-current={view===path?'page':undefined}>{path.charAt(0).toUpperCase()+path.slice(1)}</Link>)}</nav>}
-      {state?.paused&&!['planning','execution','commerce'].includes(view)&&<div className="notice warning"><div><strong>Outreach is paused</strong><p>New messages and calls are on hold. Orders and opt-outs continue to update.</p></div><Button onClick={()=>setModal('pause')}>Resume</Button></div>}
-      {state?.plan_needs_review&&!['planning','execution','commerce'].includes(view)&&<div className="notice warning"><p>Your policy changed. Review the plan before further demo outreach.</p><Button onClick={()=>go('plan')}>Review plan</Button></div>}
+        {!globalView&&<MerchantControls workspace={workspace}/>}</div>
+      {!globalView&&<nav className="agent-tabs" aria-label="Repeat Purchase Agent">{['dashboard','launch','whatsapp','whatsapp-test','analytics','activity','settings'].map(path=><Link key={path} to={link(path)} className={(view===path||(path==='launch'&&['planning','execution'].includes(view)))?'selected':''} aria-current={(view===path||(path==='launch'&&['planning','execution'].includes(view)))?'page':undefined}>{path==='launch'?'Launch campaign':path==='whatsapp'?'Conversations':path==='whatsapp-test'?'WhatsApp test':path.charAt(0).toUpperCase()+path.slice(1)}</Link>)}</nav>}
+      {state?.paused&&['studio','agents','agent','payments','plan'].includes(view)&&<div className="notice warning"><div><strong>Outreach is paused</strong><p>New messages and calls are on hold. Orders and opt-outs continue to update.</p></div><Button onClick={()=>setModal('pause')}>Resume</Button></div>}
+      {state?.plan_needs_review&&['studio','agents','agent','payments','plan'].includes(view)&&<div className="notice warning"><p>Your policy changed. Review the plan before further demo outreach.</p><Button onClick={()=>go('plan')}>Review plan</Button></div>}
       {commandError&&!modal&&<div className="notice warning" role="alert"><p>{commandError}</p><Button onClick={()=>setCommandError('')}>Dismiss</Button></div>}
       <RefreshNotice failed={ui.isError&&!!ui.data} onRetry={()=>void ui.refetch()}/>
       <Suspense fallback={<Loading/>}>
       {ui.isPending?<Loading/>:ui.isError&&!ui.data?<Panel title="Workspace unavailable"><div className="settings-body" role="alert"><p>{ui.error.message}</p><Button onClick={()=>void ui.refetch()}>Try again</Button><Button onClick={()=>void signOut()}>Sign in again</Button></div></Panel>:
        !views.includes(view)?<Panel title="Page not found"><Empty title="This page is unavailable" action={<Button primary onClick={()=>go('dashboard')}>Return to dashboard</Button>}>Use the workspace navigation to find customers, approvals and settings.</Empty></Panel>:
+       view==='analytics'?<Analytics key={workspace.id} workspace={workspace} go={go}/>:view==='dashboard'?<Overview key={workspace.id} workspace={workspace} go={go}/>:view==='outcomes'?<OutcomeEvidence key={workspace.id} workspace={workspace} go={go}/>:view==='activity'?<Overview key={workspace.id} workspace={workspace} go={go} activity/>:view==='settings'?<Planning key={workspace.id} workspace={workspace} go={go} stage='setup'/>:
+       view==='intelligence'?<Intelligence key={workspace.id} workspace={workspace} go={go}/>:
+       view==='whatsapp-test'?<TestConversation key={workspace.id} workspace={workspace}/>:view==='whatsapp'?<WhatsApp key={workspace.id} workspace={workspace} go={go}/>:
        view==='commerce'?<Commerce key={workspace.id} workspace={workspace} go={go}/>:
        view==='execution'?<Execution key={workspace.id} workspace={workspace} go={go}/>:
+       view==='launch'?<LaunchJourney key={workspace.id} workspace={workspace} go={go}/>:
+       view==='receipts'?<Receipts key={workspace.id} workspace={workspace} go={go}/>:
        view==='planning'?<Planning key={workspace.id} workspace={workspace} go={go}/>:
-       view==='connections'?<Connections key={workspace.id} workspace={workspace} notify={notify}/>:
+       view==='connections'?<Connections key={workspace.id} workspace={workspace} notify={notify} go={go} openDevelopment={()=>{const dev=session.data?.workspaces.find(w=>w.environment==='development');if(dev)setParams({workspace:dev.id});}}/>:
        view==='entry'?<Panel title="Razorpay-style entry preview"><div className="settings-body"><Badge>Simulated entry</Badge><h3 className="section-space">{entryStep===0?'Sign-in preview':entryStep===1?'Verification preview':'Payments home entry'}</h3>
          <p className="field-help">This illustrates the agreed entry journey. No Razorpay credentials or verification code are collected.</p><div className="field"><label className="input-label" htmlFor="sample-merchant">Sample merchant</label><input id="sample-merchant" value="Loop Essentials" readOnly/></div>
          <Button primary onClick={()=>entryStep<2?setEntryStep(entryStep+1):go('payments')}>{entryStep===0?'Continue to verification':entryStep===1?'Continue with simulated verification':'Open payments home'}</Button></div></Panel>:
@@ -148,7 +161,7 @@ export default function App() {
        view==='transactions'||view==='customers'?<Panel title={view==='transactions'?'Transactions':'Customers'}><Empty title="Use source records in Connections" action={<Button onClick={()=>go('connections')}>View Shopify records</Button>}>These dashboard areas are entry references; no separate live merchant dashboard is connected.</Empty></Panel>:
        !state?<Panel title="Agent execution setup"><Empty title="The agent engine is not connected here" action={<><Button primary onClick={()=>go('connections')}>Review source connections</Button><Button onClick={switchDemo}>Open Demo workspace</Button></>}>{ui.data?.notice}</Empty></Panel>:
        view==='activity'?<Activity {...props}/>:view==='settings'?<SettingsView key={workspace.id+state.policy.version} {...props} reviewPolicy={reviewPolicy}/>:
-       view==='plan'?<Plan key={workspace.id+state.scenario} {...props}/>:view==='outcomes'?<Outcomes {...props}/>:<Dashboard {...props}/>}
+       view==='plan'?<Plan key={workspace.id+state.scenario} {...props}/>:<Dashboard {...props}/>}
       </Suspense>
       <footer className="workspace-footer"><span>All times in IST</span><span>{workspace.environment==='demo'?'Synthetic journeys · server-persisted demo actions':'Development source reads · agent execution pending'}</span></footer>
     </main></div>
@@ -191,3 +204,4 @@ export default function App() {
     {toast&&<div className="toast" role="status" aria-live="polite">{toast}</div>}
   </CommandErrorContext.Provider>;
 }
+

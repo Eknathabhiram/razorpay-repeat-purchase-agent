@@ -1,0 +1,9 @@
+test_block_cross_origin_and_private_file_access (test_shopify_app.ConnectorTests.test_block_cross_origin_and_private_file_access) ... ok
+test_no_false_connection_on_authentication_failure (test_shopify_app.ConnectorTests.test_no_false_connection_on_authentication_failure) ... ok
+test_reject_non_shopify_host (test_shopify_app.ConnectorTests.test_reject_non_shopify_host) ... ok
+test_token_cache_and_partial_access (test_shopify_app.ConnectorTests.test_token_cache_and_partial_access) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.341s
+
+OK

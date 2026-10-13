@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "Exact audience and displayed-message approval creates three assignments without fabricated replies or receipts",
+    "Review-first action requires exact content approval",
+    "Paused due-job run creates no transport receipt",
+    "Approved due message creates a labelled simulated submitted receipt",
+    "Takeover and saved future reminder survive reload",
+    "Explicit synthetic opt-out immediately cancels unsent work",
+    "Support issue stops sales and retains an assigned internal case",
+    "Execution reflows at 1440px",
+    "Execution reflows at 1024px",
+    "Execution reflows at 768px",
+    "Execution reflows at 390px",
+    "Execution reflows at 320px"
+  ],
+  "errors": []
+}

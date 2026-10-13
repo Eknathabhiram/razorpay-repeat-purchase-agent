@@ -1,4 +1,34 @@
+## End-to-end delivery — 13 October 2026
+
+The owner instructed completion through outcomes/release validation and made voice last priority. The text-first local hybrid application is ready for review at http://127.0.0.1:8766/app/#/dashboard. Read docs/RELEASE-HANDOVER.md and docs/implementation-evidence/STAGE-07.md, STAGE-08.md, STAGE-09.md. Schema is 0008_outcomes. Together AI is configured privately and verified with synthetic inputs. Planning, exact approval, protected replies, checkout, independent payment matching, refunds, cohorts, scoped learning and owner-reviewed policy changes form the persisted end-to-end pipeline. Optional browser voice was checked last. Real Storefront/Twilio/public deployment and production retention/coordination gates remain blocked; no customer outreach, new real payment, refund or deployment occurred. Preserve credentials/data and prior code. Earlier stage notes below are historical.
+## Stage 06 implemented — 13 October 2026
+
+Stage 05 was accepted for continuation by the owner's request for the next stage. Stage 06 is ready for review at http://127.0.0.1:8766/app/#/whatsapp. Read docs/implementation-evidence/STAGE-06.md and docs/implementation-evidence/STATUS.md. Schema is 0006_whatsapp. Official SDK signature checks, exact recipient review, inbound protection, contextual Demo conversations and monotonic delivery receipts are implemented. Twenty-four backend checks and eleven browser checks passed. Twilio credentials/test-send controls and actual callback delivery remain unavailable/unverified; no real message was sent. Preserve the correct historical join receipt and do not ask for another join. Stage 07 follows owner review and continuation. Earlier notes below are historical.
+## Stage 05 implemented — 13 October 2026
+
+Stage 04 was accepted for continuation by the owner's request for the next stage. Stage 05 is ready for review at http://127.0.0.1:8766/app/#/commerce. Read docs/implementation-evidence/STAGE-05.md and docs/implementation-evidence/STATUS.md. Schema is 0005_commerce. Demo checkout terms, separate link approval, independent payment evidence, reconciliation/refunds and approved offer controls are implemented. Read-only Development verification matched one Razorpay test payment to the full Shopify payable of INR 1,273.15. Fifty application tests, four compatibility tests and fourteen browser checks passed; four final source guards also passed. Real Storefront cart creation and callback delivery remain unconfigured. Preserve credentials/data and existing changes. Stage 06 follows owner review and continuation. Earlier stage notes below are historical.
+## Stage 04 implemented — 13 October 2026
+
+The owner accepted Stage 03 and instructed implementation of Stage 04. Stage 04 is ready for review at http://127.0.0.1:8766/app/#/execution. Read docs/implementation-evidence/STAGE-04.md and STATUS.md from the repository root. Exact approvals, durable Demo dispatch, leased/fenced jobs, shared contact/budget guards, receipts, supervision, reminders/support and protective events are implemented. Current schema is 0004_execution. All external side effects remain simulated; Development execution stays blocked. Preserve credentials/data and earlier references. Stage 05 follows owner review and continuation. Earlier stage-status notes below are historical.
+## Stage 03 implemented — 13 October 2026
+
+Stage 02 was accepted for continuation by the owner's explicit continue. Stage 03 is ready for review at http://127.0.0.1:8766/app/#/planning. Read docs/implementation-evidence/STAGE-03.md and STATUS.md from the project root. Normalized commerce facts, immutable planning policies, deterministic eligibility and immutable audience drafts are implemented. Shopify sync preserves permitted facts and explicitly blocks eligibility where returns/history/consent are unverified. The paid, unfulfilled order is not delivered history. Existing journey screens remain Stage 02 simulation. Stage 04 follows owner review; do not treat draft creation as outreach approval. Older stage-status notes below are historical.
+## Stage 02 implemented — 13 October 2026
+
+Stage 01 was accepted for continuation when the owner requested Stage 02. Stage 02 is ready for review at http://127.0.0.1:8766/app/. Read docs/implementation-evidence/STAGE-02.md and STATUS.md (paths relative to the project root). The React/TypeScript application uses real owner sessions, workspace isolation and scoped Shopify reads. Agent journeys use explicitly labelled server-persisted simulation state; production policy, execution, messaging, AI and payment engines remain later-stage work. Preserve existing credentials, source references and provider data. Stage 03 follows owner review and instruction to continue. Older implementation statements below are historical.
 # Working instructions
+
+## Current implementation — Stage 01
+
+Stage 01 is implemented and ready for owner review. Read docs/implementation-evidence/STATUS.md and STAGE-01-RUNBOOK.md before continuing. The new FastAPI/PostgreSQL foundation runs on loopback port 8766; the existing 8765 Shopify connector and merchant preview remain preserved. Thirteen PostgreSQL tests and four original Shopify tests passed. Do not restart Stage 01 or overwrite existing credentials/data. Stage 02 follows owner review/continuation; current preview journey actions remain simulated.
+
+## Latest architecture handoff — 13 October 2026
+
+The owner requested a complete application architecture and implementation handover for GPT-6.1-sol with low reasoning effort. Start at docs/IMPLEMENTATION-HANDOFF.md; technical design is in docs/APPLICATION-ARCHITECTURE.md, docs/APPLICATION-CONTRACTS.md and docs/RUNTIME-AND-VALIDATION.md. These files define target architecture, not completed implementation. Python + FastAPI + PostgreSQL is owner-selected; other technical defaults are architecture recommendations. Preserve the existing working Shopify connector and merchant UI v2. Follow the owner's stage testing/review preference when implementation is requested.
+
+Use the final dated entries in docs/integration-status.md for current provider evidence. Shopify customer/order reads now work and one Razorpay test payment was reconciled manually to a Shopify order. WhatsApp trial linking remains unresolved despite a verified correct join command. The small Shopify backend exists; the full application backend remains unimplemented. Older statements below about absent accounts/backend or design-only next work are historical and must not override this evidence or the latest owner request.
+
+## Original project guidance
 
 Read `HANDOFF.md` before choosing scope or implementation. Read `docs/product-specification.md` for behaviour, contracts and acceptance requirements. The current preview is a design reference, not a production architecture.
 

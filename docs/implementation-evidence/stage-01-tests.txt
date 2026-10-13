@@ -1,0 +1,21 @@
+test_capability_check_is_scoped_and_not_false_live (test_foundation.FoundationTests.test_capability_check_is_scoped_and_not_false_live) ... ok
+test_concurrent_same_key_and_versions (test_foundation.FoundationTests.test_concurrent_same_key_and_versions) ... ok
+test_cross_tenant_and_cross_workspace_binding (test_foundation.FoundationTests.test_cross_tenant_and_cross_workspace_binding) ... Executing <Task pending name='Task-87' coro=<FoundationTests.asyncSetUp() running at C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\tests\test_foundation.py:80> wait_for=<Future pending cb=[Task.task_wakeup()] created at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\base_events.py:181] created at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\runners.py:100> took 0.109 seconds
+ok
+test_csrf_origin_and_unknown_fields (test_foundation.FoundationTests.test_csrf_origin_and_unknown_fields) ... ok
+test_expired_disabled_and_revoked_session_denied (test_foundation.FoundationTests.test_expired_disabled_and_revoked_session_denied) ... Executing <Task pending name='Task-146' coro=<FoundationTests.asyncSetUp() running at C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\tests\test_foundation.py:80> wait_for=<Future pending cb=[Task.task_wakeup()] created at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\base_events.py:181] created at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\runners.py:100> took 0.110 seconds
+ok
+test_health_cookie_logout_and_session_hash (test_foundation.FoundationTests.test_health_cookie_logout_and_session_hash) ... ok
+test_idempotent_update_conflict_and_one_audit (test_foundation.FoundationTests.test_idempotent_update_conflict_and_one_audit) ... ok
+test_login_rate_limit_persists_and_errors_never_echo_password (test_foundation.FoundationTests.test_login_rate_limit_persists_and_errors_never_echo_password) ... ok
+test_missing_database_has_actionable_readiness (test_foundation.FoundationTests.test_missing_database_has_actionable_readiness) ... ok
+test_private_files_host_and_audit_permissions (test_foundation.FoundationTests.test_private_files_host_and_audit_permissions) ... ok
+test_restart_preserves_session_and_workspace (test_foundation.FoundationTests.test_restart_preserves_session_and_workspace) ... ok
+test_snapshot_compatibility_requires_member_and_preserves_shape (test_foundation.FoundationTests.test_snapshot_compatibility_requires_member_and_preserves_shape) ... Executing <Task pending name='starlette.middleware.base.BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.coro' coro=<TaskHandle._run_coro() running at C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\anyio\_core\_tasks.py:327> cb=[TaskGroup._spawn.<locals>.task_done() at C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\anyio\_backends\_asyncio.py:870] created at C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\anyio\_backends\_asyncio.py:944> took 0.266 seconds
+ok
+test_viewer_cannot_mutate_or_check_provider (test_foundation.FoundationTests.test_viewer_cannot_mutate_or_check_provider) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 50.643s
+
+OK

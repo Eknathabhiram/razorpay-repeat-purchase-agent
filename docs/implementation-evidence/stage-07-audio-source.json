@@ -1,0 +1,15 @@
+{
+  "synthetic_audio": true,
+  "transcription": {
+    "status": "passed",
+    "text": "Please remind me next Friday. Is my coupon valid?",
+    "latency_ms": 2000,
+    "model": "nvidia/parakeet-tdt-0.6b-v3"
+  },
+  "speech": {
+    "status": "passed",
+    "bytes": 80256,
+    "latency_ms": 1109,
+    "model": "hexgrad/Kokoro-82M"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "revision": "0008_outcomes",
+  "counts_match": true,
+  "restored_tables_checked": 5,
+  "restored_to_new_disposable_database": true,
+  "owner_database_modified": false,
+  "backup_location": "private backend/.local/release-rehearsal.dump"
+}

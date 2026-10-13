@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "Persisted synthetic evidence produces three eligible and six excluded opportunities",
+    "Editable selection saves exact immutable two-customer draft",
+    "Evidence drawer shows exact variant, delivery dates and estimator provenance",
+    "Policy impact preview excludes sparse history and stale draft survives reload",
+    "Planning reflows at 1440px",
+    "Planning reflows at 1024px",
+    "Planning reflows at 768px",
+    "Planning reflows at 390px",
+    "Planning reflows at 320px"
+  ],
+  "errors": []
+}

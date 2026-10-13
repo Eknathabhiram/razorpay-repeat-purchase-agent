@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "Microphone denial shows a recoverable error without capturing audio",
+    "Real Together synthetic-audio transcript waits for explicit review",
+    "Confirmed transcript uses the same compound-intent pipeline",
+    "Together reply audio is generated from the server-rendered text",
+    "Stop closes the session and stops local capture/playback"
+  ]
+}

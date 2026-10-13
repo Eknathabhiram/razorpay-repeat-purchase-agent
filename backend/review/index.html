@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 01 — backend review</title>
+<style>
+body{font:16px/1.5 system-ui,sans-serif;color:#192536;background:#f4f6f9;margin:0}
+main{max-width:880px;padding:28px;margin:auto}section{background:white;padding:24px;border:1px solid #dbe0e7;border-radius:12px;margin:20px 0}
+label{display:block;margin:14px 0 4px}input,select,button{font:inherit;padding:9px;max-width:100%;box-sizing:border-box}
+input{width:100%}button{cursor:pointer;margin:12px 8px 0 0}button:disabled{cursor:wait}
+:focus-visible{outline:3px solid #2463c8;outline-offset:3px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}
+.muted{color:#566678}#status{min-height:28px}a{color:#1759b7}h1{line-height:1.2}
+</style></head><body><main>
+<h1>Stage 01 backend review</h1><p class="muted">Owner sessions, persistent workspaces, audit receipts and the existing read-only Shopify connection. Agent execution remains simulated in the preserved preview.</p>
+<p id="status" role="status" aria-live="polite"></p>
+<section id="login-section"><h2>Application owner sign-in</h2><p>This uses your local application owner account.</p>
+<form id="login"><label for="username">Login</label><input id="username" value="owner" autocomplete="username" required>
+<label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required>
+<button type="submit">Sign in</button></form></section>
+<section id="workspace-section" hidden><h2>Persistent workspace</h2>
+<label for="workspace">Environment</label><select id="workspace"></select>
+<form id="rename"><label for="name">Workspace name</label><input id="name" maxlength="120" required><button type="submit">Save name</button></form>
+<button id="refresh">Refresh saved state</button><button id="check">Check Shopify reads</button><button id="logout">Sign out</button>
+<p><a href="/#connections" target="_blank" rel="noopener">Open preserved merchant preview</a> · <a href="/api/docs" target="_blank" rel="noopener">API reference</a></p>
+<h3>Connection capabilities</h3><pre id="connections"></pre><h3>Recent audit receipts</h3><pre id="audit"></pre></section>
+</main><script>
+let csrf='',workspaces=[],selected=null,connectors=[];
+const $=id=>document.getElementById(id);
+async function call(path,method='GET',body=null,key=null){
+ const headers={'Content-Type':'application/json'};
+ if(csrf)headers['X-CSRF-Token']=csrf;if(key)headers['Idempotency-Key']=key;
+ const res=await fetch('/api/v1'+path,{method,headers,credentials:'same-origin',...(body?{body:JSON.stringify(body)}:{})});
+ const data=await res.json();if(!res.ok)throw new Error(data.error?.message||'Request failed');return data.data;
+}
+async function busy(fn){const controls=document.querySelectorAll('button');controls.forEach(b=>b.disabled=true);
+ try{await fn();}catch(e){$('status').textContent=e.message;}finally{controls.forEach(b=>b.disabled=false);if(selected)$('check').disabled=selected.environment!=='development';}}
+async function refresh(){
+ const me=await call('/me');workspaces=me.workspaces;
+ const previous=selected?.id;$('workspace').replaceChildren();
+ for(const w of workspaces){const o=document.createElement('option');o.value=w.id;o.textContent=w.environment+' · '+w.name;$('workspace').append(o);}
+ selected=workspaces.find(w=>w.id===previous)||workspaces[0];$('workspace').value=selected.id;
+ await detail();$('workspace-section').hidden=false;$('login-section').hidden=true;
+}
+async function detail(){
+ selected=await call('/workspaces/'+$('workspace').value);
+ $('name').value=selected.name;
+ connectors=await call('/workspaces/'+selected.id+'/connectors');
+ $('connections').textContent=JSON.stringify(connectors,null,2);
+ $('audit').textContent=JSON.stringify(await call('/workspaces/'+selected.id+'/audit'),null,2);
+ $('check').disabled=selected.environment!=='development';
+}
+$('login').onsubmit=e=>{e.preventDefault();busy(async()=>{
+ const reply=await call('/auth/login','POST',{login:$('username').value,password:$('password').value});
+ csrf=reply.csrf_token;$('password').value='';await refresh();$('status').textContent='Signed in. Saved state loaded.';});};
+$('workspace').onchange=()=>busy(detail);
+$('refresh').onclick=()=>busy(async()=>{await refresh();$('status').textContent='Persistent state refreshed.';});
+$('rename').onsubmit=e=>{e.preventDefault();busy(async()=>{
+ await call('/workspaces/'+selected.id,'PUT',{name:$('name').value,expected_version:selected.version},crypto.randomUUID());
+ await refresh();$('status').textContent='Workspace saved with an audit receipt.';});};
+$('check').onclick=()=>busy(async()=>{
+ const c=connectors.find(c=>c.provider==='shopify');
+ const result=await call('/workspaces/'+selected.id+'/connectors/'+c.id+'/check','POST',{expected_version:c.version});
+ await detail();$('status').textContent='Shopify read check recorded: '+JSON.stringify(result.counts);});
+$('logout').onclick=()=>busy(async()=>{await call('/auth/logout','POST',{});csrf='';selected=null;
+ $('workspace-section').hidden=true;$('login-section').hidden=false;$('connections').textContent='';$('audit').textContent='';$('status').textContent='Signed out.';});
+// CSRF tokens stay in memory. Reloading requires sign-in again for commands.
+</script></body></html>

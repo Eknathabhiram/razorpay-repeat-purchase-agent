@@ -1,0 +1,14 @@
+✔ a proxy HTML error produces actionable copy (70.403ms)
+✔ successful malformed payloads are rejected (2.1265ms)
+✔ network failures during writes explain uncertain outcomes and do not retry (1.1285ms)
+✔ request timeout provides recovery (13.1409ms)
+✔ query cancellation stays a cancellation (2.3158ms)
+✔ session CSRF and exact idempotency headers remain attached to writes (1.9602ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 910.6599

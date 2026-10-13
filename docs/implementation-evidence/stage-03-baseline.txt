@@ -1,0 +1,160 @@
+setUpClass (tests.test_stage02.Stage02Tests) ... ERROR
+
+======================================================================
+ERROR: setUpClass (tests.test_stage02.Stage02Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\engine\base.py", line 3319, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 1290, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\impl.py", line 307, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 900, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\engine\default.py", line 630, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\dialects\postgresql\psycopg.py", line 796, in connect
+    await_only(creator_fn(*arg, **kw))
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\psycopg\connection_async.py", line 144, in connect
+    raise last_ex.with_traceback(None)
+psycopg.errors.ConnectionTimeout: connection timeout expired
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\tests\test_stage02.py", line 13, in setUpClass
+    foundation.FoundationTests.setUpClass.__func__(cls)
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\tests\test_foundation.py", line 62, in setUpClass
+    command.upgrade(cfg, "head")
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\alembic\command.py", line 487, in upgrade
+    script.run_env()
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\alembic\script\base.py", line 550, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\alembic\util\pyfiles.py", line 114, in load_python_file
+    module = load_module_py(module_id, path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\alembic\util\pyfiles.py", line 132, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\migrations\env.py", line 34, in <module>
+    run(online())
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\app\runtime.py", line 9, in run
+    return asyncio.run(coroutine, loop_factory=lambda: asyncio.SelectorEventLoop(selectors.SelectSelector()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\migrations\env.py", line 24, in online
+    async with engine.connect() as connection:
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\ext\asyncio\base.py", line 121, in __aenter__
+    return await self.start(is_ctxmanager=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\ext\asyncio\engine.py", line 275, in start
+    await greenlet_spawn(self.sync_engine.connect)
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\util\_concurrency_py3k.py", line 201, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\engine\base.py", line 3295, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\engine\base.py", line 146, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\engine\base.py", line 2450, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\engine\base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\engine\base.py", line 3319, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 1290, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 712, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\impl.py", line 307, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 674, in __init__
+    self.__connect()
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 900, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\pool\base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\engine\create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\engine\default.py", line 630, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\dialects\postgresql\psycopg.py", line 796, in connect
+    await_only(creator_fn(*arg, **kw))
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\.local\foundation\psycopg\connection_async.py", line 144, in connect
+    raise last_ex.with_traceback(None)
+sqlalchemy.exc.OperationalError: (psycopg.errors.ConnectionTimeout) connection timeout expired
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+----------------------------------------------------------------------
+Ran 0 tests in 130.309s
+
+FAILED (errors=1)

@@ -15,6 +15,12 @@ export class ApiError extends Error {
   }
 }
 export function clearSession() { csrf = ''; }
+export async function voiceRequest<T>(path:string, body?:Blob, signal?:AbortSignal, audioReply=false):Promise<T>{
+  const response=await fetch('/api/v1'+path,{method:'POST',credentials:'same-origin',signal:AbortSignal.any([AbortSignal.timeout(45000),...(signal?[signal]:[])]),headers:{'X-CSRF-Token':csrf,...(body?{'Content-Type':body.type}:{} )},body});
+  if(response.status===401){clearSession();window.dispatchEvent(new Event('session-expired'));}
+  if(!response.ok){const data=await response.json().catch(()=>null);throw new ApiError(response.status,data?.error?.message??'Voice request failed. Refresh the saved turn before retrying.',data?.error?.code);}
+  return (audioReply?await response.blob():(await response.json()).data) as T;
+}
 export async function api<T>(path: string, method = 'GET', body?: unknown, key?: string,
   options: {signal?: AbortSignal; timeoutMs?: number} = {}): Promise<T> {
   const signal = AbortSignal.any([AbortSignal.timeout(options.timeoutMs ?? 30000), ...(options.signal ? [options.signal] : [])]);

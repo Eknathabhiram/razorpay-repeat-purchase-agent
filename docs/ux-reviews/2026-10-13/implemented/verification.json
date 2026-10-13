@@ -1,0 +1,85 @@
+{
+  "checks": [
+    "Visual recheck of the existing isolated 200-customer cohort and recorded automatic conversation",
+    "Mobile inbox back navigation and city filtering",
+    "No runtime errors, horizontal overflow or automated WCAG AA violations at 1440/390/320"
+  ],
+  "accessibility": [
+    {
+      "view": "dashboard",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "view": "planning",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "view": "execution",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "view": "activity",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "view": "whatsapp",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "view": "dashboard",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "view": "planning",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "view": "execution",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "view": "activity",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "view": "whatsapp",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "view": "dashboard",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "view": "planning",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "view": "execution",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "view": "activity",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "view": "whatsapp",
+      "width": 320,
+      "violations": []
+    }
+  ],
+  "errors": []
+}

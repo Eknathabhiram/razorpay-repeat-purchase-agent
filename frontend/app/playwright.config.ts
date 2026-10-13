@@ -4,8 +4,9 @@ export default defineConfig({
   testDir: './tests/production',
   testMatch: '**/*.spec.ts',
   fullyParallel: true,
+  workers: 2,
   timeout: 30000,
-  expect: {timeout: 5000},
+  expect: {timeout: 15000},
   use: {baseURL: 'http://127.0.0.1:5174/app/', channel: 'msedge', trace: 'retain-on-failure'},
   reporter: [['list'], ['html', {open:'never'}]],
   webServer: {

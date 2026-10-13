@@ -549,10 +549,586 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/workspaces/{workspace_id}/whatsapp": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Whatsapp View */
+        get: operations["whatsapp_view_api_v1_workspaces__workspace_id__whatsapp_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/whatsapp/demo-inbound": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Whatsapp Demo Inbound */
+        post: operations["whatsapp_demo_inbound_api_v1_workspaces__workspace_id__whatsapp_demo_inbound_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/whatsapp/demo-status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Whatsapp Demo Status */
+        post: operations["whatsapp_demo_status_api_v1_workspaces__workspace_id__whatsapp_demo_status_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/providers/twilio/{workspace_id}/{connector_id}/{kind}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Whatsapp Callback */
+        post: operations["whatsapp_callback_api_v1_providers_twilio__workspace_id___connector_id___kind__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/whatsapp/identity-review": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Whatsapp Identity Review */
+        post: operations["whatsapp_identity_review_api_v1_workspaces__workspace_id__whatsapp_identity_review_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/intelligence": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Intelligence View */
+        get: operations["intelligence_view_api_v1_workspaces__workspace_id__intelligence_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/voice-sessions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Start Voice Session */
+        post: operations["start_voice_session_api_v1_workspaces__workspace_id__voice_sessions_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/voice-sessions/{session_id}/turns": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Voice Text Turn */
+        post: operations["voice_text_turn_api_v1_workspaces__workspace_id__voice_sessions__session_id__turns_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/voice-sessions/{session_id}/audio": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Voice Audio Turn */
+        post: operations["voice_audio_turn_api_v1_workspaces__workspace_id__voice_sessions__session_id__audio_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/intelligence/turns/{turn_id}/confirm": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Confirm Voice Transcript */
+        post: operations["confirm_voice_transcript_api_v1_workspaces__workspace_id__intelligence_turns__turn_id__confirm_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/voice-sessions/{session_id}/stop": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Stop Voice Session */
+        post: operations["stop_voice_session_api_v1_workspaces__workspace_id__voice_sessions__session_id__stop_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/intelligence/turns/{turn_id}/reminder": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Confirm Voice Reminder */
+        post: operations["confirm_voice_reminder_api_v1_workspaces__workspace_id__intelligence_turns__turn_id__reminder_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/intelligence/turns/{turn_id}/speech": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Voice Reply Speech */
+        post: operations["voice_reply_speech_api_v1_workspaces__workspace_id__intelligence_turns__turn_id__speech_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/intelligence/turns/{turn_id}/checkout-quote": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Voice Checkout Quote */
+        post: operations["voice_checkout_quote_api_v1_workspaces__workspace_id__intelligence_turns__turn_id__checkout_quote_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/intelligence/turns/{turn_id}/checkout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Voice Checkout Prepare */
+        post: operations["voice_checkout_prepare_api_v1_workspaces__workspace_id__intelligence_turns__turn_id__checkout_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/outcomes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Outcomes View */
+        get: operations["outcomes_view_api_v1_workspaces__workspace_id__outcomes_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/outcomes/accounting": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Outcomes Accounting */
+        post: operations["outcomes_accounting_api_v1_workspaces__workspace_id__outcomes_accounting_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/outcomes/suggestions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Outcomes Suggestions */
+        post: operations["outcomes_suggestions_api_v1_workspaces__workspace_id__outcomes_suggestions_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/outcomes/suggestions/{suggestion_id}/decision": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Outcomes Suggestion Decision */
+        post: operations["outcomes_suggestion_decision_api_v1_workspaces__workspace_id__outcomes_suggestions__suggestion_id__decision_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/merchant/overview": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Merchant Overview */
+        get: operations["merchant_overview_api_v1_workspaces__workspace_id__merchant_overview_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/merchant/planning": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Merchant Planning */
+        get: operations["merchant_planning_api_v1_workspaces__workspace_id__merchant_planning_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/merchant/filters": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Merchant Filters */
+        get: operations["merchant_filters_api_v1_workspaces__workspace_id__merchant_filters_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/merchant/readiness": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Merchant Readiness */
+        get: operations["merchant_readiness_api_v1_workspaces__workspace_id__merchant_readiness_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/merchant/launch": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Merchant Launch */
+        get: operations["merchant_launch_api_v1_workspaces__workspace_id__merchant_launch_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/merchant/commands": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Merchant Commands */
+        post: operations["merchant_commands_api_v1_workspaces__workspace_id__merchant_commands_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/merchant/opportunities": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Merchant Opportunities */
+        get: operations["merchant_opportunities_api_v1_workspaces__workspace_id__merchant_opportunities_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/merchant/journeys": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Merchant Journeys */
+        get: operations["merchant_journeys_api_v1_workspaces__workspace_id__merchant_journeys_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/merchant/threads/{journey_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Merchant Thread */
+        get: operations["merchant_thread_api_v1_workspaces__workspace_id__merchant_threads__journey_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/merchant/audience": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Merchant Audience */
+        post: operations["merchant_audience_api_v1_workspaces__workspace_id__merchant_audience_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/workspaces/{workspace_id}/merchant/whatsapp/demo-choice": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Merchant Demo Choice */
+        post: operations["merchant_demo_choice_api_v1_workspaces__workspace_id__merchant_whatsapp_demo_choice_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** AccountingReview */
+        AccountingReview: {
+            /**
+             * Purchase Id
+             * Format: uuid
+             */
+            purchase_id: string;
+            /** Expected Revision */
+            expected_revision: number;
+            /** Product Cost Minor */
+            product_cost_minor?: number | null;
+            /** Fulfillment Cost Minor */
+            fulfillment_cost_minor?: number | null;
+            /** Gateway Fee Minor */
+            gateway_fee_minor?: number | null;
+            /** Contact Cost Minor */
+            contact_cost_minor?: number | null;
+            /** Agent Cost Minor */
+            agent_cost_minor?: number | null;
+            /** Retained Tax Minor */
+            retained_tax_minor?: number | null;
+            /**
+             * Confirmed Demo Return Maturity
+             * @default false
+             */
+            confirmed_demo_return_maturity: boolean;
+        };
+        /** AudienceFilters */
+        AudienceFilters: {
+            /**
+             * Search
+             * @default
+             */
+            search: string;
+            /**
+             * City
+             * @default
+             */
+            city: string;
+            /** Date From */
+            date_from?: string | null;
+            /** Date To */
+            date_to?: string | null;
+        };
+        /** AudienceSelection */
+        AudienceSelection: {
+            /** Expected Revision */
+            expected_revision: number;
+            /** Facts Version */
+            facts_version: number;
+            /**
+             * Policy Id
+             * Format: uuid
+             */
+            policy_id: string;
+            /**
+             * Mode
+             * @enum {string}
+             */
+            mode: "explicit" | "eligible" | "saved";
+            /** Selected */
+            selected?: string[];
+            /** Excluded */
+            excluded?: string[];
+            filters?: components["schemas"]["AudienceFilters"];
+        };
         /** Capability */
         Capability: {
             /** Capability */
@@ -660,6 +1236,16 @@ export interface components {
                 [key: string]: unknown;
             } | null;
         };
+        /** ConfirmTranscript */
+        ConfirmTranscript: {
+            /** Text */
+            text: string;
+            /**
+             * Confirmed Transcript
+             * @constant
+             */
+            confirmed_transcript: true;
+        };
         /** Connector */
         Connector: {
             /**
@@ -691,6 +1277,21 @@ export interface components {
             id: string;
             /** Number Of Orders */
             number_of_orders: string;
+        };
+        /** DemoChoice */
+        DemoChoice: {
+            /**
+             * Event Key
+             * Format: uuid
+             */
+            event_key: string;
+            /**
+             * Action Id
+             * Format: uuid
+             */
+            action_id: string;
+            /** Button Id */
+            button_id: string;
         };
         /** DemoCommand */
         DemoCommand: {
@@ -738,6 +1339,21 @@ export interface components {
              * @constant
              */
             channel: "whatsapp";
+        };
+        /** DemoInbound */
+        DemoInbound: {
+            /**
+             * Event Key
+             * Format: uuid
+             */
+            event_key: string;
+            /**
+             * Journey Id
+             * Format: uuid
+             */
+            journey_id: string;
+            /** Text */
+            text: string;
         };
         /** DemoPurchase */
         DemoPurchase: {
@@ -820,12 +1436,31 @@ export interface components {
             /** Events */
             events?: string[];
         };
+        /** DemoStatus */
+        DemoStatus: {
+            /**
+             * Event Key
+             * Format: uuid
+             */
+            event_key: string;
+            /**
+             * Receipt Id
+             * Format: uuid
+             */
+            receipt_id: string;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "queued" | "sending" | "sent" | "delivered" | "read" | "failed" | "undelivered";
+        };
         /** DraftChange */
         DraftChange: {
             /** Expected Revision */
             expected_revision: number;
             /** Selected */
             selected: string[];
+            audience_filters?: components["schemas"]["AudienceFilters"] | null;
         };
         /** DraftRow */
         DraftRow: {
@@ -850,9 +1485,19 @@ export interface components {
             data: components["schemas"]["ExecutionView"];
             meta: components["schemas"]["Meta"];
         };
+        /** Envelope[IntelligenceView] */
+        Envelope_IntelligenceView_: {
+            data: components["schemas"]["IntelligenceView"];
+            meta: components["schemas"]["Meta"];
+        };
         /** Envelope[Me] */
         Envelope_Me_: {
             data: components["schemas"]["Me"];
+            meta: components["schemas"]["Meta"];
+        };
+        /** Envelope[OutcomeView] */
+        Envelope_OutcomeView_: {
+            data: components["schemas"]["OutcomeView"];
             meta: components["schemas"]["Meta"];
         };
         /** Envelope[PlanningView] */
@@ -868,6 +1513,11 @@ export interface components {
         /** Envelope[UIReadModel] */
         Envelope_UIReadModel_: {
             data: components["schemas"]["UIReadModel"];
+            meta: components["schemas"]["Meta"];
+        };
+        /** Envelope[WhatsAppView] */
+        Envelope_WhatsAppView_: {
+            data: components["schemas"]["WhatsAppView"];
             meta: components["schemas"]["Meta"];
         };
         /** Envelope[list[Connector]] */
@@ -940,6 +1590,46 @@ export interface components {
             /** Detail */
             detail?: components["schemas"]["ValidationError"][];
         };
+        /** IdentityReview */
+        IdentityReview: {
+            /**
+             * Customer Id
+             * Format: uuid
+             */
+            customer_id: string;
+            /** Address */
+            address: string;
+            /** Message Sid */
+            message_sid: string;
+            /**
+             * Confirmed Customer Identity
+             * @constant
+             */
+            confirmed_customer_identity: true;
+        };
+        /** IntelligenceView */
+        IntelligenceView: {
+            /** Environment */
+            environment: string;
+            /** Provider */
+            provider: {
+                [key: string]: unknown;
+            };
+            /** Notice */
+            notice: string;
+            /** Journeys */
+            journeys: {
+                [key: string]: unknown;
+            }[];
+            /** Sessions */
+            sessions: {
+                [key: string]: unknown;
+            }[];
+            /** Turns */
+            turns: {
+                [key: string]: unknown;
+            }[];
+        };
         /** Login */
         Login: {
             /** Login */
@@ -1002,13 +1692,46 @@ export interface components {
             /** Test */
             test: boolean;
         };
+        /** OutcomeView */
+        OutcomeView: {
+            /** Environment */
+            environment: string;
+            /** Totals */
+            totals: {
+                [key: string]: unknown;
+            }[];
+            /** Purchases */
+            purchases: {
+                [key: string]: unknown;
+            }[];
+            /** Cohorts */
+            cohorts: {
+                [key: string]: unknown;
+            }[];
+            /** Learning */
+            learning: {
+                [key: string]: unknown;
+            }[];
+            /** Suggestions */
+            suggestions: {
+                [key: string]: unknown;
+            }[];
+            /** Interventions */
+            interventions: {
+                [key: string]: unknown;
+            }[];
+            /** Notice */
+            notice: string;
+            /** Evidence Limits */
+            evidence_limits: string[];
+        };
         /** PlanningCommand */
         PlanningCommand: {
             /**
              * Action
              * @enum {string}
              */
-            action: "seed_demo" | "sync" | "refresh";
+            action: "seed_demo" | "seed_scale_demo" | "sync" | "refresh";
         };
         /** PlanningView */
         PlanningView: {
@@ -1101,6 +1824,21 @@ export interface components {
              */
             mode: "review" | "bounded";
             /**
+             * Conversation Automation
+             * @default false
+             */
+            conversation_automation: boolean;
+            /**
+             * Contextual Replies
+             * @default false
+             */
+            contextual_replies: boolean;
+            /**
+             * Provider Processing
+             * @default false
+             */
+            provider_processing: boolean;
+            /**
              * Offers Enabled
              * @default false
              */
@@ -1159,12 +1897,54 @@ export interface components {
             /** Stock */
             stock: number | null;
         };
+        /** ReminderConfirmation */
+        ReminderConfirmation: {
+            /**
+             * Due At
+             * Format: date-time
+             */
+            due_at: string;
+            /**
+             * Confirmed Date And Whatsapp
+             * @constant
+             */
+            confirmed_date_and_whatsapp: true;
+        };
         /** Rename */
         Rename: {
             /** Name */
             name: string;
             /** Expected Version */
             expected_version: number;
+        };
+        /** SessionCommand */
+        SessionCommand: {
+            /** Expected Version */
+            expected_version: number;
+        };
+        /** StartSession */
+        StartSession: {
+            /**
+             * Journey Id
+             * Format: uuid
+             */
+            journey_id: string;
+            /**
+             * Confirmed Browser Test Consent
+             * @constant
+             */
+            confirmed_browser_test_consent: true;
+            /**
+             * Confirmed Provider Processing
+             * @default false
+             */
+            confirmed_provider_processing: boolean;
+            /**
+             * Provider
+             * @default baseline
+             * @enum {string}
+             */
+            provider: "baseline" | "together";
         };
         /** StoreView */
         StoreView: {
@@ -1193,6 +1973,23 @@ export interface components {
             orders: components["schemas"]["OrderRow"][] | null;
             /** Drafts */
             drafts: components["schemas"]["DraftRow"][] | null;
+        };
+        /** SuggestionDecision */
+        SuggestionDecision: {
+            /**
+             * Decision
+             * @enum {string}
+             */
+            decision: "accept" | "reject";
+            /** Expected Policy Revision */
+            expected_policy_revision: number;
+        };
+        /** TextTurn */
+        TextTurn: {
+            /** Sequence */
+            sequence: number;
+            /** Text */
+            text: string;
         };
         /** Tick */
         Tick: {
@@ -1233,6 +2030,50 @@ export interface components {
             input?: unknown;
             /** Context */
             ctx?: Record<string, never>;
+        };
+        /** VoiceCheckout */
+        VoiceCheckout: {
+            /** Quantity */
+            quantity: number;
+            /**
+             * Confirmed Same Product
+             * @constant
+             */
+            confirmed_same_product: true;
+            /**
+             * Confirmed Whatsapp Handoff
+             * @constant
+             */
+            confirmed_whatsapp_handoff: true;
+            /** Quote Digest */
+            quote_digest?: string | null;
+        };
+        /** WhatsAppView */
+        WhatsAppView: {
+            /** Environment */
+            environment: string;
+            /** Notice */
+            notice: string;
+            /** Capabilities */
+            capabilities: {
+                [key: string]: unknown;
+            };
+            /** Journeys */
+            journeys: {
+                [key: string]: unknown;
+            }[];
+            /** Messages */
+            messages: {
+                [key: string]: unknown;
+            }[];
+            /** Events */
+            events: {
+                [key: string]: unknown;
+            }[];
+            /** Identities */
+            identities: {
+                [key: string]: unknown;
+            }[];
         };
         /** WorkspaceSummary */
         WorkspaceSummary: {
@@ -2244,6 +3085,1036 @@ export interface operations {
             cookie?: never;
         };
         requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    whatsapp_view_api_v1_workspaces__workspace_id__whatsapp_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_WhatsAppView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    whatsapp_demo_inbound_api_v1_workspaces__workspace_id__whatsapp_demo_inbound_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DemoInbound"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_WhatsAppView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    whatsapp_demo_status_api_v1_workspaces__workspace_id__whatsapp_demo_status_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DemoStatus"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_WhatsAppView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    whatsapp_callback_api_v1_providers_twilio__workspace_id___connector_id___kind__post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                connector_id: string;
+                kind: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    whatsapp_identity_review_api_v1_workspaces__workspace_id__whatsapp_identity_review_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["IdentityReview"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_WhatsAppView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    intelligence_view_api_v1_workspaces__workspace_id__intelligence_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_IntelligenceView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    start_voice_session_api_v1_workspaces__workspace_id__voice_sessions_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StartSession"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    voice_text_turn_api_v1_workspaces__workspace_id__voice_sessions__session_id__turns_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                session_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TextTurn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_IntelligenceView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    voice_audio_turn_api_v1_workspaces__workspace_id__voice_sessions__session_id__audio_post: {
+        parameters: {
+            query: {
+                sequence: number;
+            };
+            header?: never;
+            path: {
+                workspace_id: string;
+                session_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_IntelligenceView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    confirm_voice_transcript_api_v1_workspaces__workspace_id__intelligence_turns__turn_id__confirm_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                turn_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ConfirmTranscript"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_IntelligenceView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    stop_voice_session_api_v1_workspaces__workspace_id__voice_sessions__session_id__stop_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                session_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SessionCommand"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_IntelligenceView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    confirm_voice_reminder_api_v1_workspaces__workspace_id__intelligence_turns__turn_id__reminder_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                turn_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReminderConfirmation"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_IntelligenceView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    voice_reply_speech_api_v1_workspaces__workspace_id__intelligence_turns__turn_id__speech_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                turn_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    voice_checkout_quote_api_v1_workspaces__workspace_id__intelligence_turns__turn_id__checkout_quote_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                turn_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["VoiceCheckout"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    voice_checkout_prepare_api_v1_workspaces__workspace_id__intelligence_turns__turn_id__checkout_post: {
+        parameters: {
+            query?: never;
+            header: {
+                "idempotency-key": string;
+            };
+            path: {
+                workspace_id: string;
+                turn_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["VoiceCheckout"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_IntelligenceView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    outcomes_view_api_v1_workspaces__workspace_id__outcomes_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_OutcomeView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    outcomes_accounting_api_v1_workspaces__workspace_id__outcomes_accounting_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AccountingReview"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_OutcomeView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    outcomes_suggestions_api_v1_workspaces__workspace_id__outcomes_suggestions_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_OutcomeView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    outcomes_suggestion_decision_api_v1_workspaces__workspace_id__outcomes_suggestions__suggestion_id__decision_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                suggestion_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SuggestionDecision"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Envelope_OutcomeView_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    merchant_overview_api_v1_workspaces__workspace_id__merchant_overview_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    merchant_planning_api_v1_workspaces__workspace_id__merchant_planning_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    merchant_filters_api_v1_workspaces__workspace_id__merchant_filters_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    merchant_readiness_api_v1_workspaces__workspace_id__merchant_readiness_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    merchant_launch_api_v1_workspaces__workspace_id__merchant_launch_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    merchant_commands_api_v1_workspaces__workspace_id__merchant_commands_post: {
+        parameters: {
+            query?: never;
+            header: {
+                "idempotency-key": string;
+            };
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ExecutionCommand"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    merchant_opportunities_api_v1_workspaces__workspace_id__merchant_opportunities_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+                search?: string;
+                eligibility?: string;
+                city?: string;
+                date_from?: string | null;
+                date_to?: string | null;
+            };
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    merchant_journeys_api_v1_workspaces__workspace_id__merchant_journeys_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+                search?: string;
+                state?: string;
+                inbox?: boolean;
+                city?: string;
+                date_from?: string | null;
+                date_to?: string | null;
+            };
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    merchant_thread_api_v1_workspaces__workspace_id__merchant_threads__journey_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+                journey_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    merchant_audience_api_v1_workspaces__workspace_id__merchant_audience_post: {
+        parameters: {
+            query?: never;
+            header: {
+                "idempotency-key": string;
+            };
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AudienceSelection"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    merchant_demo_choice_api_v1_workspaces__workspace_id__merchant_whatsapp_demo_choice_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                workspace_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DemoChoice"];
+            };
+        };
         responses: {
             /** @description Successful Response */
             200: {

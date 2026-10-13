@@ -1,0 +1,35 @@
+{
+  "readiness": {
+    "ready": true,
+    "schema_revision": "0001_foundation"
+  },
+  "review_page_http": 200,
+  "workspace_environments": [
+    "demo",
+    "development"
+  ],
+  "shopify_check_http": 200,
+  "shopify_check": {
+    "counts": {
+      "products": 20,
+      "customers": 4,
+      "orders": 1,
+      "draftOrders": 10
+    },
+    "receipt_id": "25aeccf7-5fa2-4853-9641-c0643a0db406",
+    "source_mode": "test"
+  },
+  "compatibility_snapshot": {
+    "mode": "development",
+    "read_only": true,
+    "warnings": [],
+    "counts": {
+      "products": 20,
+      "customers": 4,
+      "orders": 1,
+      "draftOrders": 10
+    }
+  },
+  "logout_http": 200,
+  "after_logout_http": 401
+}

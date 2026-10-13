@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "Confirmed exact variant and quantity produce reviewed full payable terms without payment",
+    "Checkout handoff requires separate message approval and shared dispatch guards",
+    "Sending a checkout link does not confirm a purchase",
+    "Separate captured commerce and gateway fixtures reconcile full total exactly",
+    "Refund adjustment retains the original matched purchase",
+    "Item-price-only payment becomes an owned exception, not a purchase",
+    "Enabling an approved offer invalidates old audience authority",
+    "Fresh approved plan and configured costs permit only the existing offer within margin and budget",
+    "Commerce reflows at 1440px",
+    "Commerce reflows at 1024px",
+    "Commerce reflows at 768px",
+    "Commerce reflows at 390px",
+    "Commerce reflows at 320px",
+    "Development source evidence is separate and checkout creation remains blocked"
+  ],
+  "errors": []
+}

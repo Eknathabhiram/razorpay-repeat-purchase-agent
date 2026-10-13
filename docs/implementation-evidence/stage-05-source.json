@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "payment_count": 1,
+  "match_count": 1,
+  "purchase_count": 1,
+  "mapping_version": "shopify_payment_id_to_razorpay_receipt_v1",
+  "observed_full_payable_minor": [
+    127315
+  ],
+  "source_mode": "test",
+  "storefront_available": false,
+  "open_cases": [],
+  "provider_writes": 0
+}

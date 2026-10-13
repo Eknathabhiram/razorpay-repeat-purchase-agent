@@ -1,0 +1,44 @@
+{
+  "checks": [
+    "dashboard final layout 1440",
+    "dashboard final layout 1024",
+    "dashboard final layout 768",
+    "dashboard final layout 390",
+    "dashboard final layout 320",
+    "intelligence final layout 1440",
+    "intelligence final layout 1024",
+    "intelligence final layout 768",
+    "intelligence final layout 390",
+    "intelligence final layout 320",
+    "outcomes final layout 1440",
+    "outcomes final layout 1024",
+    "outcomes final layout 768",
+    "outcomes final layout 390",
+    "outcomes final layout 320",
+    "connections final layout 1440",
+    "connections final layout 1024",
+    "connections final layout 768",
+    "connections final layout 390",
+    "connections final layout 320",
+    "Accounting dialog Escape and return focus",
+    "Outcomes observed at 200% CSS zoom without horizontal overflow"
+  ],
+  "accessibility": [
+    {
+      "route": "dashboard",
+      "violations": []
+    },
+    {
+      "route": "intelligence",
+      "violations": []
+    },
+    {
+      "route": "outcomes",
+      "violations": []
+    },
+    {
+      "route": "connections",
+      "violations": []
+    }
+  ]
+}

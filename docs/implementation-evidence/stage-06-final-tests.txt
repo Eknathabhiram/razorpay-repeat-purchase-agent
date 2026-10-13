@@ -1,0 +1,14 @@
+test_reviewed_identity_routes_exact_sender_without_marketing_consent (tests.test_whatsapp.WhatsAppTests.test_reviewed_identity_routes_exact_sender_without_marketing_consent) ... Executing <Task pending name='Task-13' coro=<FoundationTests.asyncSetUp() running at C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\tests\test_foundation.py:80> wait_for=<Future pending cb=[Task.task_wakeup()] created at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\base_events.py:181] created at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\runners.py:100> took 0.110 seconds
+Executing <Task pending name='Task-13' coro=<FoundationTests.asyncSetUp() running at C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\tests\test_foundation.py:84> cb=[_run_until_complete_cb() at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\base_events.py:181] created at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\runners.py:100> took 0.157 seconds
+ok
+test_checkout_prepare_is_not_payment_and_link_needs_approval (tests.test_commerce.CommerceTests.test_checkout_prepare_is_not_payment_and_link_needs_approval) ... Executing <Task pending name='Task-58' coro=<FoundationTests.asyncSetUp() running at C:\Users\eknat\OneDrive - Indian School of Business\Documents\RazorPay\Razorpay_Repeat_Agent_Codex\Razorpay_Repeat_Agent_Codex_UI\backend\tests\test_foundation.py:80> wait_for=<Future pending cb=[Task.task_wakeup()] created at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\base_events.py:181] created at C:\Users\eknat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\runners.py:100> took 0.110 seconds
+ok
+test_block_cross_origin_and_private_file_access (test_shopify_app.ConnectorTests.test_block_cross_origin_and_private_file_access) ... ok
+test_no_false_connection_on_authentication_failure (test_shopify_app.ConnectorTests.test_no_false_connection_on_authentication_failure) ... ok
+test_reject_non_shopify_host (test_shopify_app.ConnectorTests.test_reject_non_shopify_host) ... ok
+test_token_cache_and_partial_access (test_shopify_app.ConnectorTests.test_token_cache_and_partial_access) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 40.222s
+
+OK

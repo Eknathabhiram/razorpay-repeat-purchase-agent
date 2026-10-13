@@ -21,7 +21,7 @@ export function Dashboard({state,open,go}:ViewsProps) {
     </div>
     <div className="dashboard-columns"><div>
       <Panel title="Needs your attention" action={<Badge>{decisions} {decisions===1?'decision':'decisions'}</Badge>}>
-        {!state.installed?<div className="decision-item"><h3>Finish installing your agent</h3><p>Review products, connections and permitted actions.</p><Button primary onClick={()=>open('install')}>Continue installation</Button></div>:<>
+        {!state.installed?<div className="decision-item"><h3>Finish installing your agent</h3><p>Review products, connections and permitted actions.</p><Button primary onClick={()=>go('launch')}>Continue installation</Button></div>:<>
         {!state.support_assigned&&<div className="decision-item"><div><Badge tone="amber">Customer issue</Badge><h3>A delivery issue needs an owner</h3><p>Priya's last order has not arrived. Reorder outreach is blocked.</p></div><Button onClick={()=>open('journey:support')}>Review issue</Button></div>}
         {reviewNeeded&&<div className="decision-item"><div><Badge>{state.plan_needs_review?'Plan changed':state.plan_approved?'Message review':'Audience review'}</Badge>
           <h3>{state.plan_needs_review?'Review your plan under the new policy':state.plan_approved?'Send Rahul his checkout link':'Review customers for your next plan'}</h3>
@@ -119,16 +119,18 @@ export function Outcomes({state,open}:ViewsProps) {
 export function Studio({open,go,link}:ViewsProps) {
   return <><div className="page-toolbar"><div><h2>Explore agents</h2><p className="description">Specialists for your merchant operations.</p></div></div>
     <Panel title="Repeat Purchase Agent"><div className="settings-body"><div className="agent-identity"><div className="agent-symbol"><span/><span/></div><div><h3>Help customers reorder when they are ready</h3><p className="muted">Same purchased product. WhatsApp and voice. Merchant-approved plans.</p></div></div>
-      <div className="section-space"><p>Identify opportunities, choose a considerate next step, act within your limits and learn from verified outcomes.</p></div><div className="action-group"><Link className="button primary" to={link('agent')}>View agent</Link><Button onClick={()=>go('dashboard')}>My agents</Button><Button onClick={()=>open('install')}>Install agent</Button></div></div></Panel></>;
+      <div className="section-space"><p>Identify opportunities, choose a considerate next step, act within your limits and learn from verified outcomes.</p></div><div className="action-group"><Link className="button primary" to={link('agent')}>View agent</Link><Button onClick={()=>go('dashboard')}>My agents</Button><Button onClick={()=>go('launch')}>Set up agent</Button></div></div></Panel></>;
 }
 
-export function AgentDetail({open}:ViewsProps) {
+export function AgentDetail({go}:ViewsProps) {
   return <Panel title="Repeat Purchase Agent"><div className="settings-body"><h3>Replenishment that respects customer timing</h3>
     <p className="section-space">Detect eligible customers from delivered purchase history. Coordinate WhatsApp and voice, preserve confirmed dates, and give merchants a clear review for each action.</p>
     <ul className="check-list"><li>Exact previously purchased variant; no cross-sell.</li><li>Approved plans, review-first, pause and takeover.</li><li>Current source facts and trusted payment/order evidence.</li><li>Consent, opt-outs, support issues and shared contact limits.</li></ul>
-    <p className="field-help">The current operating demonstration uses synthetic journeys. Real source capabilities are shown separately in Connections.</p><Button primary onClick={()=>open('install')}>Install agent</Button></div></Panel>;
+    <p className="field-help">The current operating demonstration uses synthetic journeys. Real source capabilities are shown separately in Connections.</p><Button primary onClick={()=>go('launch')}>Set up agent</Button></div></Panel>;
 }
 
 export function Payments({go}:ViewsProps) {
   return <Panel title="Payments workspace"><Empty title="Your merchant operations" action={<Button primary onClick={()=>go('studio')}>Explore Agent Studio</Button>}>Open your specialist agent to review customers, decisions and source connections.</Empty></Panel>;
 }
+
+

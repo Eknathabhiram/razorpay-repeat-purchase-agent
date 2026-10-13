@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "proposal": {
+    "intents": [
+      {
+        "kind": "reminder",
+        "evidence": "Please remind me Friday"
+      },
+      {
+        "kind": "offer_enquiry",
+        "evidence": "is my coupon valid"
+      }
+    ],
+    "quantity": null,
+    "requested_product": null,
+    "date_text": "Friday",
+    "confidence": 0.95
+  },
+  "receipt": {
+    "provider": "together",
+    "model": "Qwen/Qwen3.5-9B",
+    "prompt_version": "replenishment-intents-v1",
+    "schema_version": "intent-proposal-v1",
+    "latency_ms": 6390,
+    "attempts": 1,
+    "usage": [
+      {
+        "prompt_tokens": 466,
+        "total_tokens": 568,
+        "completion_tokens": 102,
+        "reasoning_tokens": 0
+      }
+    ],
+    "cost_usd": null
+  },
+  "synthetic_input": true
+}

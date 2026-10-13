@@ -1,0 +1,32 @@
+{
+  "status": "passed_with_explicit_missing_facts",
+  "facts_version": 1,
+  "fact_counts": {
+    "variants": 29,
+    "customers": 4,
+    "orders": 1,
+    "order_lines": 1,
+    "confirmed_deliveries": 0,
+    "paid_unfulfilled_orders": 1
+  },
+  "customer_count": 4,
+  "eligible_count": 0,
+  "exclusion_codes": [
+    "campaign_unverified",
+    "consent_missing",
+    "coverage_incomplete",
+    "delivery_unverified",
+    "line_coverage_incomplete",
+    "needs_history",
+    "new_relevant_purchase",
+    "returns_unverified",
+    "support_unverified",
+    "suppression_unverified"
+  ],
+  "coverage_complete": false,
+  "notes": [
+    "Order access is limited to Shopify's permitted history window; older history is unverified.",
+    "Return facts are unavailable under existing Shopify access; eligibility remains blocked."
+  ],
+  "provider_writes": 0
+}

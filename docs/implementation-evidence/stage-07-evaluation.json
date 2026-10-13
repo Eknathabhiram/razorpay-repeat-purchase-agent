@@ -1,0 +1,289 @@
+{
+  "synthetic_only": true,
+  "cases": [
+    {
+      "text": "STOP now",
+      "expected": [
+        "opt_out"
+      ],
+      "baseline": [
+        "opt_out"
+      ],
+      "actual": [
+        "opt_out"
+      ],
+      "receipt": {
+        "provider": "together",
+        "model": "Qwen/Qwen3.5-9B",
+        "account_ref": "together-key:5538cc3a4719e11ff49e9c48",
+        "prompt_version": "replenishment-intents-v1",
+        "schema_version": "intent-proposal-v1",
+        "latency_ms": 1562,
+        "attempts": 1,
+        "usage": [
+          {
+            "prompt_tokens": 459,
+            "total_tokens": 530,
+            "completion_tokens": 71,
+            "reasoning_tokens": 0
+          }
+        ],
+        "cost_usd": null,
+        "estimated_cost_usd": 9.578e-05,
+        "pricing_observed": "2026-10-13",
+        "billing_verified": false
+      },
+      "baseline_exact": true,
+      "together_exact": true,
+      "hybrid_replay": [
+        "opt_out"
+      ],
+      "hybrid_exact": true
+    },
+    {
+      "text": "No thanks",
+      "expected": [
+        "refusal"
+      ],
+      "baseline": [
+        "refusal"
+      ],
+      "actual": [
+        "refusal"
+      ],
+      "receipt": {
+        "provider": "together",
+        "model": "Qwen/Qwen3.5-9B",
+        "account_ref": "together-key:5538cc3a4719e11ff49e9c48",
+        "prompt_version": "replenishment-intents-v1",
+        "schema_version": "intent-proposal-v1",
+        "latency_ms": 5282,
+        "attempts": 1,
+        "usage": [
+          {
+            "prompt_tokens": 459,
+            "total_tokens": 530,
+            "completion_tokens": 71,
+            "reasoning_tokens": 0
+          }
+        ],
+        "cost_usd": null,
+        "estimated_cost_usd": 9.578e-05,
+        "pricing_observed": "2026-10-13",
+        "billing_verified": false
+      },
+      "baseline_exact": true,
+      "together_exact": true,
+      "hybrid_replay": [
+        "refusal"
+      ],
+      "hybrid_exact": true
+    },
+    {
+      "text": "bottle damaged refund please",
+      "expected": [
+        "support"
+      ],
+      "baseline": [
+        "support"
+      ],
+      "actual": [
+        "purchase_claim"
+      ],
+      "receipt": {
+        "provider": "together",
+        "model": "Qwen/Qwen3.5-9B",
+        "account_ref": "together-key:5538cc3a4719e11ff49e9c48",
+        "prompt_version": "replenishment-intents-v1",
+        "schema_version": "intent-proposal-v1",
+        "latency_ms": 1187,
+        "attempts": 1,
+        "usage": [
+          {
+            "prompt_tokens": 462,
+            "total_tokens": 536,
+            "completion_tokens": 74,
+            "reasoning_tokens": 0
+          }
+        ],
+        "cost_usd": null,
+        "estimated_cost_usd": 9.704e-05,
+        "pricing_observed": "2026-10-13",
+        "billing_verified": false
+      },
+      "baseline_exact": true,
+      "together_exact": false,
+      "hybrid_replay": [
+        "support"
+      ],
+      "hybrid_exact": true
+    },
+    {
+      "text": "remind me Friday is my coupon valid",
+      "expected": [
+        "offer_enquiry",
+        "reminder"
+      ],
+      "baseline": [
+        "offer_enquiry",
+        "reminder"
+      ],
+      "actual": [
+        "reminder"
+      ],
+      "receipt": {
+        "provider": "together",
+        "model": "Qwen/Qwen3.5-9B",
+        "account_ref": "together-key:5538cc3a4719e11ff49e9c48",
+        "prompt_version": "replenishment-intents-v1",
+        "schema_version": "intent-proposal-v1",
+        "latency_ms": 1344,
+        "attempts": 1,
+        "usage": [
+          {
+            "prompt_tokens": 465,
+            "total_tokens": 539,
+            "completion_tokens": 74,
+            "reasoning_tokens": 0
+          }
+        ],
+        "cost_usd": null,
+        "estimated_cost_usd": 9.755000000000001e-05,
+        "pricing_observed": "2026-10-13",
+        "billing_verified": false
+      },
+      "baseline_exact": true,
+      "together_exact": false,
+      "hybrid_replay": [
+        "offer_enquiry",
+        "reminder"
+      ],
+      "hybrid_exact": true
+    },
+    {
+      "text": "yes reorder two of the same product",
+      "expected": [
+        "purchase_interest"
+      ],
+      "baseline": [
+        "purchase_interest"
+      ],
+      "actual": [
+        "purchase_interest",
+        "purchase_interest"
+      ],
+      "receipt": {
+        "provider": "together",
+        "model": "Qwen/Qwen3.5-9B",
+        "account_ref": "together-key:5538cc3a4719e11ff49e9c48",
+        "prompt_version": "replenishment-intents-v1",
+        "schema_version": "intent-proposal-v1",
+        "latency_ms": 1781,
+        "attempts": 1,
+        "usage": [
+          {
+            "prompt_tokens": 464,
+            "total_tokens": 571,
+            "completion_tokens": 107,
+            "reasoning_tokens": 0
+          }
+        ],
+        "cost_usd": null,
+        "estimated_cost_usd": 0.00010563,
+        "pricing_observed": "2026-10-13",
+        "billing_verified": false
+      },
+      "baseline_exact": true,
+      "together_exact": true,
+      "hybrid_replay": [
+        "purchase_interest"
+      ],
+      "hybrid_exact": true
+    },
+    {
+      "text": "I paid already",
+      "expected": [
+        "purchase_claim"
+      ],
+      "baseline": [
+        "purchase_claim"
+      ],
+      "actual": [
+        "purchase_claim"
+      ],
+      "receipt": {
+        "provider": "together",
+        "model": "Qwen/Qwen3.5-9B",
+        "account_ref": "together-key:5538cc3a4719e11ff49e9c48",
+        "prompt_version": "replenishment-intents-v1",
+        "schema_version": "intent-proposal-v1",
+        "latency_ms": 5016,
+        "attempts": 1,
+        "usage": [
+          {
+            "prompt_tokens": 460,
+            "total_tokens": 533,
+            "completion_tokens": 73,
+            "reasoning_tokens": 0
+          }
+        ],
+        "cost_usd": null,
+        "estimated_cost_usd": 9.645e-05,
+        "pricing_observed": "2026-10-13",
+        "billing_verified": false
+      },
+      "baseline_exact": true,
+      "together_exact": true,
+      "hybrid_replay": [
+        "purchase_claim"
+      ],
+      "hybrid_exact": true
+    },
+    {
+      "text": "hello there",
+      "expected": [
+        "clarification"
+      ],
+      "baseline": [
+        "clarification"
+      ],
+      "actual": [
+        "clarification"
+      ],
+      "receipt": {
+        "provider": "together",
+        "model": "Qwen/Qwen3.5-9B",
+        "account_ref": "together-key:5538cc3a4719e11ff49e9c48",
+        "prompt_version": "replenishment-intents-v1",
+        "schema_version": "intent-proposal-v1",
+        "latency_ms": 859,
+        "attempts": 1,
+        "usage": [
+          {
+            "prompt_tokens": 459,
+            "total_tokens": 530,
+            "completion_tokens": 71,
+            "reasoning_tokens": 0
+          }
+        ],
+        "cost_usd": null,
+        "estimated_cost_usd": 9.578e-05,
+        "pricing_observed": "2026-10-13",
+        "billing_verified": false
+      },
+      "baseline_exact": true,
+      "together_exact": true,
+      "hybrid_replay": [
+        "clarification"
+      ],
+      "hybrid_exact": true
+    }
+  ],
+  "baseline_exact_count": 7,
+  "together_exact_count": 5,
+  "case_count": 7,
+  "median_latency_ms": 1562,
+  "generalization_proven": false,
+  "hybrid_replay_exact_count": 7,
+  "hybrid_note": "Deterministic replay of observed v1 raw model intents; v2 prompt tested separately in end-to-end flow."
+}

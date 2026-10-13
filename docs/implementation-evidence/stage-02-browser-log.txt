@@ -1,0 +1,17 @@
+PASS Real owner session and typed demo read model
+PASS Reload restores session without localStorage authority
+PASS Six key screens reflow at 1440px
+PASS Six key screens reflow at 1024px
+PASS Six key screens reflow at 768px
+PASS Six key screens reflow at 390px
+PASS Six key screens reflow at 320px
+PASS Drawer initial focus, keyboard containment, Escape and focus return
+PASS Pause blocks sending; responsive paused drawer; safe resume
+PASS Policy diff invalidates plan; new buyer excluded; prior order retained
+PASS Reviewed checkout message persists; no payment fabricated
+PASS First plan schedules only; no invented reply, checkout or purchase
+PASS Configure / Connectors / Review / Activate and audience separation
+PASS Separate entry / verification / payments / Studio discovery continuity
+PASS Development has actual scoped Shopify reads; agent execution blocked
+PASS 200% text enlargement remains within viewport
+PASS Logout clears authenticated application state

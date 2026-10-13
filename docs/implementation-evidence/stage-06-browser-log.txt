@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "Demo transport is explicitly labelled",
+    "Out-of-order delivery does not erase read receipt",
+    "Purchase interest enters protected human review",
+    "Opt-out appears in contextual conversation",
+    "Inbound opt-out updates shared execution journey",
+    "WhatsApp reflows at 1440px",
+    "WhatsApp reflows at 1024px",
+    "WhatsApp reflows at 768px",
+    "WhatsApp reflows at 390px",
+    "WhatsApp reflows at 320px",
+    "Development transport blocked and synthetic controls absent"
+  ],
+  "errors": []
+}

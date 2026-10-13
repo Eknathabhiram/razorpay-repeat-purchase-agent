@@ -1,0 +1,38 @@
+{
+  "checks": [
+    "Verified facts → exact scoped audience approval",
+    "Real Together structured interpretation of a synthetic same-product request",
+    "Separate exact-product/quantity/WhatsApp confirmation → reviewed full-total checkout",
+    "Exact checkout link approval → durable simulated submission",
+    "Independent full-payable commerce/payment evidence → one matched purchase",
+    "Persisted purchase shown in outcomes; unknown costs remain unmeasurable",
+    "Refund preserves original purchase and updates remaining payable",
+    "Compound reminder + coupon enquiry preserved; ambiguous date not scheduled",
+    "Explicit date/channel confirmation → durable scoped customer learning",
+    "Owner accepts exact policy diff → new policy and fresh audience approval required",
+    "dashboard rendered at desktop/mobile widths and accessibility inspected",
+    "intelligence rendered at desktop/mobile widths and accessibility inspected",
+    "outcomes rendered at desktop/mobile widths and accessibility inspected",
+    "connections rendered at desktop/mobile widths and accessibility inspected",
+    "Real customer execution remains separate from synthetic conversation tests"
+  ],
+  "errors": [],
+  "accessibility": [
+    {
+      "route": "dashboard",
+      "violations": []
+    },
+    {
+      "route": "intelligence",
+      "violations": []
+    },
+    {
+      "route": "outcomes",
+      "violations": []
+    },
+    {
+      "route": "connections",
+      "violations": []
+    }
+  ]
+}

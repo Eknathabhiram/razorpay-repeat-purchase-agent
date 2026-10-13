@@ -1,0 +1,56 @@
+{
+  "checks": [
+    "Dashboard, campaign setup and separate analytics render at 1440, 390 and 320 px without horizontal overflow",
+    "Searchable product catalogue shows a recoverable no-results state",
+    "Clearing product scope blocks policy review and continuation; no persistent changes or outreach performed",
+    "Analytics is reachable directly from merchant navigation"
+  ],
+  "errors": [],
+  "accessibility": [
+    {
+      "view": "dashboard",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "view": "analytics",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "view": "launch?step=setup",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "view": "dashboard",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "view": "analytics",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "view": "launch?step=setup",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "view": "dashboard",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "view": "analytics",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "view": "launch?step=setup",
+      "width": 320,
+      "violations": []
+    }
+  ]
+}

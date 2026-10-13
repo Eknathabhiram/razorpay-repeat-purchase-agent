@@ -69,7 +69,7 @@
   <dialog id="modal" class="modal" aria-labelledby="modal-title"><div class="modal-header"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="Close dialog"></button></div><div id="modal-content"></div><div id="modal-footer" class="modal-footer"></div></dialog>
   <div id="toast" class="toast" role="status" hidden></div>
   <script>
-/* Merchant-facing UI. Local synthetic adapter only; no provider requests or credentials. */
+/* Merchant-facing UI. Shopify reads use the local server; journey actions remain simulated. */
 (()=>{
 'use strict';
 const $=selector=>document.querySelector(selector);
@@ -99,6 +99,46 @@ const icons={
 function icon(name){return '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">'+(icons[name]||icons.info)+'</svg>';}
 function applyIcons(root=document){$$('[data-icon]',root).forEach(element=>{if(!element.querySelector('svg'))element.insertAdjacentHTML('afterbegin',icon(element.dataset.icon));});$$('[data-static-icon]',root).forEach(element=>element.innerHTML=icon(element.dataset.staticIcon));}
 const storageKey='repeat-purchase-merchant-preview-v2';
+let shopify={loading:false,data:null,error:''},showAllShopifyProducts=false;
+async function refreshShopify(){
+ if(shopify.loading)return;
+ shopify={loading:true,data:null,error:''};if(route()==='connections')render();
+ try{
+  if(!/^https?:$/.test(location.protocol))throw new Error('Open this app through the local connector at http://127.0.0.1:8765.');
+  const response=await fetch('/api/shopify/snapshot',{cache:'no-store',signal:AbortSignal.timeout(45000)});
+  const body=await response.json();
+  if(!response.ok)throw new Error(typeof body.detail==='string'?body.detail:'Shopify connection could not be verified.');
+  if(body.mode!=='development'||!body.shop?.myshopifyDomain)throw new Error('The server did not confirm a development-store source.');
+  shopify={loading:false,data:body,error:''};
+ }catch(error){shopify={loading:false,data:null,error:error.name==='TimeoutError'?'The connection check timed out. Try again.':error.message};}
+ if(route()==='connections')render();
+}
+function shopifyPanel(){
+ const data=shopify.data;
+ let content='<p class="muted small">Read-only Shopify development-store data. Customer journeys, outreach and outcome metrics elsewhere remain simulated.</p>';
+ if(shopify.loading)content+='<p role="status" class="detail-section">Checking Shopify access and loading store data…</p>';
+ else if(shopify.error)content+='<div class="notice warning" role="alert">'+escape(shopify.error)+'</div>';
+ else if(!data)content+='<div class="detail-section"><p>Check the connection to load your saved products, customers and orders.</p></div>';
+ if(data){
+  content+='<div class="facts-grid detail-section">'+fact('Store',data.shop.name,data.shop.myshopifyDomain)+fact('Source','Shopify development store','Synthetic store data; authenticated API read')+fact('Currency',data.shop.currencyCode)+fact('Last checked',new Intl.DateTimeFormat('en-IN',{dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Kolkata'}).format(new Date(data.checked_at)),'IST')+'</div>';
+  if(data.warnings.length)content+='<div class="notice warning">'+data.warnings.map(escape).join('<br>')+'</div>';
+  const list=(title,key,columns,row)=>{
+   const source=data[key];
+   const records=key==='products'&&!showAllShopifyProducts&&source?source.filter(p=>p.variants.nodes.some(v=>(v.sku||'').startsWith('TEST-'))):source;
+   let body=records===null?'<p class="muted">Access unavailable. Review this app’s permissions.</p>':!records.length?'<p class="muted">No '+title.toLowerCase()+' returned from Shopify.</p>':'<div class="table-scroll"><table class="customer-table"><thead><tr>'+columns.map(x=>'<th>'+escape(x)+'</th>').join('')+'</tr></thead><tbody>'+records.map(row).join('')+'</tbody></table></div>';
+   if(data[key+'_has_more'])body+='<p class="field-help">Showing the first '+records.length+' records. More records exist in Shopify.</p>';
+   return '<section class="detail-section"><h3>'+escape(title)+'</h3>'+body+'</section>';
+  };
+  const money=(amount,currency)=>new Intl.NumberFormat('en-IN',{style:'currency',currency}).format(Number(amount));
+  content+='<div class="detail-section"><p class="field-help">'+(showAllShopifyProducts?'Showing all returned Shopify products.':'Showing our TEST- SKU products. Shopify returned '+(data.products||[]).length+' product records.')+'</p>'+textButton(showAllShopifyProducts?'Show project products':'Show all Shopify products','toggle-shopify-products')+'</div>';
+  content+=list('Products','products',['Product / Shopify ID','SKU / variant ID','Price','Stock'],p=>'<tr><td>'+escape(p.title)+'<span class="table-secondary">'+escape(p.id)+'</span></td><td>'+p.variants.nodes.map(v=>escape(v.sku||'No SKU')+'<span class="table-secondary">'+escape(v.id)+'</span>').join('<br>')+'</td><td>'+p.variants.nodes.map(v=>money(v.price,data.shop.currencyCode)).join('<br>')+'</td><td>'+p.variants.nodes.map(v=>v.inventoryQuantity===null?'Unavailable':escape(v.inventoryQuantity)).join('<br>')+'</td></tr>');
+  content+=list('Customers','customers',['Shopify ID','Orders'],c=>'<tr><td>'+escape(c.id)+'</td><td>'+escape(c.numberOfOrders)+'</td></tr>');
+  content+=list('Orders','orders',['Order','Payment state','Fulfilment state','Total'],o=>'<tr><td>'+escape(o.name)+'<span class="table-secondary">'+escape(o.id)+(o.test?' · test order':'')+'</span></td><td>'+escape(o.displayFinancialStatus)+'</td><td>'+escape(o.displayFulfillmentStatus)+'</td><td>'+money(o.totalPriceSet.shopMoney.amount,o.totalPriceSet.shopMoney.currencyCode)+'</td></tr>');
+  content+='<p class="field-help">Shopify financial and fulfilment states are source records. Razorpay reconciliation and delivery evidence have not been implemented.</p>';
+  content+=list('Draft orders','draftOrders',['Draft','Status','Total'],o=>'<tr><td>'+escape(o.name)+'</td><td>'+escape(o.status)+'</td><td>'+money(o.totalPriceSet.shopMoney.amount,o.totalPriceSet.shopMoney.currencyCode)+'</td></tr>');
+ }
+ return panel('Shopify store data','<div class="settings-body">'+content+'</div>',button(shopify.loading?'Checking…':'Refresh Shopify','refresh-shopify',true,'',shopify.loading?'disabled':''));
+}
 function initialState(scenario='operating'){
  return {scenario,installed:scenario!=='setup',paused:false,mode:'review',policy:{version:3,start:'10:00',end:'18:00',cap:2,budget:500,offers:false},planApproved:scenario==='operating',planNeedsReview:false,planVersion:1,selected:['ananya','rahul','meera'],supportOwner:'',checkoutApproved:false,owner:'agent',messages:[],reminderDate:'2026-10-16',planDate:'2026-10-12',audienceExcluded:[],events:[],orderConfirmed:scenario==='operating',assigned:scenario==='operating'?['ananya','rahul','meera']:[],disconnected:scenario==='disconnected'};
 }
@@ -147,6 +187,10 @@ const providers=[['Shopify','S','shopify','Orders, products, stock and checkout.
 function connections(){return '<div class="page-toolbar"><div><h2>Connections</h2><p class="description">Data access and services used by your agent.</p></div>'+textButton('Back to dashboard','dashboard','back')+'</div><div class="notice warning">'+icon('info')+'<div><strong>This workspace uses test data</strong><p>Live accounts are not connected. Test actions do not contact customers.</p></div></div><div class="connection-grid">'+providers.map((p,i)=>'<article class="connection-card"><div class="provider-head"><span class="provider-logo '+p[2]+'">'+p[1]+'</span><h3>'+p[0]+'</h3>'+badge(state.disconnected&&i===0?'Disconnected':'Simulated',state.disconnected&&i===0?'red':'')+'</div><p>'+p[3]+'</p>'+textButton('Review access','provider:'+i,'chevron')+'</article>').join('')+'</div>';}
 function studio(){return '<div class="page-toolbar"><div><h2>Explore agents</h2><p class="description">Specialists for your customer and payment operations.</p></div></div><div class="catalog"><article class="catalog-card"><div class="agent-symbol" aria-hidden="true"><span></span><span></span></div><h2>Repeat Purchase Agent</h2><p>Find customers due for a reorder. Adapt to their replies, schedule reminders and prepare same-product checkout.</p><div class="catalog-tags">'+badge('WhatsApp & voice')+badge('Merchant approvals')+'</div>'+button(state.installed?'Open agent':'Install agent',state.installed?'dashboard':'install',true)+'</article></div>';}
 function plan(){const renewal=state.planNeedsReview;const approved=state.planApproved&&!renewal;const keys=approved?state.selected:renewal?['ananya','rahul']:['ananya','rahul','meera'];const selectedCount=keys.filter(key=>!state.audienceExcluded.includes(key)).length;return '<div class="page-toolbar"><div><h2>'+(approved?'Plan RP-014':'Review reorder plan')+'</h2><p class="description">Laundry liquid · 1 L · '+(approved?'Approved plan':'Audience and contact limits')+'</p></div>'+textButton('Back to dashboard','dashboard','back')+'</div><div class="plan-layout"><div class="panel"><div class="plan-header"><div><h3>'+keys.length+' eligible customers</h3><p>'+(approved?'Approved under policy v'+state.policy.version:'Only selected customers will be included.')+'</p></div>'+badge(approved?'Approved':'Needs approval',approved?'teal':'amber')+'</div>'+keys.map(key=>'<div class="plan-person"><div class="plan-person-top"><div class="audience-check">'+(!approved?'<input type="checkbox" aria-label="Include '+people[key].name+'" data-person="'+key+'" '+(!state.audienceExcluded.includes(key)?'checked':'')+'>':'')+customer(key)+'</div>'+textButton('Details','journey:'+key)+'</div><div class="plan-details">'+(key==='ananya'&&state.planApproved?'Customer-confirmed reminder: 16 Oct, 10:00 IST':key==='rahul'?'Repeat window: 12–16 Oct · product-level estimate':'Repeat window: 12–15 Oct · delivered purchase history')+'</div>'+(key==='ananya'&&!state.planApproved?'<div class="repeat-window" role="img" aria-label="Delivered 12 September; repeat window 11 to 14 October; today 12 October"><div class="window-bar"><span class="window-range"></span><span class="window-today"></span></div><div class="window-labels"><span>12 Sep · delivered</span><span>12 Oct · today</span></div><p class="window-basis">11–14 Oct · based on two previous purchase intervals</p></div>':'')+'</div>').join('')+'<div class="panel-bottom">'+textButton(renewal?'Meera excluded: recent purchase':'View excluded customers','exclusions')+'</div></div><aside class="panel"><div class="panel-heading"><h2>Plan limits</h2><span class="small muted">Policy v'+state.policy.version+'</span></div><div class="plan-settings">'+(!approved?'<div class="field"><label class="input-label" for="plan-date">Start date</label><input id="plan-date" type="date" value="'+state.planDate+'" min="2026-10-12" required><p class="field-help">Customer-confirmed reminder dates are preserved.</p></div>':'')+'<dl class="definition-list"><div><dt>Channels</dt><dd>WhatsApp & voice</dd></div><div><dt>Contact hours</dt><dd>'+state.policy.start+'–'+state.policy.end+' IST</dd></div><div><dt>Total contacts</dt><dd>'+state.policy.cap+' per customer</dd></div><div><dt>Spend limit</dt><dd>₹'+state.policy.budget+'</dd></div><div><dt>Offers</dt><dd>Off</dd></div><div><dt>Execution</dt><dd>'+(state.mode==='review'?'Review-first':'Within limits')+'</dd></div></dl><p class="field-help" style="margin-top:16px">Stock, permissions and new orders are checked again before each action.</p><p id="plan-error" class="field-error" role="alert"></p></div>'+(!approved?'<div class="form-footer">'+button('Reject plan','reject-plan')+button('Approve '+selectedCount+' '+(selectedCount===1?'customer':'customers'),'approve-plan',true,'',state.paused||state.disconnected||selectedCount===0?'disabled':'')+'</div>':'')+'</aside></div>';}
+function connectedSources(){
+ const connected=Boolean(shopify.data),status=shopify.loading?'Checking':connected?(shopify.data.warnings.length?'Partial access':'Connected · development'):'Disconnected';
+ return '<div class="page-toolbar"><div><h2>Connections</h2><p class="description">Shopify store data and the services used by your agent.</p></div>'+textButton('Back to dashboard','dashboard','back')+'</div><div class="connection-grid">'+providers.map((p,i)=>'<article class="connection-card"><div class="provider-head"><span class="provider-logo '+p[2]+'">'+p[1]+'</span><h3>'+p[0]+'</h3>'+badge(i===0?status:'Simulated',i===0&&connected?'teal':'')+'</div><p>'+(i===0?'Read-only products, inventory, customers and order records.':p[3])+'</p>'+textButton(i===0?'View store data':'Review access',i===0?'shopify-data':'provider:'+i,'chevron')+'</article>').join('')+'</div><div id="shopify-store-data" class="section-space">'+shopifyPanel()+'</div>';
+}
 function route(){return location.hash.replace('#','')||'dashboard';}
 function render(){
  const current=route();
@@ -155,7 +199,7 @@ function render(){
  document.querySelector('.agent-identity p').textContent=globalView?'Specialists for your merchant operations.':'Customer reorders, managed within your limits.';
  document.querySelector('.agent-controls').hidden=globalView;
  document.querySelector('.agent-tabs').hidden=globalView;
- const views={dashboard,activity,settings,connections,studio,plan,outcomes};
+ const views={dashboard,activity,settings,connections:connectedSources,studio,plan,outcomes};
  if(['payments','transactions','customers'].includes(current)){ $('#page-content').innerHTML=panel(current==='payments'?'Payments workspace':current==='transactions'?'Transactions':'Customers','<div class="empty-view"><div class="empty-icon">'+icon(current==='customers'?'users':'receipt')+'</div><h3>'+(current==='payments'?'Manage your repeat purchase agent':'No live '+current+' connected')+'</h3><p>'+(current==='payments'?'Open your agent to review customer activity and approvals.':'Connect your merchant account to view this data.')+'</p>'+button('Open Repeat Purchase Agent','dashboard',true)+'</div>');}
  else $('#page-content').innerHTML=(views[current]||dashboard)();
  $$('.agent-tabs a').forEach(a=>{const target=a.getAttribute('href').slice(1);const selected=target===current||target==='dashboard'&&['plan','outcomes'].includes(current);if(selected)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
@@ -209,6 +253,10 @@ function install(){const titles=['Configure','Connections','Review','Activate'];
  openModal('Install Repeat Purchase Agent','<div class="installation-shell"><ol class="install-steps">'+titles.map((title,index)=>'<li class="'+(index===installStep?'current':'')+'" '+(index===installStep?'aria-current="step"':'')+'><span class="step-number">'+(index+1)+'</span>'+title+'</li>').join('')+'</ol><div class="install-body">'+body+'</div></div>',(installStep>0&&installStep<3?button('Back','install-back'):'')+button(installStep===2?'Install agent':installStep===3?'Review audience':'Continue',installStep===3?'finish-install':'install-next',true),true);
 }
 document.addEventListener('click',eventObject=>{const target=eventObject.target.closest('[data-action]');if(!target)return;eventObject.preventDefault();const action=target.dataset.action;
+ if(action==='refresh-shopify'){refreshShopify();return;}
+ if(action==='toggle-shopify-products'){showAllShopifyProducts=!showAllShopifyProducts;render();return;}
+ if(action==='shopify-data'){if(route()!=='connections')go('connections');$('#shopify-store-data')?.scrollIntoView({behavior:'smooth'});return;}
+ if(action==='provider:0'){go('connections');return;}
  if(['dashboard','activity','settings','connections','studio','plan','outcomes'].includes(action)){closeDialogs();go(action);return;}
  if(action.startsWith('journey:')){detail(action.split(':')[1]);return;}
  if(action.startsWith('provider:')){const i=Number(action.split(':')[1]);const p=providers[i];openDrawer(p[0],'Connection access','<div class="detail-summary"><span class="provider-logo '+p[2]+'">'+p[1]+'</span>'+badge(state.disconnected&&i===0?'Disconnected':'Simulated')+'</div><p class="muted small">'+p[3]+'</p><section class="detail-section"><h3>Access used by the agent</h3>'+checks(i===0?['Read permitted customer orders and delivery evidence','Read stock, price and offer eligibility','Prepare same-product checkout']:i===1?['Read verified payment status','Match payments to commerce orders']:i===2?['Read customer replies and delivery state','Send permitted messages within approved limits']:i===3?['Process voice transcripts and confirmed requests','Use separately permitted checkout handoffs']:['Read delivery evidence and unresolved issues','Create support handoffs'])+'</section><details class="disclosure" open><summary>Connection mode</summary><p>This adapter is simulated. No provider credentials or live merchant account are stored.</p></details>',state.disconnected&&i===0?button('Restore test connection','restore-connection',true):'');return;}
@@ -248,8 +296,9 @@ $('#menu-toggle').addEventListener('click',()=>{const open=$('#sidebar').classLi
 $('#support-button').addEventListener('click',()=>openModal('Help & support','<p>Need help with approvals, customer activity or connection access? Review the agent’s policy and the source details shown with each action.</p><div class="service-row"><div><strong>Customer issue</strong><small>Review an assigned delivery case.</small></div>'+textButton('Open case','journey:support')+'</div><div class="service-row"><div><strong>Connection issue</strong><small>Inspect permissions and data availability.</small></div>'+textButton('Connections','connections')+'</div>'));
 $('#drawer-close').innerHTML=icon('close');$('#modal-close').innerHTML=icon('close');$('#menu-toggle').innerHTML=icon('menu');$('#drawer-close').addEventListener('click',()=>$('#drawer').close());$('#modal-close').addEventListener('click',()=>$('#modal').close());
 ['drawer','modal'].forEach(id=>$('#'+id).addEventListener('close',()=>{if(lastFocus?.isConnected)lastFocus.focus();else $('#workspace').focus();}));
-window.addEventListener('hashchange',()=>{closeDialogs();$('#sidebar').classList.remove('open');$('#menu-toggle').setAttribute('aria-expanded','false');render();});
+window.addEventListener('hashchange',()=>{closeDialogs();$('#sidebar').classList.remove('open');$('#menu-toggle').setAttribute('aria-expanded','false');render();if(route()==='connections'&&!shopify.data&&!shopify.loading&&!shopify.error)refreshShopify();});
 render();
+if(route()==='connections')refreshShopify();
 })();
 
 </script>
