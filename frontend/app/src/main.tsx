@@ -8,6 +8,7 @@ import './styles/base.css';
 import './styles/app.css';
 import './styles/production.css';
 import './styles/merchant.css';
+import './styles/avime.css';
 const queryClient=new QueryClient({defaultOptions:{queries:{retry:false,refetchOnWindowFocus:false},mutations:{retry:false,networkMode:'always'}}});
 createRoot(document.getElementById('root')!).render(
   <React.StrictMode><ErrorBoundary><QueryClientProvider client={queryClient}><HashRouter><App/></HashRouter></QueryClientProvider></ErrorBoundary></React.StrictMode>

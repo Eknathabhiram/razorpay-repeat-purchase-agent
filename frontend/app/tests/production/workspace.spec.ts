@@ -1,4 +1,4 @@
-import {test,expect} from './fixtures';
+import {test,expect,planning} from './fixtures';
 import AxeBuilder from '@axe-core/playwright';
 
 test('key screens pass automated WCAG AA checks at desktop and mobile widths',async ({page})=>{
@@ -60,6 +60,17 @@ test('launch explains the stages and keeps data, audience and approval distinct'
  await page.getByRole('button',{name:'Continue to audience',exact:true}).click();await expect(page.getByRole('heading',{name:'Step 2: Choose audience'})).toBeVisible();
  await expect(page.getByRole('heading',{name:/Opportunity audience/})).toBeVisible();await expect(page.getByRole('heading',{name:'Operating limits & automation'})).toHaveCount(0);
  await expect(page.getByRole('button',{name:'Continue to initial review',exact:true})).toBeDisabled();
+});
+
+test('audience changes must be saved before continuing to the initial review',async ({page})=>{
+ await page.route('**/api/v1/workspaces/*/merchant/planning',route=>route.fulfill({json:{data:{...planning,counts:{total:200,eligible:160,excluded:40},draft:{revision:1,selected_count:160,stale:false,digest:'saved-cohort',expires_at:'2026-10-14T08:00:00Z'}}}}));
+ await page.goto('#/launch?step=audience');
+ const next=page.getByRole('button',{name:'Continue to initial review',exact:true});
+ await expect(next).toHaveCount(1);await expect(next).toBeEnabled();
+ await page.getByRole('button',{name:'Clear selection',exact:true}).click();
+ await expect(page.getByText('Selection changed. Save this cohort before continuing to initial review.')).toBeVisible();
+ await expect(next).toBeDisabled();
+ await expect(page.getByRole('button',{name:'3 Review & launch Approve the cohort, style and boundaries once',exact:true})).toBeDisabled();
 });
 
 test('session outage is recoverable and is distinguished from signed-out state',async ({page})=>{
